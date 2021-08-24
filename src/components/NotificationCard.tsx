@@ -2,19 +2,20 @@
 import React from "react";
 
 
-export default class WalletBalanceCard extends React.Component{
+export default class NotificationCard extends React.Component{
     render(){
         return(
-            <div className="wallet-card">
-                <div className="wallet-balance-row display-flex">
-                    <p className="wallet-balance">Wallet Balance</p>
-                    <div className="withdraw-info">
-                        <p>Withdraw</p>
-                    </div>
-                </div>
+            <div className="wallet-card display-flex">
                 <div className="amount-information-row">
-                    <p className="amount">0.00</p>
-                    <p className="amount-info">Please note this the current balance amount left on ya’ wallet.</p>
+                    <p className="amount">Notifications</p>
+                    <p className="amount-info">Olabisi Olabiwonu just placed a transaction. 
+                    Kindly view transaction window to approve order.</p>
+                </div>
+                <div className="">
+                <img src="/vectors/notifications-logo.svg" />
+                </div>
+                <div className="">
+                    <img src="/vectors/cross-sign.svg" />
                 </div>
             </div>
         )
