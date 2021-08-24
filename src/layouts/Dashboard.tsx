@@ -7,7 +7,7 @@ import './Dashboard.css'
 // import Wallet from '../pages/Wallet'
 // import Transactions from '../pages/Transactions'
 // import Settings from '../pages/Settings'
-// import Overview from '../pages/Overview'
+import Overview from '../pages/Overview'
 // import SellCards from '../pages/SellCards'
 // import WalletEmptyState from '../pages/WalletEmptyState'
 
@@ -121,9 +121,9 @@ render(){
                 </div>
                 <div className="main-section">
                     <Switch>
-                        {/* <Route exact path ="/" component={Overview} />
+                        <Route exact path ="/" component={Overview} />
                         <Route path ="/overview" component={Overview} />
-                        <Route path="/trade/coin/sell"  component={Sell} />
+                        {/* <Route path="/trade/coin/sell"  component={Sell} />
                         <Route exact path="/trade"  component={Coin} />
                         <Route path="/trade/coin/buy"  component={Sell} />
                         <Route path="/trade/coin"  component={Coin} />
