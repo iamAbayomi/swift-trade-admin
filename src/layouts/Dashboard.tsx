@@ -9,7 +9,7 @@ import Coins from '../pages/Coins'
 import Payments from '../pages/Payments'
 import Transactions from '../pages/Transactions'
 import Settings from '../pages/Settings'
-import Logout from '../pages/Logput'
+import Logout from '../pages/Logout'
 
 
 import {
@@ -117,10 +117,12 @@ render(){
                         <Route exact path ="/" component={Overview} />
                         <Route path ="/overview" component={Overview} />
                         <Route path="/users"  component={Users} />
-                        <Route exact path="/trade"  component={Coin} />
-                        <Route path="/trade/coin/buy"  component={Sell} />
-                        <Route path="/trade/coin"  component={Coin} />
-                        <Route path="/test/page" component={TestPage} />
+                        <Route exact path="/cards"  component={Cards} />
+                        <Route path="/coins"  component={Coins} />
+                        <Route path="/payments"  component={Payments} />
+                        <Route path="/transactions" component={Transactions} />
+                        <Route path="/settings" component={Settings} />
+                        <Route path="/logout" component={Logout} />
                         {/* <Route exact path="/pendingwallet" component={} />
                         <Route exact path="/approvedwallet" component={} />
                         <Route exact path ="/pendingtransfer" component={PendingTransfer} />
