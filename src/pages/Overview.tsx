@@ -8,10 +8,13 @@ import EmptyStateTrasanctionCards from '../components/EmptyStateTransactionCard'
 import SingleTransactionCardView from '../components/SingleTransactionCardview'
 import TransactionCards from '../components/TransactionCard'
 import NotificatonCard from '../components/NotificationCard'
+import SingleCoinView from  '../components/SingleCoinView'
 
 import WalletBalanceCard from '../components/WalletBalanceCard'
 import './Overview.css'
 import SingleCardsView from '../components/SingleCardsView'
+import UserTableView from '../components/UserTableView'
+import PaymentsTransactionCard from '../components/PaymentsTransactionCard'
 
 export default class Overview extends React.Component{
 
@@ -42,23 +45,17 @@ export default class Overview extends React.Component{
                     </div>
                     <Link to="/trade/coin" className="link">
                             <SingleCardsView />
-                        </Link>
+                    </Link>
 
-                    <Link to="/transactions" className="link">
-
-                        {this.state.isEmpty === 'yes' ?
-
-                        <EmptyStateTrasanctionCards />
-                        : <TransactionCards/>
-
-                        }
+                    <Link to="/usertable" className="link">
+                            <UserTableView />
                     </Link> 
 
                     <Link to="/trade/coin" className="link">
-                            <SingleCardsView />
+                            <SingleCoinView />
                     </Link>
                     <Link to="/transactions" className="link">
-                             <TransactionCards/>
+                             <PaymentsTransactionCard />
                     </Link> 
                     <Link to="/transactions" className="link">
                              <TransactionCards/>

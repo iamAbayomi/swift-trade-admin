@@ -3,12 +3,12 @@ import React from 'react'
 import MUIDataTable from  "mui-datatables";
 import styled from  'styled-components'
 
-export default class PaymentsTransactionCard extends React.Component{
+export default class UserTableView extends React.Component{
     render(){
         return(
             <div className="margin-top">
                 <div className="transaction-board card-white margin-top">
-                        <p className="transaction-text">Transactions</p>
+                        <p className="transaction-text"></p>
                         {/* <div className="transaction-head-table transaction-ids display-flex">
                             <p>Date</p>
                             <p>Transaction ID</p>
@@ -17,7 +17,7 @@ export default class PaymentsTransactionCard extends React.Component{
                             <p>Status</p>
                         </div> */}      
                         <MUIDataTable 
-                            title={"Payments"}             
+                            title={"Users"}             
                             data={data}
                             columns={columns}
                             />
