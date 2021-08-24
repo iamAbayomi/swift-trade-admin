@@ -1,0 +1,58 @@
+
+.edit-field{
+    width: 300px;
+    height: 58px;
+    display: block;
+    padding-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px ;
+    border-color:#c7d3e6;
+    border-radius: 4px;
+    border-style: solid;
+}
+
+
+.profile-settings-section{
+    width: 800px;
+    margin: auto ;
+    display: block;
+}
+
+
+.profile-picture-section{
+    width: 200px;
+    margin: auto;
+    /* border: 1px solid #000000; */
+}
+
+.profile-settings-image{
+    margin: auto;
+    display: block;
+}
+
+.picture-text{
+    width: 200px;
+    text-align: left;
+    font-size: 14px;
+    margin: 20px 0px 0px 30px;
+}
+
+.blue-button{
+    margin: 40px auto 60px;
+    display: block;
+}
+
+.profile-information-section{
+    margin-top: 50px;
+}
+
+
+.reset-password-section{
+    width: 300px;
+    margin:  auto;
+    display: block;
+}
+
+.margin-top{
+    margin-top: 40px;
+}

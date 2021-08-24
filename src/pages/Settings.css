@@ -1,0 +1,17 @@
+
+.reset-password-section{
+    /* margin: 40px 10px 10px 10px; */
+}
+
+.delete-account-section{
+    margin: 40px 10px 40px 10px;
+}
+
+.settings-link{
+    text-decoration: underline;
+    -webkit-text-decoration-color: rgba(1, 0, 102, 1); /* Safari */  
+    text-decoration-color: rgba(1, 0, 102, 1);
+    text-underline-offset: 10px;
+    text-decoration-thickness: 3px;
+    
+}
