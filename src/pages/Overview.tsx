@@ -15,7 +15,7 @@ import './Overview.css'
 export default class Overview extends React.Component{
 
     state={
-        isEmpty : 'yes'
+        isEmpty : ''
     }
 
     render(){

@@ -1,17 +1,18 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from "react";
-
+import './NotificationCard.css'
 
 export default class NotificationCard extends React.Component{
     render(){
         return(
-            <div className="wallet-card display-flex">
+            <div className="notifications-card display-flex">
                 <div className="amount-information-row">
-                    <p className="amount">Notifications</p>
-                    <p className="amount-info">Olabisi Olabiwonu just placed a transaction. 
+                    <p className="notifications">Notifications</p>
+                    <p className="notifications-info">Olabisi Olabiwonu just placed a transaction. 
                     Kindly view transaction window to approve order.</p>
+                    <button className="white-button">View More</button>
                 </div>
-                <div className="">
+                <div className="notifications-img">
                 <img src="/vectors/notifications-logo.svg" />
                 </div>
                 <div className="">
