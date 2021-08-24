@@ -1,5 +1,5 @@
 // /* eslint-disable jsx-a11y/alt-text */
-// import React from 'react'
+import React from 'react'
 // import { Link } from 'react-router-dom'
 // import styled from 'styled-components'
 // // import CollectionofCards from '../components/CollectionofCards'
@@ -60,3 +60,7 @@
 // }
 
 
+
+export default class Overview extends React.Component{
+
+}
