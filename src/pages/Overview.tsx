@@ -38,23 +38,23 @@ export default class Overview extends React.Component{
                     <ConversionRate />
                     
                     <div className="wallet-row display-flex">
-                        <Link to="/wallet" className="link">
+                        <Link to="/settings" className="link">
                             <NotificatonCard />
                         </Link>
                         
                     </div>
-                    <Link to="/trade/coin" className="link">
+                    <Link to="/cards" className="link">
                             <SingleCardsView />
                     </Link>
 
-                    <Link to="/usertable" className="link">
+                    <Link to="/users" className="link">
                             <UserTableView />
                     </Link> 
 
-                    <Link to="/trade/coin" className="link">
+                    <Link to="/coin" className="link">
                             <SingleCoinView />
                     </Link>
-                    <Link to="/transactions" className="link">
+                    <Link to="/payments" className="link">
                              <PaymentsTransactionCard />
                     </Link> 
                     <Link to="/transactions" className="link">
