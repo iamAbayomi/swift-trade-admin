@@ -69,42 +69,42 @@ render(){
                             </p>
                         </NavLink>
 
-                        <NavLink to="/trade" className="menu-item" activeClassName="selected">
+                        <NavLink to="/users" className="menu-item" activeClassName="selected">
                             <img className="menu-icon" src="/vectors/trade.svg" alt="" />
                             <p className="menu-title">
                                 Users
                             </p>
                         </NavLink>
 
-                        <NavLink to="/wallet" className="menu-item "activeClassName="selected">
+                        <NavLink to="/cards" className="menu-item "activeClassName="selected">
                             <img className="menu-icon" src="/vectors/wallet.svg" alt="" />
                             <p className="menu-title">
                                 Cards
                             </p>
                         </NavLink>
 
-                        <NavLink to="/transactions" className="menu-item " activeClassName="selected">
+                        <NavLink to="/coins" className="menu-item " activeClassName="selected">
                             <img className="menu-icon" src="/vectors/transactions.svg" alt="" />
                             <p className="menu-title">
                                 Coins
                             </p>
                         </NavLink>
 
-                        <NavLink  to="/settings/profile" className="menu-item " activeClassName="selected">
+                        <NavLink  to="/payments" className="menu-item " activeClassName="selected">
                           <img className="menu-icon" src="/vectors/settings.svg" alt="" />
                             <p className="menu-title">
                                 Payments
                             </p>
                         </NavLink>
 
-                        <NavLink to="/logout" className="menu-item " activeClassName="selected">
+                        <NavLink to="/transactions" className="menu-item " activeClassName="selected">
                             <img className="menu-icon" src="/vectors/logout.svg" alt="" />
                             <p className="menu-title">
                                 Transactions
                             </p>
                         </NavLink>
 
-                        <NavLink to="/logout" className="menu-item " activeClassName="selected">
+                        <NavLink to="/settings" className="menu-item " activeClassName="selected">
                             <img className="menu-icon" src="/vectors/logout.svg" alt="" />
                             <p className="menu-title">
                                 Settings
