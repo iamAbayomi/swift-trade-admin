@@ -11,6 +11,7 @@ import NotificatonCard from '../components/NotificationCard'
 
 import WalletBalanceCard from '../components/WalletBalanceCard'
 import './Overview.css'
+import SingleCardsView from '../components/SingleCardsView'
 
 export default class Overview extends React.Component{
 
@@ -40,7 +41,7 @@ export default class Overview extends React.Component{
                         
                     </div>
                     <Link to="/trade/coin" className="link">
-                            <CollectionofCards />
+                            <SingleCardsView />
                         </Link>
 
                     <Link to="/transactions" className="link">
