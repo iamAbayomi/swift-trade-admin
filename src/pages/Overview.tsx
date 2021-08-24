@@ -7,6 +7,7 @@ import ConversionRate from '../components/ConversionRate'
 import EmptyStateTrasanctionCards from '../components/EmptyStateTransactionCard'
 import SingleTransactionCardView from '../components/SingleTransactionCardview'
 import TransactionCards from '../components/TransactionCard'
+import NotificatonCard from '../components/NotificationCard'
 
 import WalletBalanceCard from '../components/WalletBalanceCard'
 import './Overview.css'
@@ -34,7 +35,7 @@ export default class Overview extends React.Component{
                     
                     <div className="wallet-row display-flex">
                         <Link to="/wallet" className="link">
-                            <WalletBalanceCard showWalletAddress="yes"/>
+                            <NotificatonCard />
                         </Link>
                         
                     </div>
