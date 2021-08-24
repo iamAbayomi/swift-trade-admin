@@ -36,10 +36,11 @@ export default class Overview extends React.Component{
                         <Link to="/wallet" className="link">
                             <WalletBalanceCard showWalletAddress="yes"/>
                         </Link>
-                        <Link to="/trade/coin" className="link">
+                        
+                    </div>
+                    <Link to="/trade/coin" className="link">
                             <CollectionofCards />
                         </Link>
-                    </div>
 
                     <Link to="/transactions" className="link">
 

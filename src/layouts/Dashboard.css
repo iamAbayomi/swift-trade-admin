@@ -32,7 +32,7 @@
 .side-menu{
     position: fixed;
     width: 240px;
-    /* height: 140vh; */
+    height: 100vh;
     background-color: white;
     border: solid;
     margin: 70px 0px 0px 0px;
