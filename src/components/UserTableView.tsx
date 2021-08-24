@@ -7,7 +7,7 @@ export default class UserTableView extends React.Component{
     render(){
         return(
             <div className="margin-top">
-                <div className="transaction-board card-white margin-top">
+                <div className="transaction-board margin-top">
                         <p className="transaction-text"></p>
                         {/* <div className="transaction-head-table transaction-ids display-flex">
                             <p>Date</p>
