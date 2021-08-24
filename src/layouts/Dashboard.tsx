@@ -91,7 +91,7 @@ render(){
                         </NavLink>
 
                         <NavLink  to="/settings/profile" className="menu-item " activeClassName="selected">
-                            <img className="menu-icon" src="/vectors/settings.svg" alt="" />
+                          <img className="menu-icon" src="/vectors/settings.svg" alt="" />
                             <p className="menu-title">
                                 Payments
                             </p>
