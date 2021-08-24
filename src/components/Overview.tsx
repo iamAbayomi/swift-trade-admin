@@ -42,15 +42,17 @@ export default class Overview extends React.Component{
                     </div>
 
                     <Link to="/transactions" className="link">
-
-                        {this.state.isEmpty === 'yes' ?
-
-                        <EmptyStateTrasanctionCards />
-                        : <TransactionCards/>
-
-                        }
+                             <TransactionCards/>
                     </Link> 
-                  
+                    <Link to="/trade/coin" className="link">
+                            <CollectionofCards />
+                    </Link>
+                    <Link to="/transactions" className="link">
+                             <TransactionCards/>
+                    </Link> 
+                    <Link to="/transactions" className="link">
+                             <TransactionCards/>
+                    </Link> 
               </div>
 
             </div>
