@@ -1,0 +1,383 @@
+.container{
+    width: 100%;
+    height: 100%;
+}
+
+p{
+    /* color: #010066; */
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    /* font-family: Nunito; */
+}
+
+a{
+    text-decoration: none;
+}
+
+.purple-header-typography{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    /* line-height: 27px; */
+    /* identical to box height */
+    /* Swift Solid 2 */
+    color: #010066;
+}
+
+.dark-medium-typography{
+    /* margin */
+}
+
+.trade-header-typography{
+    margin: 10px 20px 0px 0px;
+}
+
+.card-white{
+    /* margin: 10px 20px 0px 20px; */
+}
+
+Link{
+    text-decoration: none;
+}
+
+.add-icon{
+    margin: 10px 0px 0px 20px;
+}
+
+.contents{
+    padding: 10px 20px 10px 30px;
+}
+
+.username-intro{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    /* identical to box height */
+    
+    /* Swift Solid 2 */
+    
+    color: #010066;
+}
+
+.dashboard-title{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    /* Swift Solid 2 */
+    color: #010066;
+}
+
+.single-transaction-card{
+    background-color: white;
+    width: 313px;
+    padding: 30px 20px 10px 30px;
+}
+
+.card-white{
+    background-color: white;
+    padding: 20px 20px 10px 30px;
+    border-radius: 3px;
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;  
+}
+
+.conversion-board{
+    margin: 40px 0px 20px 0px;
+    
+}
+
+.conversion-title{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* Swift Solid 2 */
+    color: #010066;
+}
+
+.transaction-options{
+    /* display: none; */
+    float: right;
+}
+
+.wallet-row{
+    margin: 80px 0px 130px 0px;
+}
+
+.display-flex{
+    display: flex;
+    justify-content: space-between;
+}
+
+.transaction-text{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 24px;
+    /* Swift Solid 2 */
+    color: #010066;
+    margin:10px;
+}
+
+.wallet-card{
+    width: 478px;
+    height: 311px;
+    /* Swift Solid 2 */
+    background: #010066;
+    border: 2px solid #F0F0F0;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.wallet-card p{
+    color: white;
+}
+
+.withdraw-info{
+    width: 90px;
+    height: 28px;
+    background: rgba(189, 189, 189, 1);
+    border-radius: 100px;
+    border: 1px solid rgba(189, 189, 189, 1);
+}
+
+.withdraw-info p{
+    /* padding: 5px 15px; */
+    margin: 5px 20px 10px 20px;
+    font-size: 12px;
+}
+
+.wallet-balance{
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0px;
+    line-height: 27px;
+}
+
+.amount{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 45px;
+    margin: 60px 0px 0px 0px;
+    /* identical to box height */
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+
+.amount-info{
+    margin: 0px 0px 30px 0px;
+    font-size: 11px;
+    font-weight: 100;
+    max-width: 300px;
+}
+
+.wallet-information-row{
+    margin: 60px 0px 0px 0px;
+}
+
+.wallet-info{
+    font-weight: 400;
+    margin: 0px 0px 5px 0px;
+    font-size: 14px;
+}
+
+.half-image{
+    height: 100px;
+}
+
+.wallet-address{
+    margin: 0px 0px 0px 0px;
+    font-size: 11px;
+    font-weight: 100;
+}
+
+.input-field{
+    width: 300px;
+    height: 38px;
+    margin: auto;
+    display: block;
+    background-color: #F4F8FC;
+    padding-left: 10px;
+    margin-top: 40px;
+    margin-bottom: 20px ;
+    border-color:#c7d3e6;
+    border-radius: 4px;
+    border-style: solid;
+}
+  
+
+.gift-cards-row{
+    display: grid;
+    grid-column-gap: 15px;
+    row-gap: 15px;
+    grid-template-columns: auto auto auto;
+}
+
+
+
+.blue-button{
+    color: white;
+    width: 134px;
+    height: 42px;
+    margin: auto;
+    display: block;
+    background: #010066;
+    border-radius: 10px;
+    border: 1px solid blue;
+}
+
+.float-button{
+    float: right;
+}
+
+.clearfix{
+    clear: both;
+    display: table;
+}
+
+.green-button{
+    color: white;
+    width: 134px;
+    height: 42px;
+    background: #219653;
+    /* background-color: ; */
+    border-radius: 5px;
+    border: 1px solid #219653;
+}
+
+
+
+.transaction-board{
+    margin: 10px 0px 30px 0px;
+    height: 550px;
+}
+
+.transaction-text{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    /* Swift Solid 2 */
+    color: #010066;
+}
+
+.transaction-image-section{
+    margin: auto;
+    width:  20%;
+}
+
+.empty-transaction-image{
+    margin: 90px 0px 0px 0px;
+    height: 150px;
+}
+
+.no-transactions-text{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+    /* identical to box height */
+    /* Swift Solid 2 */
+    color: #010066;
+}
+
+.no-transactions-subtitle{
+    font-weight: 500;
+    font-style: normal;
+    font-size: 16px;
+    /* identical to box height */
+    text-align: center;
+    /* Swift Solid 2 */
+    color: #333333;
+}
+
+
+.transaction-ids{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 163.42%;
+    /* identical to box height, or 20px */
+    /* swift black */
+    color: #333333;
+}
+
+.transaction-head-table{
+    width: 724px;
+    margin: auto;
+    
+}
+
+.no-text{
+    text-decoration: none;
+    /* color: rgb(62, 61, 87); */
+}
+
+.link{
+    text-decoration: none;
+    /* color: rgb(62, 61, 87); */
+}
+
+.divider{
+    border-bottom: 1px solid rgba(189, 189, 189, 1);
+}
+
+.profile-section{
+    display: block;
+    /* width: 800px; */
+    margin: auto;
+}
+
+.profile-section input{
+    /* display: block; */
+    width: 300px;
+}
+
+.profile-information-section{
+    
+}
+
+.right-arrow{
+    margin: 2px 0px 0px 9px;
+}
+
+.left-arrow{
+   margin-right: 10px;
+}
+
+.center-button{
+    display: block;
+    margin: auto;
+    width: 134px;
+}
+
+
+.purple-underline-text{
+    text-decoration: underline;
+    -webkit-text-decoration-color: rgba(1, 0, 102, 1); /* Safari */  
+    text-decoration-color: rgba(1, 0, 102, 1);
+    text-underline-offset: 1px;
+    text-decoration-thickness: 2px;
+    color: #010066;      
+    font-weight: 700;
+}
+
+
+.edit-field{
+    width: 300px;
+    height: 58px;
+    margin: auto;
+    display: block;
+    padding-left: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px ;
+    border-color:#c7d3e6;
+    border-radius: 4px;
+    border-style: solid;
+}
+
+/* .margin-top{
+    margin-top: 80px;
+} */
