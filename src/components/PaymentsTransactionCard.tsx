@@ -8,7 +8,7 @@ export default class PaymentsTransactionCard extends React.Component{
         return(
             <div className="margin-top">
                 <div className="transaction-board  margin-top">
-                        <p className="transaction-text"></p>
+                        <p className="transaction-text">Payments</p>
                         {/* <div className="transaction-head-table transaction-ids display-flex">
                             <p>Date</p>
                             <p>Transaction ID</p>
