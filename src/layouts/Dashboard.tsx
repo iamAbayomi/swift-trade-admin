@@ -1,23 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import './Dashboard.css'
-// import Trade from '../pages/Trade'
-// import Coin from '../pages/Coin'
-// import Cards from  '../pages/Cards'
-// import Wallet from '../pages/Wallet'
-// import Transactions from '../pages/Transactions'
-// import Settings from '../pages/Settings'
-import Overview from '../pages/Overview'
-// import SellCards from '../pages/SellCards'
-// import WalletEmptyState from '../pages/WalletEmptyState'
 
-// import Sell from '../pages/Sell'
-// import BankAccount from '../components/BankAccount'
-// import Profile from '../components/Profile'
-// import Notification from '../components/Notification'
-// import ActivityLog from '../components/Activitylog'
-// import TestPage from '../pages/TestPage'
-// import SettingsRouter from '../pages/SettingsRouter'
+import Overview from '../pages/Overview'
+import Users from  '../pages/Users'
+import Cards from  '../pages/Cards'
+import Coins from '../pages/Coins'
+import Payments from '../pages/Payments'
+import Transactions from '../pages/Transactions'
+import Settings from '../pages/Settings'
+import Logout from '../pages/Logput'
+
 
 import {
     BrowserRouter as Router,
@@ -123,11 +116,11 @@ render(){
                     <Switch>
                         <Route exact path ="/" component={Overview} />
                         <Route path ="/overview" component={Overview} />
-                        {/* <Route path="/trade/coin/sell"  component={Sell} />
+                        <Route path="/users"  component={Users} />
                         <Route exact path="/trade"  component={Coin} />
                         <Route path="/trade/coin/buy"  component={Sell} />
                         <Route path="/trade/coin"  component={Coin} />
-                        <Route path="/test/page" component={TestPage} /> */}
+                        <Route path="/test/page" component={TestPage} />
                         {/* <Route exact path="/pendingwallet" component={} />
                         <Route exact path="/approvedwallet" component={} />
                         <Route exact path ="/pendingtransfer" component={PendingTransfer} />
