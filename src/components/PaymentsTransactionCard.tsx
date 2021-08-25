@@ -41,7 +41,7 @@ const data = [
 
 
 const Button = styled.button `
-    margin: 40px auto 90px auto;
+    margin: 40px auto 10px auto;
 `
 
 const options = {
