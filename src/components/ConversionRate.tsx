@@ -15,7 +15,7 @@ export default class ConversionRate extends React.Component {
                         </div>
                         <ClearFix>
                             <MUIDataTable
-                                title={"Conversation Rate"}    
+                                title={""}    
                                 data={data}
                                 columns={columns}
                                 options = {options}

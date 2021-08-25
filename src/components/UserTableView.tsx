@@ -8,7 +8,7 @@ export default class UserTableView extends React.Component{
         return(
             <div className="margin-top">
                 <div className="transaction-board card-white margin-top">
-                        <p className="transaction-text"></p>
+                        <p className="transaction-text">Users</p>
                         {/* <div className="transaction-head-table transaction-ids display-flex">
                             <p>Date</p>
                             <p>Transaction ID</p>
@@ -17,7 +17,7 @@ export default class UserTableView extends React.Component{
                             <p>Status</p>
                         </div> */}      
                         <MUIDataTable 
-                            title={"Users"}             
+                            title={""}             
                             data={data}
                             columns={columns}
                             options = {options}

@@ -20,6 +20,7 @@ export default class PaymentsTransactionCard extends React.Component{
                             title={""}             
                             data={data}
                             columns={columns}
+                            options = {options}
                             />
                         <Button className="blue-button" >View More </Button>
                 </div>
@@ -42,3 +43,7 @@ const data = [
 const Button = styled.button `
     margin: 40px auto 90px auto;
 `
+
+const options = {
+    elevation: 0
+}

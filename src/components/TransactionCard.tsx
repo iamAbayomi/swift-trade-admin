@@ -17,9 +17,10 @@ export default class TransactionCards extends React.Component{
                             <p>Status</p>
                         </div> */}      
                         <MUIDataTable 
-                            title={"Transaction Table"}             
+                            title={""}             
                             data={data}
                             columns={columns}
+                            options = {options}
                             />
                         <Button className="blue-button" >View More </Button>
                 </div>
@@ -42,3 +43,9 @@ const data = [
 const Button = styled.button `
     margin: 40px auto 90px auto;
 `
+
+
+
+const options = {
+    elevation: 0
+}
