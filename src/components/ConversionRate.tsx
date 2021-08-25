@@ -4,7 +4,9 @@ import React from 'react'
 import styled from 'styled-components'
 import MUIDataTable from  "mui-datatables";
 
+
 export default class ConversionRate extends React.Component {
+    
     render(){
         return(
                 <div className="conversion-board card-white">
