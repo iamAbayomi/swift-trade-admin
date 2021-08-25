@@ -390,3 +390,13 @@ Link{
 .remove-boxshadow {
     box-shadow: none ;
 }
+
+
+.MuiIconButton-root{
+    display: none !important;
+}
+
+
+.MuiToolbar-root {
+    display: none !important;
+}
