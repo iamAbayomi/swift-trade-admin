@@ -30,9 +30,9 @@ export default class Overview extends React.Component{
                     <p className="dashboard-title">Overview</p>
                     <Link to="/transactions" className="transaction-row display-flex link">
                         
-                        <SingleTransactionCardView percentage = {10} transactiontext="Total Number of Transactions" />
-                        <SingleTransactionCardView percentage = {6} transactiontext="Pending Transactions" />
-                        <SingleTransactionCardView percentage = {4} transactiontext="Paid Transactions" />
+                        <SingleTransactionCardView percentage = {80} transactiontext="Total Number of Transactions" />
+                        <SingleTransactionCardView percentage = {43} transactiontext="Pending Transactions" />
+                        <SingleTransactionCardView percentage = {100} transactiontext="Paid Transactions" />
                     </Link>
 
                     <ConversionRate />
