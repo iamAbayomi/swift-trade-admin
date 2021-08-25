@@ -7,7 +7,7 @@ export default class UserTableView extends React.Component{
     render(){
         return(
             <div className="margin-top">
-                <div className="transaction-board margin-top">
+                <div className="transaction-board card-white margin-top">
                         <p className="transaction-text"></p>
                         {/* <div className="transaction-head-table transaction-ids display-flex">
                             <p>Date</p>
@@ -20,6 +20,7 @@ export default class UserTableView extends React.Component{
                             title={"Users"}             
                             data={data}
                             columns={columns}
+                            options = {options}
                             />
                         <Button className="blue-button" >View More </Button>
                 </div>
@@ -37,6 +38,10 @@ const data = [
     ["14/01/2019", "12345678", "Bitcoin", "$100", "In Progress"],
     ["14/01/2019", "12345678", "Etherum", "$100", "Completed"]
 ]
+
+const options = {
+    elevation: 0
+}
 
 
 const Button = styled.button `

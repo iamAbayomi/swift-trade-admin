@@ -386,3 +386,7 @@ Link{
 .menu-items-content{
     overflow-y: scroll; 
 }
+
+.remove-boxshadow {
+    box-shadow: none ;
+}

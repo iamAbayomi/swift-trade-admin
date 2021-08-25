@@ -18,6 +18,7 @@ export default class ConversionRate extends React.Component {
                                 title={"Conversation Rate"}    
                                 data={data}
                                 columns={columns}
+                                options = {options}
                             />
                         </ClearFix>
                     </div>
@@ -35,6 +36,10 @@ const data = [
     ["UK E-Code Card   N400.00", "UK E-Code Card   N400.00", "Bitcoin BTC   N400.00"]
 
 ]
+
+const options = {
+    elevation: 0
+}
 
 const TransactionOptions = styled.img `
     margin: 10px 0px 20px 10px;
