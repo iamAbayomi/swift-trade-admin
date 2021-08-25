@@ -251,7 +251,7 @@ Link{
 
 .transaction-board{
     margin: 10px 0px 30px 0px;
-    height: 550px;
+    /* height: 550px; */
 }
 
 .transaction-text{
