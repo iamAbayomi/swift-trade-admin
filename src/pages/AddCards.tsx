@@ -2,6 +2,7 @@
 import React from "react";
 import './Overview.css'
 import '../components/Profile.css'
+import './AddCards.css'
 import styled from 'styled-components'
 
 export default class AddCards extends React.Component{
@@ -17,7 +18,7 @@ export default class AddCards extends React.Component{
                                     <div className="search-logo-and-highlight">
                                     <img className="search-logo" src="/vectors/search-icon.svg"/>
                                     <input className="search-highlight" 
-                                    placeholder="Search e.g card"
+                                    placeholder="Search Cards"
                                     />
                                     </div>
                                 </div>
@@ -44,7 +45,7 @@ export default class AddCards extends React.Component{
                                 <p>Card Currency</p>
                                 <EditField type="name" className="edit-field" placeholder="US Dollars (USD)"/>
                             </div>
-                            <button style={{ margin: "60px auto 60px auto" }} className="blue-button" >Save Changes</button>
+                            <button style={{ margin: "60px auto 60px auto" }} className="blue-button" >Add Card</button>
                         </div>
                     </CardWhite>
                 </div> 
