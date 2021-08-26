@@ -9,7 +9,22 @@ export default class AddCards extends React.Component{
         return(
             <div className="container">
                 <div className="contents">
-                    <p className="dashboard-title">Cards</p>
+                    <CardTitle className="display-flex">
+                        <p className="dashboard-title">Cards</p>
+                        <div className="display-flex">
+                            <div className="search-bar">
+                                <div className="search-content">
+                                    <div className="search-logo-and-highlight">
+                                    <img className="search-logo" src="/vectors/search-icon.svg"/>
+                                    <input className="search-highlight" 
+                                    placeholder="Search e.g card"
+                                    />
+                                    </div>
+                                </div>
+                            </div>
+                            <button style={{ margin: "10px auto 0px auto" }} className="blue-button" >Add Card</button>
+                        </div>
+                    </CardTitle>
                     <CardWhite className="card-white">
                         <div className="profile-display-container">
                             <img className="" src="/vectors/profile-display-container.svg"/>
@@ -57,4 +72,9 @@ const CardWhite = styled.div `
     padding: 20px 0px 20px 0px;
     box-sizing: border-box;
 
+`
+
+
+const CardTitle = styled.div `
+    margin: 40px 0px 30px 0px;
 `
