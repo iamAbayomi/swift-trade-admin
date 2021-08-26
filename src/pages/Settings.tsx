@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import BankAccount from '../components/BankAccount'
 import Profile from '../components/Profile'
 import Notification from '../components/Notification'
 import ActivityLog from '../components/Activitylog'
@@ -34,7 +33,6 @@ export default class Settings extends React.Component{
                             <NavLink to="settings/notification" activeClassName="settings-link"><p>Notification</p></NavLink>
                             <NavLink to="settings/activity"  activeClassName="settings-link"><p>Activity Log</p></NavLink> */}
                             <NavLink to="/settings/profile" activeClassName="settings-link"><p>Profile</p></NavLink>
-                            <NavLink to="/settings/bankaccount" activeClassName="settings-link" ><p>Bank Account</p></NavLink>
                             <NavLink to="/settings/notification" activeClassName="settings-link"><p>Notification</p></NavLink>
                             <NavLink to="/settings/activity"  activeClassName="settings-link"><p>Activity Log</p></NavLink>
                     </div>
@@ -43,7 +41,6 @@ export default class Settings extends React.Component{
                 <div className="settings-section"> 
                 <Switch>  
                         <Route  path="/settings/profile" component={Profile}/>
-                        <Route  path="/settings/bankaccount" component={BankAccount}/>
                         <Route path="/settings/notification" component={Notification}/>
                         <Route path="/settings/activity" component={ActivityLog}/>
                         
