@@ -23,12 +23,10 @@ export default class AddCards extends React.Component{
                                     </div>
                                 </div>
                             </div>
-                            <button style={{ margin: "10px auto 0px auto" }} className="blue-button" >
-                                
-                                <img className="display-flex" src="/vectors/card-logo.svg" />
-                                <p>Add Card</p>
-                                
-                            </button>
+                            <AddButton style={{ margin: "10px auto 0px auto" }} className="blue-button display-flex" >
+                                <img className="card-logo" src="/vectors/card-logo.svg" />
+                                <p className="addcard-text" >Add Coin</p>
+                            </AddButton>
                         </div>
                     </CardTitle>
                     <CardWhite className="card-white">
@@ -83,4 +81,10 @@ const CardWhite = styled.div `
 
 const CardTitle = styled.div `
     margin: 40px 0px 30px 0px;
+`
+
+
+const AddButton = styled.div `
+    width: 184px;
+    display: flex;
 `
