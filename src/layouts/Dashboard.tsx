@@ -22,6 +22,8 @@ import {
 
 
 import styled from 'styled-components'
+import AddCards from '../pages/AddCards'
+import AddCoins from '../pages/AddCoins'
 
 export default class Dashboard extends React.Component{
 
@@ -123,6 +125,9 @@ render(){
                         <Route path="/transactions" component={Transactions} />
                         <Route path="/settings" component={Settings} />
                         <Route path="/logout" component={Logout} />
+                        <Route path="/addcards" component={AddCards} />
+                        <Route path="/addcoins" component={AddCoins} />
+
                         {/* <Route exact path="/pendingwallet" component={} />
                         <Route exact path="/approvedwallet" component={} />
                         <Route exact path ="/pendingtransfer" component={PendingTransfer} />
