@@ -400,6 +400,14 @@ Link{
 }
 
 .profile-display-container{
-    width: 200px;
+    width: 244px;
     margin: auto;
+    padding: 20px 0px 30px 0px ;
+}
+
+
+.add-card-section{
+    width: 300px;
+    margin:  auto;
+    display: block;
 }
