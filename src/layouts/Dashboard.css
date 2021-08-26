@@ -32,7 +32,7 @@
 .side-menu{
     position: fixed;
     width: 240px;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: white;
     border: solid;
     margin: 70px 0px 0px 0px;
@@ -42,6 +42,16 @@
 
 .menu-items-content{
     margin: 40px 10px 5px 0px;
+}
+
+.menu-items-content{
+    overflow-y: scroll; 
+    height: 100%;
+}
+
+.menu-items-content#scrollable {
+    overflow-y: scroll;
+    
 }
 
 .menu-item{

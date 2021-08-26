@@ -12,7 +12,7 @@ export default class ConversionRate extends React.Component {
                 <div className="conversion-board card-white">
                     <div className="">
                         <div className="display-flex"> 
-                            <p className="conversion-title">Conversion Rate to Naira</p>
+                            <p style={{ fontSize: "14px"} } className="conversion-title">Conversion Rate to Naira</p>
                             <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" />
                         </div>
                         <ClearFix>
