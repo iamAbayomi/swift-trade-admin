@@ -398,3 +398,8 @@ Link{
 .MuiToolbar-root {
     display: none !important;
 }
+
+.profile-display-container{
+    width: 200px;
+    margin: auto;
+}

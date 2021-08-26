@@ -8,7 +8,7 @@ export default class AddCards extends React.Component{
             <div className="container">
                 <div className="contents">
                     <p>Hello</p>
-                    <div className="card-white">
+                    <div className="card-white profile-display-container">
                         <img className="" src="/vectors/profile-display-container.svg"/>
                     </div>
                 </div> 
