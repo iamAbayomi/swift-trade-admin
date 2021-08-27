@@ -40,6 +40,7 @@ export default class Settings extends React.Component{
             </div>
                 <div className="settings-section"> 
                 <Switch>  
+                        <Route exact path="/settings/" component={Profile}/>
                         <Route  path="/settings/profile" component={Profile}/>
                         <Route path="/settings/notification" component={Notification}/>
                         <Route path="/settings/activity" component={ActivityLog}/>
