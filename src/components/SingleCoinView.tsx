@@ -17,7 +17,9 @@ export default class SingleCardsView extends React.Component{
                     <GiftItem className="gift-cards" src="/vectors/skrill.svg"/>
                     <GiftItem className="gift-cards" src="/vectors/iTunes.svg"/>
                     <GiftItem className="gift-cards" src="/vectors/amazon.svg"/>
-                    <AddGreenButton src="/vectors/add-green-button.svg" />
+                    <Link to="/addcoins" className="link">
+                        <AddGreenButton src="/vectors/add-green-button.svg" />
+                    </Link>
                 </GiftCards>
                 <Button className="blue-button">View More</Button>
             </CardsRow>
