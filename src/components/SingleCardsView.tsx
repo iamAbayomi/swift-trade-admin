@@ -8,7 +8,7 @@ export default class SingleCardsView extends React.Component{
     render(){
     return(
       <CardWhite>
-        <Link to="/trade/coin/sell" className="link">
+        <Link to="/cards" className="link">
             <CardsRow>
                 <p className="purple-header-typography">Cards</p>
                 <GiftCards className="">
