@@ -38,7 +38,7 @@ export default class Overview extends React.Component{
                     <ConversionRate />
                     
                     <div className="wallet-row display-flex">
-                        <Link to="/settings" className="link">
+                        <Link to="/settings/notification" className="link">
                             <NotificatonCard />
                         </Link>
                         
