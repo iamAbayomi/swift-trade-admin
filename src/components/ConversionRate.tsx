@@ -14,6 +14,11 @@ export default class ConversionRate extends React.Component {
                 root :{
                     borderBottom: "none"
                 }
+            },
+            MuiPaper :{
+                root:{
+                    width: "100%"   
+                }
             }
         }
     })
@@ -27,14 +32,17 @@ export default class ConversionRate extends React.Component {
                             <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" />
                         </div>
                         <ClearFix>
-                            <MuiThemeProvider theme={this.getMuiTheme()}>
-                                <MUIDataTable
-                                    title={""}    
-                                    data={data}
-                                    columns={columns}
-                                    options = {options}
-                                />
-                            </MuiThemeProvider>
+                            <div className="display-flex-withoutspace">    
+                                <MuiThemeProvider theme={this.getMuiTheme()}>
+                                    <MUIDataTable
+                                        title={""}    
+                                        data={data}
+                                        columns={columns}
+                                        options = {options}
+                                    />
+                                </MuiThemeProvider>
+                                <img className="forward-button" src="./vectors/forward-button.svg" />
+                            </div>
                         </ClearFix>
                     </div>
                 </div>
@@ -42,13 +50,13 @@ export default class ConversionRate extends React.Component {
     }
 }
 
-const columns = ["iTunes Card", "Amazon Card", "Bitcoin"]
+const columns = ["iTunes Card", "", "Amazon Card", "" ,"Bitcoin", ""]
 
 const data = [
-    ["USA Physical   N400.00", "USA Physical   N400.00", "Bitcoin BTC    N400.00"],
-    ["USA E-Code Card   N400.00", "USA E-Code Card   N400.00", "Bitcoin BTC   N400.00"],
-    ["UK Physical Card    N400.00", "UK Physical Card   N400.00", "Bitcoin BTC   N400.00"],
-    ["UK E-Code Card   N400.00", "UK E-Code Card   N400.00", "Bitcoin BTC   N400.00"]
+    ["USA Physical",   "N400.00", "USA Physical",   "N400.00", "Bitcoin BTC",  " N400.00"],
+    ["USA E-Code Card",   "N400.00", "USA E-Code Card",   "N400.00", "Bitcoin BTC",   "N400.00"],
+    ["UK Physical Card",    "N400.00", "UK Physical Card",   "N400.00", "Bitcoin BTC",   "N400.00"],
+    ["UK E-Code Card",   "N400.00", "UK E-Code Card",   "N400.00", "Bitcoin BTC",   "N400.00"]
 
 ]
 

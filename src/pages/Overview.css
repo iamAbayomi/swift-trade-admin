@@ -110,6 +110,11 @@ Link{
     justify-content: space-between;
 }
 
+
+.display-flex-withoutspace{
+    display: flex;
+}
+
 .transaction-text{
     font-style: normal;
     font-weight: 600;
@@ -415,4 +420,8 @@ Link{
 
 .remove-table-bottom-border{
     border-bottom: 1px solid rgba(224, 224, 224, 1);
+}
+
+.forward-button{
+    margin: 0px 42px 0px 44px;
 }
