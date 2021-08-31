@@ -3,9 +3,20 @@ import React from 'react'
 // import Transactions from '../pages/Transactions';
 import styled from 'styled-components'
 import MUIDataTable from  "mui-datatables";
-
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import {createTheme} from '@material-ui/core/styles'
 
 export default class ConversionRate extends React.Component {
+
+    getMuiTheme = () => createTheme({
+        overrides:{
+            MuiTableCell: {
+                root :{
+                    borderBottom: "none"
+                }
+            }
+        }
+    })
     
     render(){
         return(
@@ -16,12 +27,14 @@ export default class ConversionRate extends React.Component {
                             <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" />
                         </div>
                         <ClearFix>
-                            <MUIDataTable
-                                title={""}    
-                                data={data}
-                                columns={columns}
-                                options = {options}
-                            />
+                            <MuiThemeProvider theme={this.getMuiTheme()}>
+                                <MUIDataTable
+                                    title={""}    
+                                    data={data}
+                                    columns={columns}
+                                    options = {options}
+                                />
+                            </MuiThemeProvider>
                         </ClearFix>
                     </div>
                 </div>
