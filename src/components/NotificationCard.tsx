@@ -6,6 +6,7 @@ export default class NotificationCard extends React.Component{
     render(){
         return(
             <div className="notifications-card display-flex">
+                <img className="round-icon" src="./vectors/round-icon.svg" />
                 <div className="amount-information-row">
                     <p className="notifications">Notifications</p>
                     <p className="notifications-info">Olabisi Olabiwonu just placed a transaction. 
@@ -13,7 +14,7 @@ export default class NotificationCard extends React.Component{
                     <button className="white-button">View More</button>
                 </div>
                 <div className="notifications-img">
-                <img src="/vectors/notifications-logo.svg" />
+                    <img src="/vectors/notifications-logo.svg" />
                 </div>
                 <div className="">
                     <img src="/vectors/cross-sign.svg" />
