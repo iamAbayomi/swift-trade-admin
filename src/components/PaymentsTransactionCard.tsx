@@ -30,7 +30,7 @@ export default class PaymentsTransactionCard extends React.Component{
 }
 
 
-const columns = ["Date", "Transaction", "Type", "Value", "Status"]
+const columns = ["Payment Status", "User", "Email", "Action"]
 
 const data = [
     ["14/01/2019", "12345678", "Bitcoin", "$100", "Completed"],
