@@ -46,9 +46,7 @@ export default class Chips extends React.Component<MyProps>{
     render(){
         return(
             <div>
-                <p>This</p>
-                <p>{backgroundColor}</p>
-                <ChipsCard className="chips">
+                <ChipsCard className="chips" style={{ backgroundColor: `${backgroundColor}` }}>
                     <p className="chips-text">{this.props.chipsText}</p>
                 </ChipsCard>
             </div>
@@ -59,7 +57,6 @@ export default class Chips extends React.Component<MyProps>{
 
 
 const ChipsCard = styled.div `
-    background-color: ${backgroundColor} ;
     box-sizing: border-box;
     color: white;
 `
