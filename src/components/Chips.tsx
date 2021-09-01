@@ -5,7 +5,7 @@ type MyProps ={
     chipsText: string
 }
 
-let backgroundColor = ''
+let backgroundColor = 'green'
 
 
 export default class Chips extends React.Component<MyProps>{
@@ -15,6 +15,7 @@ export default class Chips extends React.Component<MyProps>{
             switch(this.props.chipsText){
                 case "Active":
                     backgroundColor = "green"
+                    console.log("I am here")
                     break;
                 case "Block":
                     backgroundColor = "red"
@@ -45,6 +46,8 @@ export default class Chips extends React.Component<MyProps>{
     render(){
         return(
             <div>
+                <p>This</p>
+                <p>{backgroundColor}</p>
                 <ChipsCard className="chips">
                     <p className="chips-text">{this.props.chipsText}</p>
                 </ChipsCard>
