@@ -13,3 +13,16 @@
     width: 268px;
     margin: 40px 0px 0px 90px;
 }
+
+
+.add-coin-title{
+    font-size: 14px;
+    line-height: 16px;
+    /* identical to box height, or 114% */
+    
+    letter-spacing: 0.4px;
+    
+    /* swift black */
+    
+    color: #333333;
+}

@@ -84,6 +84,8 @@ const Button = styled.button `
     width: 110px;
     height: 42px;
     margin: 29px auto 30px auto;
+    border-radius: 100px;
+    background-color: #010066;
 `
 
 const TransactionOptions = styled.img `
