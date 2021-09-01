@@ -4,6 +4,7 @@ import MUIDataTable from  "mui-datatables";
 import styled from  'styled-components'
 import Chips from './Chips';
 import MenuOptions from './MenuOptions';
+import UserImageandName from './UserImageandName';
 
 export default class UserTableView extends React.Component{
     render(){
@@ -35,7 +36,7 @@ export default class UserTableView extends React.Component{
 const columns = ["Account Name", "User Name", "Email", "Action"]
 
 const data = [
-    [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />, "Ramonridwan@protonmail.com", <MenuOptions />],
+    [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />,  <UserImageandName image="/vectors/profile-bman-image.svg" name="Ramon Ridwan"/>,"Ramonridwan@protonmail.com", <MenuOptions />],
     [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)" />, "Ramon Ridwan", "Ramonridwan@protonmail.com", <MenuOptions />],
     [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />, "Ramon Ridwan", "Ramonridwan@protonmail.com", <MenuOptions />],
     [<Chips chipsText="Pending" backgroundColor="rgba(130, 130, 130, 1)" />, "Ramon Ridwan", "Ramonridwan@protonmail.com", <MenuOptions />],
