@@ -13,16 +13,21 @@ export default class SingleCardsView extends React.Component{
       <CardWhite>
         <Link to="/cards" className="link">
             <CardsRow>
-                <CardTitle className="purple-header-typography">Cards</CardTitle>
-                <GiftCards className="">
-                    {giftImages.map((item) =>
-                        <img className="card-image" src={"/vectors/" + item + ".svg"}/>    
-                    )}
-                    <Link to="/addcards" className="link">
-                        <AddGreenButton src="/vectors/add-green-button.svg" />
-                    </Link>
-                </GiftCards>
-                <Button className="blue-button">View More</Button>
+                <div className="display-flex"> 
+                    <CardTitle className="purple-header-typography">Cards</CardTitle>
+                    <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" />
+                </div>
+                <ClearFix>
+                    <GiftCards className="">
+                        {giftImages.map((item) =>
+                            <img className="card-image" src={"/vectors/" + item + ".svg"}/>    
+                        )}
+                        <Link to="/addcards" className="link">
+                            <AddGreenButton src="/vectors/add-green-button.svg" />
+                        </Link>
+                    </GiftCards>
+                    <Button className="blue-button">View More</Button>
+                </ClearFix>
             </CardsRow>
         </Link>     
      </CardWhite>
@@ -32,7 +37,7 @@ export default class SingleCardsView extends React.Component{
 
 const CardWhite = styled.div `
     background-color: white;
-    padding: 45px 0px 10px 0px;
+    padding: 45px 55px 31px 0px;
     border-radius: 10px;
     // width: 800px;
     height: 371px;
@@ -69,3 +74,16 @@ const Button = styled.button `
 const CardTitle = styled.p `
     margin: 0px 0px 0px 0px;
 `
+
+
+
+const TransactionOptions = styled.img `
+    margin: 10px 0px 20px 10px;
+
+`
+
+
+const ClearFix = styled.div `
+    clear:both;
+`
+
