@@ -4,7 +4,7 @@ import './Overview.css'
 import '../components/Profile.css'
 import './AddCards.css'
 import styled from 'styled-components'
-import SingleCardsView from "../components/SingleCoinView";
+import SingleCardsView from "../components/SingleCardsView";
 
 
 export default class Cards extends React.Component {
