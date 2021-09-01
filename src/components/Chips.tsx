@@ -43,14 +43,14 @@ export default class Chips extends React.Component<MyProps>{
     }
 
     render(){
-    return(
-        <div>
-            <ChipsCard className="chips">
-                <p className="chips-text">{this.props.chipsText}</p>
-            </ChipsCard>
-        </div>
-    )
-}
+        return(
+            <div>
+                <ChipsCard className="chips">
+                    <p className="chips-text">{this.props.chipsText}</p>
+                </ChipsCard>
+            </div>
+        )
+    }
 }
 
 
