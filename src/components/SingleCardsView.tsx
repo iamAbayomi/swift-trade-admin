@@ -13,7 +13,7 @@ export default class SingleCardsView extends React.Component{
       <CardWhite>
         <Link to="/cards" className="link">
             <CardsRow>
-                <p className="purple-header-typography">Cards</p>
+                <CardTitle className="purple-header-typography">Cards</CardTitle>
                 <GiftCards className="">
                     {giftImages.map((item) =>
                         <img className="card-image" src={"/vectors/" + item + ".svg"}/>    
@@ -61,3 +61,8 @@ const Button = styled.button `
     margin: 53px auto 0px auto;
 `
 
+
+
+const CardTitle = styled.p `
+    margin: 45px 0px 0px 0px;
+`
