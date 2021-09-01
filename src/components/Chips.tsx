@@ -46,7 +46,7 @@ export default class Chips extends React.Component<MyProps>{
     return(
         <div>
             <ChipsCard className="chips">
-                <p>{this.props.chipsText}</p>
+                <p className="chips-text">{this.props.chipsText}</p>
             </ChipsCard>
         </div>
     )
@@ -56,7 +56,7 @@ export default class Chips extends React.Component<MyProps>{
 
 
 const ChipsCard = styled.div `
-    background-color: red ;
-    padding: 5px 11px 7px 10px;
-    bo
+    background-color: ${backgroundColor} ;
+    box-sizing: border-box;
+    color: white;
 `

@@ -442,9 +442,17 @@ Link{
 
 .chips{
     width: 91px;
+    height: 30px;
     border-radius: 215px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .background{
     /* background-color: ; */
+}
+
+.chips-text{
+    padding: 5px 0px 10px 26px;
+    margin: 0px;
 }

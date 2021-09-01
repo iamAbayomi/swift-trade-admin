@@ -42,7 +42,6 @@ const CardWhite = styled.div `
     // width: 800px;
     height: 381px;
     box-sizing: border-box;
-
 `
 
 // const CardText = styled.div `
