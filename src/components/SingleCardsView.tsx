@@ -40,7 +40,7 @@ const CardWhite = styled.div `
     padding: 45px 55px 31px 0px;
     border-radius: 10px;
     // width: 800px;
-    height: 371px;
+    height: 381px;
     box-sizing: border-box;
 
 `
