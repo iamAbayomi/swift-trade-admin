@@ -8,7 +8,7 @@ interface UserDetails{
 function UserImageandName(props: UserDetails){
     return(
         <div>
-            <div className="displa-flex">
+            <div className="display-flex">
                 <img src={props.image} />
                 <p>{props.name}</p>
             </div>
