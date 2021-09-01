@@ -2,7 +2,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-const giftImages = ["bitcoin", "ethereum", "skrill","iTunes", "amazon"];
+const giftImages = ["amazon-card", "itunes-card", "google-playcard","itunes-card", "other-cards"];
 
 export default class SingleCardsView extends React.Component{
 
@@ -15,11 +15,9 @@ export default class SingleCardsView extends React.Component{
             <CardsRow>
                 <p className="purple-header-typography">Cards</p>
                 <GiftCards className="">
-                    <GiftItem className="gift-cards" src="/vectors/bitcoin.svg"/>
-                    <GiftItem className="gift-cards" src="/vectors/ethereum.svg"/>
-                    <GiftItem className="gift-cards" src="/vectors/skrill.svg"/>
-                    <GiftItem className="gift-cards" src="/vectors/iTunes.svg"/>
-                    <GiftItem className="gift-cards" src="/vectors/amazon.svg"/>
+                    {giftImages.map((item) =>
+                        <img className="cards" src={"/vectors/" + item + ".svg"}/>    
+                    )}
                     <Link to="/addcards" className="link">
                         <AddGreenButton src="/vectors/add-green-button.svg" />
                     </Link>
