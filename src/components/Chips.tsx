@@ -2,7 +2,8 @@ import  React from 'react'
 import styled from 'styled-components'
 
 type MyProps ={
-    chipsText: string
+    chipsText: string,
+    backgroundColor: string
 }
 
 let backgroundColor = 'green'
@@ -15,7 +16,6 @@ export default class Chips extends React.Component<MyProps>{
             switch(this.props.chipsText){
                 case "Active":
                     backgroundColor = "green"
-                    console.log("I am here")
                     break;
                 case "Block":
                     backgroundColor = "red"
@@ -46,7 +46,7 @@ export default class Chips extends React.Component<MyProps>{
     render(){
         return(
             <div>
-                <ChipsCard className="chips" style={{ backgroundColor: `${backgroundColor}` }}>
+                <ChipsCard className="chips" style={{ backgroundColor: `${this.props.backgroundColor}` }}>
                     <p className="chips-text">{this.props.chipsText}</p>
                 </ChipsCard>
             </div>

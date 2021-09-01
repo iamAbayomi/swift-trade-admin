@@ -34,10 +34,11 @@ export default class UserTableView extends React.Component{
 const columns = ["Account Name", "User Name", "Email", "Action"]
 
 const data = [
-    [<Chips chipsText="Active" />, "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
-    ["14/01/2019", "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
-    ["14/01/2019", "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
-    ["14/01/2019", "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
+    [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />, "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
+    [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)" />, "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
+    [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />, "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
+    [<Chips chipsText="Pending" backgroundColor="rgba(130, 130, 130, 1)" />, "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
+    [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)"/>, "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"]
 ]
 
 const options = {
