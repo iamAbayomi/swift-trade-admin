@@ -32,7 +32,7 @@ export default class SingleCardsView extends React.Component{
 
 const CardWhite = styled.div `
     background-color: white;
-    padding: 20px 20px 10px 30px;
+    padding: 20px 52px 10px 30px;
     border-radius: 10px;
     // width: 800px;
     height: 360px;
