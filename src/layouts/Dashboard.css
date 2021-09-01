@@ -45,13 +45,12 @@
 }
 
 .menu-items-content{
-    overflow-y: scroll; 
+    /* overflow-y: scroll;  */
     height: 100%;
 }
 
 .menu-items-content#scrollable {
-    overflow-y: scroll;
-    
+    /* overflow-y: scroll; */
 }
 
 .menu-item{
