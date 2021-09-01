@@ -32,10 +32,12 @@ export default class SingleCardsView extends React.Component{
 
 const CardWhite = styled.div `
     background-color: white;
-    padding: 20px 52px 10px 30px;
+    padding: 45px 0px 10px 0px;
     border-radius: 10px;
     // width: 800px;
-    height: 360px;
+    height: 371px;
+    box-sizing: border-box;
+
 `
 
 // const CardText = styled.div `
@@ -43,11 +45,11 @@ const CardWhite = styled.div `
 // `
 
 const AddGreenButton = styled.img `
-    margin: 10px 0px 30px 20px;
+    margin: 10px 0px 30px 40px;
 `
 
 const CardsRow = styled.div`
-    
+    margin: 0px 12px 0px 52px;
 `
 const GiftCards = styled.div `
     margin: 60px 0px 0px 0px;
@@ -58,11 +60,12 @@ const GiftItem = styled.img`
 `
 
 const Button = styled.button `
-    margin: 53px auto 0px auto;
+    margin: 53px auto 31px auto;
+    border-radius: 100px;
 `
 
 
 
 const CardTitle = styled.p `
-    margin: 45px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
 `
