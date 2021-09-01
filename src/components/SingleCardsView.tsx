@@ -16,7 +16,7 @@ export default class SingleCardsView extends React.Component{
                 <p className="purple-header-typography">Cards</p>
                 <GiftCards className="">
                     {giftImages.map((item) =>
-                        <img className="cards" src={"/vectors/" + item + ".svg"}/>    
+                        <img className="card-image" src={"/vectors/" + item + ".svg"}/>    
                     )}
                     <Link to="/addcards" className="link">
                         <AddGreenButton src="/vectors/add-green-button.svg" />
@@ -50,6 +50,7 @@ const CardsRow = styled.div`
     
 `
 const GiftCards = styled.div `
+    margin: 60px 0px 0px 0px;
 `
 
 const GiftItem = styled.img`
@@ -57,6 +58,6 @@ const GiftItem = styled.img`
 `
 
 const Button = styled.button `
-    margin: 130px auto 30px auto;
+    margin: 53px auto 0px auto;
 `
 
