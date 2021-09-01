@@ -441,5 +441,10 @@ Link{
 }
 
 .chips{
+    width: 91px;
     border-radius: 215px;
+}
+
+.background{
+    /* background-color: ; */
 }

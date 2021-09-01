@@ -2,9 +2,7 @@ import  React from 'react'
 import styled from 'styled-components'
 
 type MyProps ={
-    chipsText: string,
-    backgroundColor: string
-
+    chipsText: string
 }
 
 let backgroundColor = ''
@@ -58,5 +56,7 @@ export default class Chips extends React.Component<MyProps>{
 
 
 const ChipsCard = styled.div `
-    backgroundColor: ${backgroundColor}
+    background-color: red ;
+    padding: 5px 11px 7px 10px;
+    bo
 `

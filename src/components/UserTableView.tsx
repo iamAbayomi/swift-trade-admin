@@ -2,6 +2,7 @@
 import React from 'react'
 import MUIDataTable from  "mui-datatables";
 import styled from  'styled-components'
+import Chips from './Chips';
 
 export default class UserTableView extends React.Component{
     render(){
@@ -33,7 +34,7 @@ export default class UserTableView extends React.Component{
 const columns = ["Account Name", "User Name", "Email", "Action"]
 
 const data = [
-    ["14/01/2019", "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
+    [<Chips chipsText="Active" />, "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
     ["14/01/2019", "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
     ["14/01/2019", "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
     ["14/01/2019", "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
