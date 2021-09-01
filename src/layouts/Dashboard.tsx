@@ -46,10 +46,10 @@ render(){
                             </div>
                         </div>
                     </div>
-                    <div className="profile-section">
+                    <div className="profile-section" style={{display : 'flex'}}>
                         <img className="profile-image" src="/vectors/profile-image.svg" />
                         <p className="username">
-                            Ramon
+                            Ramon Ridwan
                         </p>
                     </div>
                     <img className="notifications-icon" src="/vectors/notifications.svg" />
