@@ -3,7 +3,7 @@
 function Chips(){
     return(
         <div>
-            <div className="chips-background">
+            <div className="chips">
                 <p>Active</p>
             </div>
         </div>
