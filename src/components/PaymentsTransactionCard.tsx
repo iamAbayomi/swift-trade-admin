@@ -2,6 +2,9 @@
 import React from 'react'
 import MUIDataTable from  "mui-datatables";
 import styled from  'styled-components'
+import MenuOptions from './MenuOptions';
+import UserImageandName from './UserImageandName';
+import Chips from './Chips';
 
 export default class PaymentsTransactionCard extends React.Component{
     render(){
@@ -33,11 +36,13 @@ export default class PaymentsTransactionCard extends React.Component{
 const columns = ["Payment Status", "User", "Email", "Action"]
 
 const data = [
-    ["14/01/2019", "12345678", "Bitcoin", "$100", "Completed"],
-    ["14/01/2019", "12345678", "Amazon", "$100", "Failed"],
-    ["14/01/2019", "12345678", "Bitcoin", "$100", "In Progress"],
-    ["14/01/2019", "12345678", "Etherum", "$100", "Completed"]
+    [<Chips chipsText="Processing" backgroundColor="#010066" />,  <UserImageandName image="/vectors/profile-bman-image.svg" name="Quadiri Lawal"/>, "Quaderilawal@protonmail.com", <MenuOptions/>],
+    [<Chips chipsText="Decline" backgroundColor="rgba(255, 73, 73, 1)" />,  <UserImageandName image="/vectors/profile-bman-image.svg" name="Tusweet iyanah"/>, "Tusweetiyanah@protonmail.com", <MenuOptions/>],
+    [<Chips chipsText="Pending" backgroundColor="rgba(130, 130, 130, 1)" />,  <UserImageandName image="/vectors/profile-wman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions/>],
+    [<Chips chipsText="Decline" backgroundColor="rgba(255, 73, 73, 1)" />,  <UserImageandName image="/vectors/profile-bman-image.svg" name="Lai Muhammed"/>, "Laimuhammed@protonmail.com", <MenuOptions/>]
+    
 ]
+
 
 
 const Button = styled.button `
