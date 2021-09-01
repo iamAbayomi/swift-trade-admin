@@ -1,11 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
 
-function UserImageandName(){
+interface UserDetails{
+    image: string,
+    name: string
+}
+
+function UserImageandName(props: UserDetails){
     return(
         <div>
             <div className="displa-flex">
-                <img src="" />
-                <p>Ramon Ridwan</p>
+                <img src={props.image} />
+                <p>{props.name}</p>
             </div>
         </div>
     )
