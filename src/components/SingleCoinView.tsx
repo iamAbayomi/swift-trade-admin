@@ -81,11 +81,12 @@ const GiftItem = styled.img`
 `
 
 const Button = styled.button `
-    margin: 39px auto 30px auto;
+    width: 110px;
+    height: 42px;
+    margin: 29px auto 30px auto;
 `
 
 const TransactionOptions = styled.img `
-    weight: 110px;
-    height: 42px;
     margin: 10px 0px 20px 10px;
+
 `
