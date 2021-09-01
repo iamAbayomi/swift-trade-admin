@@ -425,3 +425,16 @@ Link{
 .forward-button{
     margin: 0px 42px 0px 44px;
 }
+
+
+.card-image{
+    width: 153px;
+    height: 117px;
+    border-radius: 10px;
+}
+
+.country-card-image{
+    width: 17px;
+    height: 9px;
+    border-radius: 0px 10px 0px 0px;
+}

@@ -2,8 +2,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+const giftImages = ["bitcoin", "ethereum", "skrill","iTunes", "amazon"];
 
 export default class SingleCardsView extends React.Component{
+
+    
 
     render(){
     return(
