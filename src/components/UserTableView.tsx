@@ -30,13 +30,13 @@ export default class UserTableView extends React.Component{
 }
 
 
-const columns = ["Date", "Transaction", "Type", "Value", "Status"]
+const columns = ["Account Name", "User Name", "Email", "Action"]
 
 const data = [
-    ["14/01/2019", "12345678", "Bitcoin", "$100", "Completed"],
-    ["14/01/2019", "12345678", "Amazon", "$100", "Failed"],
-    ["14/01/2019", "12345678", "Bitcoin", "$100", "In Progress"],
-    ["14/01/2019", "12345678", "Etherum", "$100", "Completed"]
+    ["14/01/2019", "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
+    ["14/01/2019", "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
+    ["14/01/2019", "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
+    ["14/01/2019", "Ramon Ridwan", "Ramonridwan@protonmail.com", "$100"],
 ]
 
 const options = {
