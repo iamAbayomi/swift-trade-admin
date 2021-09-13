@@ -66,9 +66,12 @@ const EditField = styled.input `
     padding-left: 30px;
     margin-top: 10px;
     margin-bottom: 20px ;
-    border-color:#c7d3e6;
-    border-radius: 4px;
-    border-style: solid;
+    background: #FFFFFF;
+    /* swift gray light */
+
+    border: 1px solid #BDBDBD;
+    box-sizing: border-box;
+    border-radius: 10px;
 `
 
 
