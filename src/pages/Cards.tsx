@@ -5,10 +5,30 @@ import '../components/Profile.css'
 import './AddCards.css'
 import styled from 'styled-components'
 import SingleCardsView from "../components/SingleCardsView";
+import axios from "axios";
 
 
 export default class Cards extends React.Component {
     
+    componentDidMount(){
+        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/bank-accounts/')
+        .then((res)=>{
+                console.log('This is the data', res.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
+
+    deleteCard(){
+        axios.delete('https://swift-trade-v1.herokuapp.com/api/v1/cards/delete')
+        .then((res)=>{
+                console.log('This is the data', res.data)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+    }
     
     render(){
         return(

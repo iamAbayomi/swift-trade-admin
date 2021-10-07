@@ -1,11 +1,68 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React, { ChangeEvent } from "react";
 import './Overview.css'
 import '../components/Profile.css'
 import './AddCards.css'
 import styled from 'styled-components'
+import axios from "axios";
 
 export default class AddCards extends React.Component{
+
+    state ={
+        card_name: '',
+        card_type: '',
+        card_currency: '',
+        image: ''
+    }
+
+    onCardNameChange(event: ChangeEvent<HTMLInputElement>){
+        this.setState({
+            card_name: event.target.value
+        })
+    }
+    
+    onCardTypeChange(event: ChangeEvent<HTMLInputElement>){
+        this.setState({
+            card_type: event.target.value
+        })
+    }
+
+    onCardCurrencyChange(event: ChangeEvent<HTMLInputElement>){
+        this.setState({
+            card_currency: event.target.value  
+        })
+    }
+
+    addCard(){
+        axios.post('https://swift-trade-v1.herokuapp.com/api/v1/cards/create', {
+            name: this.state.card_name,
+            rate: this.state.card_type,
+            image: this.state.image
+        })
+        .then((res) => {
+            console.log('This is the data', res.data)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+
+    updateCard(){
+        axios.patch('https://swift-trade-v1.herokuapp.com/api/v1/cards/update', {
+            cardId: 1,
+            name: this.state.card_name,
+            rate: this.state.card_type,
+            image: this.state.image
+        })
+        .then((res) => {
+            console.log('This is the data', res.data)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+
+    
     render(){
         return(
             <div className="container">
@@ -36,19 +93,43 @@ export default class AddCards extends React.Component{
                         <div className="add-card-section">
                             <div className="card-name">
                                 <p>Card Name</p>
-                                <EditField type="name" className="edit-field" placeholder="Google Play E-code card"/>
+                                <EditField 
+                                    type="name" 
+                                    className="edit-field" 
+                                    placeholder="Google Play E-code card"
+                                    value={this.state.card_name}
+                                    onChange={this.onCardNameChange.bind(this)}
+                                    />
                             </div>
 
                             <div className="card-type">
                                 <p>Card Type</p>
-                                <EditField type="name" className="edit-field" placeholder="USA iTunes E-Code card"/>
+                                <EditField 
+                                    type="name" 
+                                    className="edit-field" 
+                                    placeholder="USA iTunes E-Code card"
+                                    value={this.state.card_type}
+                                    onChange={this.onCardTypeChange.bind(this)}
+                                    />
                             </div>
 
                             <div className="card-currency">
                                 <p>Card Currency</p>
-                                <EditField type="name" className="edit-field" placeholder="US Dollars (USD)"/>
+                                <EditField 
+                                    type="name" 
+                                    className="edit-field" 
+                                    placeholder="US Dollars (USD)"
+                                    value={this.state.card_currency}
+                                    onChange={this.onCardCurrencyChange.bind(this)}
+                                    />
                             </div>
-                            <button style={{ margin: "60px auto 60px auto" }} className="blue-button" >Add Card</button>
+                            <button 
+                                style={{ margin: "60px auto 60px auto" }}
+                                 className="blue-button"
+                                 onClick = {this.addCard.bind(this)}
+                                 >
+                                     Add Card
+                            </button>
                         </div>
                     </CardWhite>
                 </div> 
