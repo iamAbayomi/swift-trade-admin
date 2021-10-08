@@ -5,8 +5,28 @@ import './Overview.css'
 import '../layouts/Transaction.css'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import axios from 'axios'
 
 export default class Transactions extends React.Component{
+    
+    state = {
+        transaction: {}
+    }
+
+    componentDidMount(){
+        this.getTransactions()
+    }
+    
+    getTransactions(){
+        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/transaction')
+        .then((res) => {
+            console.log('This is the response', res)    
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+
     render(){
         return(
             <div>
