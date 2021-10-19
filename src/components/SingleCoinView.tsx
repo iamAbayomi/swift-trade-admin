@@ -19,10 +19,10 @@ export default class SingleCardsView extends React.Component{
                     <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" />
                 </div>
                 <ClearFix>
-                    <div className="display-flex-withoutspace">
-                        <GiftCards className="">
+                    <div className="gift-card-section">
+                        <GiftCards className="gift-cards">
                             {coin.map((item)  =>
-                                <GiftItem className="gift-cards" src={"/vectors/" + item + ".svg" }/>
+                                <GiftItem className="gift-cards-item" src={"/vectors/" + item + ".svg" }/>
                             )}
                         </GiftCards>
                         <div className="add-coincard">
@@ -77,7 +77,7 @@ const GiftCards = styled.div `
 
 const GiftItem = styled.img`
     // width: 150px;
-    margin: 46px 0px 10px 15px;
+    
 `
 
 const Button = styled.button `
