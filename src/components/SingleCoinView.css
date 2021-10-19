@@ -26,3 +26,48 @@
     
     color: #333333;
 }
+
+.gift-card-section{
+    display: flex;
+}
+
+.gift-cards{
+    display: flex;
+    
+}
+
+.gift-cards-item{
+    max-width: 200px;
+    min-width: 29px;
+    margin: 46px 0px 10px 15px;
+}
+
+
+
+
+/* For Portrait Phones */
+@media screen and (max-width: 576px){    
+    .gift-cards-item{
+        /* max-width: 120px;
+        width: 100%; */
+    }
+}
+
+/* For Tablets */
+@media screen and (max-width: 768px){
+    
+}
+
+/* For Laptops */
+@media screen and (max-width: 956px){
+    .gift-card-section{
+        flex-direction: column;
+        margin: auto;   
+        max-width: 500px;
+    }
+
+    .add-coincard{
+        margin: 40px 0px 0px 0px;
+    }
+
+}
