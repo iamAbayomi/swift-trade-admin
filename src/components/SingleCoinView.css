@@ -1,6 +1,8 @@
-.edit-field{
-    width: 268px;
-    height: 42px;
+.input-field{
+    max-width: 350px;
+    min-width: 100px;
+    max-height: 58px;
+    min-height: 30px;
     margin: 10px 0px 0px 0px;
     display: block;
     border-radius: 100px;
@@ -10,8 +12,9 @@
 
 
 .add-coincard{
-    width: 268px;
-    margin: 40px 0px 0px 90px;
+    max-width: 350px;
+    width: 100%;
+    margin: 2.5em 0px 0px 5.63em;
 }
 
 
