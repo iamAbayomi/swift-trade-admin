@@ -129,46 +129,48 @@ render(){
                     </div>
                 </div>
                 <div className="main-section">
-                    <Switch>
-                        <Route exact path ="/" component={Overview} />
-                        <Route path ="/overview" component={Overview} />
-                        <Route path="/users"  component={Users} />
-                        <Route exact path="/cards"  component={Cards} />
-                        <Route path="/coins"  component={Coins} />
-                        <Route path="/payments"  component={Payments} />
-                        <Route path="/transactions" component={Transactions} />
-                        <Route path="/settings" component={Settings} />
-                        <Route path="/logout" component={Logout} />
-                        <Route path="/addcards" component={AddCards} />
-                        <Route path="/addcoins" component={AddCoins} />
-                        <Route path="/modalform" component={ModalFormWithCards} />
+                    <div className= "dashboard-contents">
+                        <Switch>
+                            <Route exact path ="/" component={Overview} />
+                            <Route path ="/overview" component={Overview} />
+                            <Route path="/users"  component={Users} />
+                            <Route exact path="/cards"  component={Cards} />
+                            <Route path="/coins"  component={Coins} />
+                            <Route path="/payments"  component={Payments} />
+                            <Route path="/transactions" component={Transactions} />
+                            <Route path="/settings" component={Settings} />
+                            <Route path="/logout" component={Logout} />
+                            <Route path="/addcards" component={AddCards} />
+                            <Route path="/addcoins" component={AddCoins} />
+                            <Route path="/modalform" component={ModalFormWithCards} />
 
-                        {/* <Route exact path="/pendingwallet" component={} />
-                        <Route exact path="/approvedwallet" component={} />
-                        <Route exact path ="/pendingtransfer" component={PendingTransfer} />
-                        <Route exact path="/approved" component={} />
-                        <Route exact path ="/makepayment" component={} />
-                        <Route exact path ="/makepayment3" component={} />
-                        <Route exact path ="/makepayment4" component={} /> */}
-                        {/* <Route exact path="/pendingcards1" component={SellCards} />
-                        <Route exact path="/pendingcards2" component={SellCards} /> */}
-                        {/* <Route exact path="/trade/cards"  component={Cards} />
-                        <Route exact path="/trade/cards2" component={SellCards} />
-                        <Route exact path="/wallet/emptystate" component={WalletEmptyState} />
-                        <Route exact path="/wallet" component={Wallet} />
-                        <Route exact path="/transactions" component={Transactions} /> */}
-                        {/* <Route exact path="/settings/profile" component={Settings} /> */}
-                        {/* <Route exact path="/settings/:slug" component={Settings} /> */}
-                        {/* <Route exact path="/settings" component={Settings} /> */}
-                        {/* <Route path="/settings" component={Settings} /> */}
-                        {/* <Route exact path="/settings/bankaccount" component={BankAccount} /> */}
-                        {/* <Route exact path="/settings/profile" component={Profile} />
-                        <Route exact path="/settings/bankaccount" component={BankAccount} />
-                        <Route exact path="/settings/notification" component={Notification} />
-                        <Route exact path="/settings/activity" component={ActivityLog} /> */}
+                            {/* <Route exact path="/pendingwallet" component={} />
+                            <Route exact path="/approvedwallet" component={} />
+                            <Route exact path ="/pendingtransfer" component={PendingTransfer} />
+                            <Route exact path="/approved" component={} />
+                            <Route exact path ="/makepayment" component={} />
+                            <Route exact path ="/makepayment3" component={} />
+                            <Route exact path ="/makepayment4" component={} /> */}
+                            {/* <Route exact path="/pendingcards1" component={SellCards} />
+                            <Route exact path="/pendingcards2" component={SellCards} /> */}
+                            {/* <Route exact path="/trade/cards"  component={Cards} />
+                            <Route exact path="/trade/cards2" component={SellCards} />
+                            <Route exact path="/wallet/emptystate" component={WalletEmptyState} />
+                            <Route exact path="/wallet" component={Wallet} />
+                            <Route exact path="/transactions" component={Transactions} /> */}
+                            {/* <Route exact path="/settings/profile" component={Settings} /> */}
+                            {/* <Route exact path="/settings/:slug" component={Settings} /> */}
+                            {/* <Route exact path="/settings" component={Settings} /> */}
+                            {/* <Route path="/settings" component={Settings} /> */}
+                            {/* <Route exact path="/settings/bankaccount" component={BankAccount} /> */}
+                            {/* <Route exact path="/settings/profile" component={Profile} />
+                            <Route exact path="/settings/bankaccount" component={BankAccount} />
+                            <Route exact path="/settings/notification" component={Notification} />
+                            <Route exact path="/settings/activity" component={ActivityLog} /> */}
 
-                    </Switch>
-                    <ImgButton src="/vectors/message-button.svg" />
+                        </Switch>
+                        <ImgButton src="/vectors/message-button.svg" />
+                    </div>
                 </div>
             </div>
         </div>
