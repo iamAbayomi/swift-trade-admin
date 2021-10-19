@@ -27,8 +27,8 @@ export default class SingleCardsView extends React.Component{
                         </GiftCards>
                         <div className="add-coincard">
                             <p className="add-coin-title">Product</p>
-                            <EditField className="edit-field" placeholder="Bitcoin" />
-                            <EditField className="edit-field" placeholder="1-20"/>
+                            <EditField className="input-field" placeholder="Bitcoin" />
+                            <EditField className="input-field" placeholder="1-20"/>
                             <Button className="blue-button">View More</Button>    
                         </div>
                     </div>
