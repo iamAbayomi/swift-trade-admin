@@ -30,7 +30,7 @@
 
 
 .notifications-info{
-    font-size: 16px;
+    
 }
 
 .notifications-logo{
@@ -67,4 +67,20 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+}
+
+/* For Tablets */
+@media screen and (max-width: 768px){
+    .notifications-info{
+        font-size: 0.75em;
+    }
+    
+}
+/* For Laptops */
+@media screen and (max-width: 992px){
+    
+}
+/* For Large Devices */
+@media screen and (max-width: 1200px){
+    
 }
