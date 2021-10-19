@@ -45,7 +45,6 @@ export default class SingleCardsView extends React.Component{
 const EditField = styled.input`
     // width: 268px;
     // height: 42px;
-    margin: 10px 0px 0px 0px;
     display: block;
     border-radius: 100px;
 `
