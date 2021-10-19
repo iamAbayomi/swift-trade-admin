@@ -15,7 +15,7 @@ export default class SingleCardsView extends React.Component{
         <Link to="/coins" className="link">
             <CardsRow>
                 <div className="display-flex"> 
-                    <CardTitle className="purple-header-typography">Cards</CardTitle>
+                    <CardTitle className="purple-header-typography">Coins</CardTitle>
                     <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" />
                 </div>
                 <ClearFix>
@@ -43,8 +43,8 @@ export default class SingleCardsView extends React.Component{
 
 
 const EditField = styled.input`
-    width: 268px;
-    height: 42px;
+    // width: 268px;
+    // height: 42px;
     margin: 10px 0px 0px 0px;
     display: block;
     border-radius: 100px;
@@ -59,7 +59,7 @@ const CardWhite = styled.div `
     padding: 20px 20px 10px 30px;
     border-radius: 10px;
     // width: 800px;
-    height: 444px;
+    // height: 444px;
 `
 
 const ClearFix = styled.div `

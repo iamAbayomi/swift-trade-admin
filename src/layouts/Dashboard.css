@@ -1,3 +1,7 @@
+:root{
+    font-size: 1em;
+}
+
 .header-bar{
     border: solid;
     border-width: 0px 2px 2px 0px;
@@ -173,25 +177,77 @@ input:focus, textarea:focus, select:focus, button:focus{
 
 
 
-@media screen and (max-width: 600px){
-
-}
-
-@media screen and (max-width: 360px){
+/* For Portrait Phones */
+@media screen and (max-width: 576px){
+    :root{
+        font-size: 0.75em;
+    }
     
+    .single-transaction-card{
+        /* display: none; */
+        /* width: 110px;
+        height: 60px; */
+        border-radius: 6px;
+        padding: 1px 1px 5px 1px;
+    }
+    
+    .circle-progress{
+        /* width: 29px;
+        height: 29px; */
+        /* margin: 10px 0px 0px 5px; */
+    }
+    .transaction-text{
+        font-size: 9px;
+        line-height: inherit;
+        margin: 10px 5px 5px 5px;
+    }
+
+    .transaction-options{
+        width: 8px;
+        margin: 5px 5px 0px 0px;
+    }
+
+
 }
 
+/* For Tablets */
+@media screen and (max-width: 768px){
+    
+    .transaction-text{
+        font-size: 0.875em;    
+    }
 
+    p{
+        font-size: 0.75em;
+    }
+}
+/* For Laptops */
+@media screen and (max-width: 900px){
+    :root{
+        font-size:0.875em;
+    }
+    
+    p{
+        font-size: 0.875em;
+    }
+}
+
+/* For Large Devices */
 @media screen and (max-width: 1200px){
+    :root{
+        font-size: 1em;
+    }
+    
+    p{
+        font-size: 1em;
+    }
+
     .side-menu{
         display: none;
     }
+    
     .main-section{
         margin: 70px 0px 0px 0px;
     }
-    .menu-toggle{
-        display: block;
-    }
-    
 }
 

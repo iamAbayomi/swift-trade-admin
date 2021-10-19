@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
+import './Breakpoint.css'
 import './Dashboard.css'
 
 import Overview from '../pages/Overview'
