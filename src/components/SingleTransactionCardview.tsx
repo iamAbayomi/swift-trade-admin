@@ -16,21 +16,21 @@ export default class SingleTransactionCardView extends React.Component<MyProps> 
     render(){
         return(
             <div>
-                <div className="single-transaction-card card-white">
-                        <img className="transaction-options" src="/vectors/options-menu.svg" />
-                        <TransactionGroup className="">
-                           <CircularProgressGroup>
-                                <div style={{ width:100, height:100}}>
-                                    <CircularProgressbar value={this.props.percentage} 
-                                    text={`${this.props.percentage}`} 
+                <div className="single-transaction-card">
+                    <img className="transaction-options" src="/vectors/options-menu.svg" />
+                    <TransactionGroup className="">
+                        <CircularProgressGroup>
+                            {/* <div style={{ width:100, height:100}}> */}
+                            <div className="circle-progress">
+                                <CircularProgressbar 
+                                    value={this.props.percentage} 
+                                    text={`${this.props.percentage}%`} 
                                     styles={buildStyles({pathColor : 'rgba(253, 116, 155, 1)', textColor: '#010066' } )}/>
-                                </div>
-                                <TopProgessSvg src="/vectors/top-progress-design.svg" />
-                                <BottomProgessSvg src="/vectors/bottom-progress-design.svg" />
-                            </CircularProgressGroup> 
-                            <p className="transaction-text">{this.props.transactiontext}</p>
-                        </TransactionGroup>
-                    </div>
+                            </div>
+                        </CircularProgressGroup> 
+                        <p className="transaction-text">{this.props.transactiontext}</p>
+                    </TransactionGroup>
+                </div>
             </div>
         )
     }

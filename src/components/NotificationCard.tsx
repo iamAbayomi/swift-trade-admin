@@ -14,7 +14,7 @@ export default class NotificationCard extends React.Component{
                     <button className="white-button">View More</button>
                 </div>
                 <div className="notifications-img">
-                    <img src="/vectors/notifications-logo.svg" />
+                    <img className="notifications-logo" src="/vectors/notifications-logo.svg" />
                 </div>
                 <div className="cancel-sign">
                     <img src="/vectors/cross-sign.svg" />

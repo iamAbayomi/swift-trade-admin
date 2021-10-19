@@ -180,3 +180,18 @@ input:focus, textarea:focus, select:focus, button:focus{
 @media screen and (max-width: 360px){
     
 }
+
+
+@media screen and (max-width: 1200px){
+    .side-menu{
+        display: none;
+    }
+    .main-section{
+        margin: 70px 0px 0px 0px;
+    }
+    .menu-toggle{
+        display: block;
+    }
+    
+}
+

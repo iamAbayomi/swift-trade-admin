@@ -13,7 +13,7 @@ export default class Notification extends React.Component{
                         <p>Notification Type</p> 
                         <p>Push Notfication</p>
                         <p>Email Alert</p>
-                        </div>
+                    </div>
 
                         <div className="display-flex" >
                             <p>Approve Funds </p> 
