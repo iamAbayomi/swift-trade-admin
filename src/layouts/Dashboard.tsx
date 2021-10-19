@@ -29,12 +29,24 @@ import ModalFormWithCards from '../components/ModalFormWithCards'
 
 export default class Dashboard extends React.Component{
 
+    
+    state ={
+        isActive: false
+    }
+
+    showDashboard(){
+        this.setState({ isActive : !this.state.isActive })
+    }
 
 render(){
     return(
       <Router>
         <div className="container">
             <div className="header-bar">
+                <img className="menu-toggle" id="toggle-menu" 
+                        src="/vectors/menu.svg"
+                        onClick={this.showDashboard.bind(this)}
+                    />
                 <img className="logo" src="logo.svg" />
                 <div className="header-tool">
                     <div className="search-bar">
@@ -57,7 +69,7 @@ render(){
                 </div>
             </div>
             <div className="content">
-                <div className="side-menu">
+                <div className={`side-menu ${this.state.isActive ? "is-open" : "" }`}>
                     <div className="menu-items-content">
                         <NavLink to="/overview" className="menu-item" activeClassName="selected">
                             <img className="menu-icon" src="/vectors/overview.svg" alt="" />

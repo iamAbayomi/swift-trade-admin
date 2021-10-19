@@ -11,17 +11,21 @@
     position: fixed;
     width: 100%;
     background-color: white;
+    z-index: 2;
     /* justify-content: space-between; */
 }
+
+
 
 .header-tool{
     display: flex;   
     justify-content: space-evenly;
     width: 100%;
-    padding: 0px 40px 0px 300px;
+    padding: 0px 40px 0px 100px;
     background-color: white;
     /* border: 1px solid black; */
 }
+
 
 .profile-section{
     display: flex;
@@ -80,6 +84,12 @@
     background: #E5E5E5;
 }
 
+.menu-toggle{
+    display: none;
+    width: 25px;
+    height: 25px;
+    margin: 20px 10px 20px 20px;
+}
 
 .search-bar{
     max-width: 500px;
@@ -208,7 +218,6 @@ input:focus, textarea:focus, select:focus, button:focus{
         margin: 5px 5px 0px 0px;
     }
 
-
 }
 
 /* For Tablets */
@@ -221,6 +230,7 @@ input:focus, textarea:focus, select:focus, button:focus{
     p{
         font-size: 0.75em;
     }
+
 }
 /* For Laptops */
 @media screen and (max-width: 900px){
@@ -250,5 +260,13 @@ input:focus, textarea:focus, select:focus, button:focus{
     .main-section{
         margin: 70px 0px 0px 0px;
     }
+    .menu-toggle{
+        display: block;
+    }
+    
 }
 
+
+.is-open{
+    display: block;
+}
