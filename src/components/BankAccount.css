@@ -80,7 +80,6 @@
   }
 
   .notification-section{
-      width: 900px;
       display: block;
       margin: auto;
   }
@@ -98,3 +97,6 @@
 }
 
 
+.switch1{
+  margin-left: 40px;
+}
