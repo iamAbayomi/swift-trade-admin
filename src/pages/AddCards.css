@@ -21,5 +21,35 @@
 }
 
 .addcard-text{
-    margin: 10px 10px 20px 0px;
+    margin: 10px 0px 20px 10px;
+}
+
+.card-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.button{
+    color: white;
+    width: 134px;
+    height: 42px;
+    margin: 10px 0px 0px 0px;
+    display: flex;
+    background: #010066;
+    border-radius: 10px;
+    border: 1px solid blue;
+}
+
+/* For Portrait Phones */
+@media screen and (max-width: 768px){
+    .card-title{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .button{
+        margin: 20px 0px 0px 15px;
+    }
 }
