@@ -13,9 +13,9 @@ export default class Coins extends React.Component {
         return(
             <div className="container">
                 <div className="contents">
-                    <CardTitle className="display-flex">
+                    <CardTitle className="card-title">
                         <p className="dashboard-title">Coins</p>
-                        <div className="display-flex">
+                        <div className="display-flex card-title">
                             <div className="search-bar">
                                 <div className="search-content">
                                     <div className="search-logo-and-highlight">
@@ -26,7 +26,7 @@ export default class Coins extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            <AddButton style={{ margin: "10px auto 0px auto" }} className="blue-button display-flex" >
+                            <AddButton  className="button">
                                 <img className="card-logo" src="/vectors/card-logo.svg" />
                                 <p className="addcard-text" >Add Cards</p>
                             </AddButton>
