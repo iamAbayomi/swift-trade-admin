@@ -17,10 +17,10 @@ export default class Payments extends React.Component{
                     <div className="display-flex">
                     <p className="dashboard-title" >Payments</p>
                     <Link to="/trade"  className="no-text">
-                        <button className="green-button display-flex">
+                        {/* <button className="green-button display-flex">
                             <img className="add-icon" src="/vectors/add-icon.svg" />
                             <p>Place New</p>
-                        </button>
+                        </button> */}
                     </Link>
                     </div>   
                         <PaymentsTransactionCard/>
