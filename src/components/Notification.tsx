@@ -30,7 +30,7 @@ export default class Notification extends React.Component{
                         
                         <div className="display-flex" >
                             <p>Buy/Sell</p> 
-                            <label className="switch">
+                            <label className="switch switch1">
                                 <input type="checkbox" checked/>
                                 <span className="slider round"></span>
                             </label>
