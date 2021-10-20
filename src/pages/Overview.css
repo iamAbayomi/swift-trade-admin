@@ -475,7 +475,8 @@ Link{
         /* width: 110px;
         height: 60px; */
         border-radius: 6px;
-        padding: 1px 1px 5px 1px;
+        border-radius: 6px;
+        padding: 20px;
     }
 
     .transaction-text{
