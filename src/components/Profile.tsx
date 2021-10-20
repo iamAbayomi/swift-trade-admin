@@ -19,25 +19,25 @@ export default class Profile extends React.Component{
 
                             <div className="profile-information-section ">
                                 
-                                <div className="display-flex">
+                                <div className="profile-input">
                                     <div className="firstname">
                                         <p>First Name</p>
-                                        <EditField type="name" className="edit-field" placeholder="Ramon" />
+                                        <EditField type="name" className="edit-text" placeholder="Ramon" />
                                     </div>
                                     <div className="lastname">
                                         <p>Last Name</p>
-                                        <EditField type="name" className="edit-field" placeholder="Ridwan" />
+                                        <EditField type="name" className="edit-text" placeholder="Ridwan" />
                                     </div>
                                 </div>
 
-                                <div className="display-flex">
+                                <div className="profile-input">
                                     <div className="email">
                                         <p>Email</p>
-                                        <EditField type="email" className="edit-field" placeholder="Ramoneidwan@gmail.com" />
+                                        <EditField type="email" className="edit-text" placeholder="Ramoneidwan@gmail.com" />
                                     </div>
                                     <div className="phone">
                                         <p>Phone</p>
-                                        <EditField type="name" className="edit-field" placeholder="+234 813344969221" />
+                                        <EditField type="name" className="edit-text" placeholder="+234 813344969221" />
                                     </div>
                                 </div>
                             </div>
@@ -50,17 +50,17 @@ export default class Profile extends React.Component{
                         <div className="reset-password-section">
                             <div className="old-password">
                                 <p>Old Password</p>
-                                <EditField type="password" className="edit-field" placeholder="Enter your old password"/>
+                                <EditField type="password" className="edit-text" placeholder="Enter your old password"/>
                             </div>
 
                             <div className="new-password">
                                 <p>New Password</p>
-                                <EditField type="password" className="edit-field" placeholder="New password"/>
+                                <EditField type="password" className="edit-text" placeholder="New password"/>
                             </div>
 
                             <div className="confirm-password">
                                 <p>Confirm Password</p>
-                                <EditField type="password" className="edit-field" placeholder="Confirm password"/>
+                                <EditField type="password" className="edit-text" placeholder="Confirm password"/>
                             </div>
                             <button className="blue-button" >Save Changes</button>
                         </div>
@@ -85,13 +85,5 @@ const SettingsSection = styled.div `
 
 
 const EditField = styled.input `
-    width: 300px;
-    height: 58px;
-    display: block;
-    padding-left: 30px;
-    margin-top: 10px;
-    margin-bottom: 20px ;
-    border-color:#c7d3e6;
-    border-radius: 4px;
-    border-style: solid;
+    
 `

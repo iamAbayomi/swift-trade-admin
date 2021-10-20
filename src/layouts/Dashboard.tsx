@@ -26,6 +26,7 @@ import styled from 'styled-components'
 import AddCards from '../pages/AddCards'
 import AddCoins from '../pages/AddCoins'
 import ModalFormWithCards from '../components/ModalFormWithCards'
+import Form from '../pages/Form'
 
 export default class Dashboard extends React.Component{
 
@@ -142,6 +143,7 @@ render(){
                             <Route path="/logout" component={Logout} />
                             <Route path="/addcards" component={AddCards} />
                             <Route path="/addcoins" component={AddCoins} />
+                            <Route path="/form" component={Form} />
                             <Route path="/modalform" component={ModalFormWithCards} />
 
                             {/* <Route exact path="/pendingwallet" component={} />
