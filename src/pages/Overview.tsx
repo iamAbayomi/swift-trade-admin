@@ -15,6 +15,7 @@ import './Overview.css'
 import SingleCardsView from '../components/SingleCardsView'
 import UserTableView from '../components/UserTableView'
 import PaymentsTransactionCard from '../components/PaymentsTransactionCard'
+import SingleTransactionOverview from '../components/SingleTransactionsOverview'
 
 export default class Overview extends React.Component{
 
@@ -28,12 +29,8 @@ export default class Overview extends React.Component{
               <div className="contents" >
                     <p className="username-intro">HELLO, RAMON RIDWAN</p>
                     <p className="dashboard-title">Overview</p>
-                    <Link to="/transactions" className="transaction-row display-flex link">
-                        
-                        <SingleTransactionCardView percentage = {80} transactiontext="Total Number of Transactions" />
-                        <SingleTransactionCardView percentage = {43} transactiontext="Pending Transactions" />
-                        <SingleTransactionCardView percentage = {100} transactiontext="Paid Transactions" />
-                    </Link>
+                    
+                    <SingleTransactionOverview />
 
                     <ConversionRate />
                     
