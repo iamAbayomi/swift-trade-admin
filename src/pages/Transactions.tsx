@@ -6,6 +6,7 @@ import '../layouts/Transaction.css'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import axios from 'axios'
+import TransactionOverview from '../components/TransactionOverview'
 
 export default class Transactions extends React.Component{
     
@@ -42,7 +43,7 @@ export default class Transactions extends React.Component{
                         </button> */}
                     </Link>
                     </div>   
-                        <TransactionCards />
+                        <TransactionOverview />
                     </TradeSpace>
                     </div>
                     
