@@ -40,7 +40,7 @@ function  SingleTransactionOverview() {
             .then(async (res: any) => {
                 console.log('This is the user response', res.data.data)  
                 let result = await res.data.data
-                setTransactionCount(result)
+                // setTransactionCount(result)
                 // tempTransaction = res.data.data
 
                 console.log(transactionCount)
@@ -57,9 +57,9 @@ function  SingleTransactionOverview() {
                     //     <SingleTransactionCardView percentage = {item} transactiontext="Total Number of Transactions" />
                     // )
                 }
-                    <SingleTransactionCardView transactiontext="Total Number of Transactions" percentage = {transactionCount.allTransactions} />   
+                    <SingleTransactionCardView transactiontext="Total Number of Users" percentage = {transactionCount.successfulTransactions}  />
                     <SingleTransactionCardView transactiontext="Pending Transactions" percentage = {transactionCount.pendingTransactions} />
-                    <SingleTransactionCardView transactiontext="Paid Transactions" percentage = {transactionCount.successfulTransactions}  />
+                    <SingleTransactionCardView transactiontext="Total Number of Transactions" percentage = {transactionCount.allTransactions} />   
             </Link>
         </div>
 

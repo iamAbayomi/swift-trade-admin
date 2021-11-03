@@ -1,13 +1,37 @@
 /* eslint-disable jsx-a11y/alt-text */
+import axios from 'axios';
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { getToken } from '../classes/User';
 
 import './SingleCoinView.css'
 
 const coin = ["bitcoin-coin", "ethereum-coin"]
 
 export default class SingleCardsView extends React.Component{
+
+    componentDidMount(){
+        this.getCoins()
+    }
+
+    async getCoins(){
+        let token = await getToken()
+        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/coins',{
+            headers:{'Authorization' : `Bearer ${token}`}})
+            .then((res) => {console.log('This is the response', res)})
+            .catch((err)=>{console.log(err)})
+        console.log('i am here')
+    }
+
+    async postCoins(){
+        let token = await getToken()
+        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/coins/create',{
+            headers:{'Authorization' : `Bearer ${token}`}})
+            .then((res) => {console.log('This is the response', res)})
+            .catch((err)=>{console.log(err)})
+        console.log('i am here')
+    }
 
     render(){
     return(

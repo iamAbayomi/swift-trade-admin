@@ -52,13 +52,14 @@ export default class ConversionRate extends React.Component {
 
 const columns = ["iTunes Card", "", "Amazon Card", "" ,"Bitcoin", ""]
 
-const data = [
-    ["USA Physical",   "N400.00", "USA Physical",   "N400.00", "Bitcoin BTC",  " N400.00"],
-    ["USA E-Code Card",   "N400.00", "USA E-Code Card",   "N400.00", "Bitcoin BTC",   "N400.00"],
-    ["UK Physical Card",    "N400.00", "UK Physical Card",   "N400.00", "Bitcoin BTC",   "N400.00"],
-    ["UK E-Code Card",   "N400.00", "UK E-Code Card",   "N400.00", "Bitcoin BTC",   "N400.00"]
+const data: (string[] | object[] | number[])[]= []
 
-]
+// const data = [
+//     ["USA Physical",   "N400.00", "USA Physical",   "N400.00", "Bitcoin BTC",  " N400.00"],
+//     ["USA E-Code Card",   "N400.00", "USA E-Code Card",   "N400.00", "Bitcoin BTC",   "N400.00"],
+//     ["UK Physical Card",    "N400.00", "UK Physical Card",   "N400.00", "Bitcoin BTC",   "N400.00"],
+//     ["UK E-Code Card",   "N400.00", "UK E-Code Card",   "N400.00", "Bitcoin BTC",   "N400.00"]
+// ]
 
 const options = {
     elevation: 0

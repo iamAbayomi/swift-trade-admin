@@ -1,11 +1,35 @@
 /* eslint-disable jsx-a11y/alt-text */
+import axios from 'axios';
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { getToken } from '../classes/User';
 const giftImages = ["amazon-card", "itunes-card", "google-playcard","itunes-card", "other-cards"];
+
+// const giftImages = ["amazon-card", "itunes-card", "google-playcard","itunes-card", "other-cards",
+//  "itunes-card", "google-playcard","itunes-card", "other-cards", "itunes-card", "google-playcard","itunes-card", "other-cards"
+//  , "itunes-card", "google-playcard","itunes-card", "other-cards"];
 
 export default class SingleCardsView extends React.Component{
 
+    componentDidMount(){
+        this.getCards()
+    }
+    
+    
+    async getCards(){
+        let token = await getToken()
+        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/cards', {
+             headers: {
+                'Authorization' : `Bearer ${token}`
+            }}).then((res) => {
+                console.log('This is the response', res)    
+            })
+            .catch((err)=>{
+                console.log(err)
+            })
+        console.log('i am here')
+    }
     
 
     render(){
