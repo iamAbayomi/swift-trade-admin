@@ -8,6 +8,7 @@ import './Overview.css'
 import { NavLink, Route, Switch } from 'react-router-dom'
 
 import { createBrowserHistory } from 'history'
+import UpdatePassword from '../components/profile/UpdatePassword'
 
 
 const history = createBrowserHistory() 
@@ -33,8 +34,8 @@ export default class Settings extends React.Component{
                             <NavLink to="settings/notification" activeClassName="settings-link"><p>Notification</p></NavLink>
                             <NavLink to="settings/activity"  activeClassName="settings-link"><p>Activity Log</p></NavLink> */}
                             <NavLink to="/settings/profile" activeClassName="settings-link"><p>Profile</p></NavLink>
+                            <NavLink to="/settings/resetpassword"  activeClassName="settings-link"><p>Reset Password</p></NavLink>
                             <NavLink to="/settings/notification" activeClassName="settings-link"><p>Notification</p></NavLink>
-                            <NavLink to="/settings/activity"  activeClassName="settings-link"><p>Activity Log</p></NavLink>
                     </div>
                     {/* <div className="divider" /> */}
             </div>
@@ -42,9 +43,8 @@ export default class Settings extends React.Component{
                 <Switch>  
                         <Route exact path="/settings/" component={Profile}/>
                         <Route  path="/settings/profile" component={Profile}/>
+                        <Route path="/settings/resetpassword" component={UpdatePassword}/>
                         <Route path="/settings/notification" component={Notification}/>
-                        <Route path="/settings/activity" component={ActivityLog}/>
-                        
                 </Switch> 
                 </div>
             </div>

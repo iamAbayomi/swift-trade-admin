@@ -37,7 +37,7 @@ function UpdatePassword(){
     }
 
     return(
-        <div className="card-white margin-top">
+        <div className="card-white">
             <p className="purple-header-typography">Reset Password</p>
             <div className="reset-password-section">
                 <div className="old-password">
