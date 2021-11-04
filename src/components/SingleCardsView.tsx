@@ -6,24 +6,30 @@ import styled from 'styled-components'
 import { getToken } from '../classes/User';
 const giftImages = ["amazon-card", "itunes-card", "google-playcard","itunes-card", "other-cards"];
 
+
+
 // const giftImages = ["amazon-card", "itunes-card", "google-playcard","itunes-card", "other-cards",
 //  "itunes-card", "google-playcard","itunes-card", "other-cards", "itunes-card", "google-playcard","itunes-card", "other-cards"
 //  , "itunes-card", "google-playcard","itunes-card", "other-cards"];
 
 export default class SingleCardsView extends React.Component{
 
+    state = {
+        imagesCard: ''
+    }
+
     componentDidMount(){
         this.getCards()
     }
     
+
     
     async getCards(){
         let token = await getToken()
         axios.get('https://swift-trade-v1.herokuapp.com/api/v1/cards', {
-             headers: {
-                'Authorization' : `Bearer ${token}`
-            }}).then((res) => {
-                console.log('This is the response', res)    
+             headers: {'Authorization' : `Bearer ${token}`
+            }}).then((res: any) => {
+                this.setState( res.data.data)
             })
             .catch((err)=>{
                 console.log(err)
@@ -43,9 +49,10 @@ export default class SingleCardsView extends React.Component{
                 </div>
                 <ClearFix>
                     <GiftCards className="">
-                        {giftImages.map((item) =>
-                            <img className="card-image" src={"/vectors/" + item + ".svg"}/>    
-                        )}
+                    {
+                        this.state.imagesCard ? <p>There is no cards currently </p> : 
+                        <div> {this.state.imagesCard} </div>
+                    }
                         <Link to="/addcards" className="link">
                             <AddGreenButton src="/vectors/add-green-button.svg" />
                         </Link>
@@ -56,7 +63,7 @@ export default class SingleCardsView extends React.Component{
         </Link>     
      </CardWhite>
     )   
-}
+    }
 }
 
 const CardWhite = styled.div `

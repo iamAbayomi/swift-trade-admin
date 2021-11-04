@@ -33,12 +33,14 @@ export default class TransactionCards extends React.Component{
 
 const columns = ["Date", "Transaction", "Type", "Value", "Status"]
 
-const data = [
-    ["14/01/2019", "12345678", "Bitcoin", "$100", <Chips chipsText="Completed" backgroundColor="rgba(93, 248, 136, 1)" />],
-    ["14/01/2019", "12345678", "Amazon", "$100", <Chips chipsText="Failed" backgroundColor="rgba(255, 73, 73, 1)" />],
-    ["14/01/2019", "12345678", "Bitcoin", "$100", <Chips chipsText="In Progress" backgroundColor="rgba(93, 248, 136, 1)" />],
-    ["14/01/2019", "12345678", "Etherum", "$100", <Chips chipsText="Completed" backgroundColor="rgba(93, 248, 136, 1)" />]
-]
+const data : any  = []
+
+// const data = [
+//     ["14/01/2019", "12345678", "Bitcoin", "$100", <Chips chipsText="Completed" backgroundColor="rgba(93, 248, 136, 1)" />],
+//     ["14/01/2019", "12345678", "Amazon", "$100", <Chips chipsText="Failed" backgroundColor="rgba(255, 73, 73, 1)" />],
+//     ["14/01/2019", "12345678", "Bitcoin", "$100", <Chips chipsText="In Progress" backgroundColor="rgba(93, 248, 136, 1)" />],
+//     ["14/01/2019", "12345678", "Etherum", "$100", <Chips chipsText="Completed" backgroundColor="rgba(93, 248, 136, 1)" />]
+// ]
 
 
 const Button = styled.button `

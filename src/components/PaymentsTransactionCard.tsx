@@ -35,13 +35,15 @@ export default class PaymentsTransactionCard extends React.Component{
 
 const columns = ["Payment Status", "User", "Email", "Action"]
 
-const data = [
-    [<Chips chipsText="Processing" backgroundColor="#010066" />,  <UserImageandName image="/vectors/profile-ywoman-image.svg" name="Quadiri Lawal"/>, "Quaderilawal@protonmail.com", <MenuOptions/>],
-    [<Chips chipsText="Decline" backgroundColor="rgba(255, 73, 73, 1)" />,  <UserImageandName image="/vectors/profile-bman-image.svg" name="Tusweet iyanah"/>, "Tusweetiyanah@protonmail.com", <MenuOptions/>],
-    [<Chips chipsText="Pending" backgroundColor="rgba(130, 130, 130, 1)" />,  <UserImageandName image="/vectors/profile-wman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions/>],
-    [<Chips chipsText="Decline" backgroundColor="rgba(255, 73, 73, 1)" />,  <UserImageandName image="/vectors/profile-swman-image.svg" name="Lai Muhammed"/>, "Laimuhammed@protonmail.com", <MenuOptions/>]
+const data : any = []
+
+// const data = [
+//     [<Chips chipsText="Processing" backgroundColor="#010066" />,  <UserImageandName image="/vectors/profile-ywoman-image.svg" name="Quadiri Lawal"/>, "Quaderilawal@protonmail.com", <MenuOptions/>],
+//     [<Chips chipsText="Decline" backgroundColor="rgba(255, 73, 73, 1)" />,  <UserImageandName image="/vectors/profile-bman-image.svg" name="Tusweet iyanah"/>, "Tusweetiyanah@protonmail.com", <MenuOptions/>],
+//     [<Chips chipsText="Pending" backgroundColor="rgba(130, 130, 130, 1)" />,  <UserImageandName image="/vectors/profile-wman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions/>],
+//     [<Chips chipsText="Decline" backgroundColor="rgba(255, 73, 73, 1)" />,  <UserImageandName image="/vectors/profile-swman-image.svg" name="Lai Muhammed"/>, "Laimuhammed@protonmail.com", <MenuOptions/>]
     
-]
+// ]
 
 
 
