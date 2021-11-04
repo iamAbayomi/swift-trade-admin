@@ -16,6 +16,7 @@ import SingleCardsView from '../components/SingleCardsView'
 import UserTableView from '../components/UserTableView'
 import PaymentsTransactionCard from '../components/PaymentsTransactionCard'
 import SingleTransactionOverview from '../components/SingleTransactionsOverview'
+import TransactionOverview from '../components/TransactionOverview'
 
 export default class Overview extends React.Component{
 
@@ -55,7 +56,7 @@ export default class Overview extends React.Component{
                              <PaymentsTransactionCard />
                     </Link> 
                     <Link to="/transactions" className="link">
-                             <TransactionCards/>
+                             <TransactionOverview />
                     </Link> 
                   
               </div>
