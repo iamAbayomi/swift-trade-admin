@@ -11,6 +11,10 @@ const coin = ["bitcoin-coin", "ethereum-coin"]
 
 export default class SingleCardsView extends React.Component{
 
+    state = {
+        coinImages: ''
+    }
+
     componentDidMount(){
         this.getCoins()
     }
@@ -45,9 +49,14 @@ export default class SingleCardsView extends React.Component{
                 <ClearFix>
                     <div className="gift-card-section">
                         <GiftCards className="gift-cards">
-                            {coin.map((item)  =>
+                            {/* {coin.map((item)  =>
                                 <GiftItem className="gift-cards-item" src={"/vectors/" + item + ".svg" }/>
-                            )}
+                            )} */}
+                            {
+                                this.state.coinImages ? <p> There is no cards currently </p> : 
+                                <div>{this.state.coinImages}</div>
+
+                            }
                         </GiftCards>
                         <div className="add-coincard">
                             <p className="add-coin-title">Product</p>

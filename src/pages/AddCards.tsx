@@ -5,6 +5,7 @@ import '../components/Profile.css'
 import './AddCards.css'
 import styled from 'styled-components'
 import axios from "axios";
+import { getToken } from "../classes/User";
 
 export default class AddCards extends React.Component{
 
@@ -33,12 +34,14 @@ export default class AddCards extends React.Component{
         })
     }
 
-    addCard(){
+    async addCard(){
+        let token = await getToken()
         axios.post('https://swift-trade-v1.herokuapp.com/api/v1/cards/create', {
             name: this.state.card_name,
             rate: this.state.card_type,
             image: this.state.image
-        })
+        }, {headers: { 'Authorization' : `Bearer ${token}`}}
+        )
         .then((res) => {
             console.log('This is the data', res.data)
         })
@@ -47,13 +50,15 @@ export default class AddCards extends React.Component{
         })
     }
 
-    updateCard(){
+    async updateCard(){
+        let token = await getToken()
         axios.patch('https://swift-trade-v1.herokuapp.com/api/v1/cards/update', {
             cardId: 1,
             name: this.state.card_name,
             rate: this.state.card_type,
             image: this.state.image
-        })
+        }, {headers: { 'Authorization' : `Bearer ${token}`}}
+        )
         .then((res) => {
             console.log('This is the data', res.data)
         })
