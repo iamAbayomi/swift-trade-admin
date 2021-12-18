@@ -29,8 +29,19 @@ import ModalFormWithCards from '../components/ModalFormWithCards'
 import Form from '../pages/Form'
 import { getUser, getUserData, removeUserData } from '../classes/User'
 
-export default class Dashboard extends React.Component{
+/*
+    The entry point of the application. The componentDidMount is 
+    called after the web page is rendered.
+    
+    The flow of the application starts by getting the user's path, then
+    checking if it starts with token, redirecting it to the homepage if the 
+    token is present and storing the user data received in cookies on 
+    logining to the application, then redirecting if it is not.
+*/
 
+
+export default class Dashboard extends React.Component{
+    // Properties of the Dashboard saved in the user state
     state ={
         isActive: false,
         user: {
@@ -43,37 +54,58 @@ export default class Dashboard extends React.Component{
     }
 
     componentDidMount(){
-        this.getPathName()
+        // Get the name of the path from the web page and the user data
+        //this.getPathName()
     }
 
+    
     getPathName(){
+        // get the path name to check for the token
         let pathname = window.location.pathname
+        // if the pathname starts with the token
         if(pathname.startsWith('/token/')){
+            // redirect the user to the homepage
             let token = window.location.pathname.replace('/token/','')
+            /*
+                This getUserData method is in the user class
+                and it gets the data from the user api request
+                and it saves the data in the cookies
+            */ 
             getUserData(this.state.user, token)
         }else{
+             // This checks if the user is authenticated and 
+            // redirects the user to the homepage
             this.isUserAuthenticated()
         }
     }
 
 
+    // this toggles the user side dashboard state
     showDashboard(){
         this.setState({ isActive : !this.state.isActive })
     }
 
+    // this checks if the user is authenticated
     async isUserAuthenticated(){
+        // aysnchronous method to get user data stored in cookies
         let tempUser = await getUser()
+        // this stores the temporary state of the user in the 
+        // state of the application
         this.setState({user: tempUser})
+        // checks if the users state is stored in the application.
         if(this.state.user){
             console.log('it is safe to access this page')
             console.log(this.state.user)
         }else{
+            // redirects the user to the homepage
             window.location.href ="https://swift-homepage.netlify.app/"
         }
     }
-
+    
+    // Log the user out of the application.
     logOut(){
         removeUserData('token', 'userData')
+        // Redirect the user to the home page
         window.location.href = "/"
     }
 
