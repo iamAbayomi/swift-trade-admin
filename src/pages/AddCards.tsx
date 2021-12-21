@@ -13,7 +13,7 @@ export default class AddCards extends React.Component{
         card_name: '',
         card_type: '',
         card_currency: '',
-        image: ''
+        image: '/vectors/profile-display-container.svg'
     }
 
     onCardNameChange(event: ChangeEvent<HTMLInputElement>){
@@ -33,6 +33,40 @@ export default class AddCards extends React.Component{
             card_currency: event.target.value  
         })
     }
+
+    onProfileImageSelected(event: ChangeEvent<HTMLInputElement>){
+        // this.setState({ image: event.target.value})
+        let fileObj
+        if (event.target.files !==null){fileObj = event!!.target!!.files[0]}
+        this.setState({ image: fileObj})
+        //const objectURL = URL.createObjectURL(fileObj)
+        console.log(fileObj)
+        this.postImagetoCloundinary(fileObj)
+        //console.log(objectURL)
+    }
+
+    postImagetoCloundinary(fileProp: any){
+        console.log(fileProp)
+        const formData = new FormData();
+        formData.append('file', fileProp);
+        // replace this with your upload preset name
+        formData.append('upload_preset', 'qwerty12');
+        const options = {
+            method: 'POST',
+            body: formData,
+        };
+
+        // replace cloudname with your Cloudinary cloud_name
+        return fetch('https://api.Cloudinary.com/v1_1/appdot/image/upload', options)
+        .then(res => res.json())
+        .then(res => 
+            {
+                console.log(res)
+                this.setState({ image: res.secure_url})
+            })
+        .catch(err => console.log(err));
+    }
+
 
     async addCard(){
         let token = await getToken()
@@ -93,12 +127,16 @@ export default class AddCards extends React.Component{
                     </CardTitle>
                     <CardWhite className="card-white">
                         <div className="profile-display-container">
-                            <img className="" src="/vectors/profile-display-container.svg"/>
+                            <label htmlFor="file-input" className="">
+                                {/* <img className=""  src="/vectors/profile-display-container.svg"/> */}
+                                <img className="coin-image" src={this.state.image}/>
+                            </label>
+                            <input onChange={this.onProfileImageSelected.bind(this)} accept="image/*" className="file-input" type="file" id ="file-input" />
                         </div>
                         <div className="add-card-section">
                             <div className="card-name">
                                 <p>Card Name</p>
-                                <EditField 
+                                <EditField   
                                     type="name" 
                                     className="edit-field" 
                                     placeholder="Google Play E-code card"

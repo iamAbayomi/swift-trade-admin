@@ -50,7 +50,7 @@ export default class SingleCardsView extends React.Component{
                 <ClearFix>
                     <GiftCards className="">
                     {
-                        this.state.imagesCard ? <p>There is no cards currently </p> : 
+                        this.state.imagesCard ? <p>There are no cards currently </p> : 
                         <div> {this.state.imagesCard} </div>
                     }
                         <Link to="/addcards" className="link">
