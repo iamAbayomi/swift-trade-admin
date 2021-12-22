@@ -11,13 +11,13 @@ import axios from "axios";
 export default class Cards extends React.Component {
     
     componentDidMount(){
-        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/bank-accounts/')
-        .then((res)=>{
-                console.log('This is the data', res.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+        // axios.get('https://swift-trade-v1.herokuapp.com/')
+        // .then((res)=>{
+        //         console.log('This is the data', res.data)
+        // })
+        // .catch((err) => {
+        //     console.log(err)
+        // })
     }
 
     deleteCard(){
@@ -53,7 +53,7 @@ export default class Cards extends React.Component {
                             </AddButton>
                         </div>
                     </CardTitle>
-                    <SingleCardsView />
+                    <SingleCardsView cardImages={null}/>
                 </div>
             </div>
         )

@@ -12,10 +12,14 @@ const giftImages = ["amazon-card", "itunes-card", "google-playcard","itunes-card
 //  "itunes-card", "google-playcard","itunes-card", "other-cards", "itunes-card", "google-playcard","itunes-card", "other-cards"
 //  , "itunes-card", "google-playcard","itunes-card", "other-cards"];
 
-export default class SingleCardsView extends React.Component{
+type imagesState = {
+    cardImages: any
+}
 
-    state = {
-        imagesCard: ''
+export default class SingleCardsView extends React.Component<imagesState>{
+
+    state : imagesState = {
+        cardImages : null
     }
 
     componentDidMount(){
@@ -29,8 +33,10 @@ export default class SingleCardsView extends React.Component{
         axios.get('https://swift-trade-v1.herokuapp.com/api/v1/cards', {
              headers: {'Authorization' : `Bearer ${token}`
             }}).then((res: any) => {
-                this.setState( { imagesCard: res.data.data})
-                
+                this.setState( { cardImages: res.data.data})
+                console.log('this is the response of the cards', res)
+                console.log( this.state.cardImages[0].image)
+                // this.forceUpdate()
             })
             .catch((err)=>{
                 console.log(err)
@@ -50,21 +56,32 @@ export default class SingleCardsView extends React.Component{
                 </div>
                 <ClearFix>
                     <GiftCards className="">
+                    {/* <img className='sameimage' src='https://res.cloudinary.com/appdot/image/upload/v1640185184/demo/r5s5zdihl8ix9qinaalq.svg' /> */}
+                    
                     {
-                        this.state.imagesCard ? <p>There are no cards currently </p> : 
-                        <div/>
-                        // {
-                        //     this.state.imagesCard.map((items) => {
-                        //         <img src="" />
-                        //     })
-                        // }
+                        this.state.cardImages !=null ?  
+                       <div>
+                           {/* <img className='sameimage' src= {this.state.cardImages[0].image} /> */}
+                           {
+                        this.state.cardImages.map((card : any) => (
+                            // <p> iam here</p>
+                            <Link to={'/addcards/' +  card.id} className='link' >
+                                <img className='sameimage' src={card.image} /> 
+                            </Link>      
+                        ))
+                    }
+                        
+                        </div>
+                        : <p>There are no cards currently </p> 
                         
                     }
+                    
+                        
                         <Link to="/addcards" className="link">
                             <AddGreenButton src="/vectors/add-green-button.svg" />
                         </Link>
                     </GiftCards>
-                    <Button className="blue-button">View More</Button>
+                    <Button className="blue-button">View Mores</Button>
                 </ClearFix>
             </CardsRow>
         </Link>     

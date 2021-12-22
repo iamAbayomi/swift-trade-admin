@@ -42,7 +42,7 @@ export default class Overview extends React.Component{
                         
                     </div>
                     <Link to="/cards" className="link">
-                            <SingleCardsView />
+                            <SingleCardsView cardImages={null}/>
                     </Link>
 
                     <Link to="/users" className="link">
