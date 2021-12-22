@@ -27,7 +27,7 @@ export default class SingleCardsView extends React.Component<imagesState>{
     }
     
 
-    
+    // Get all the cards from the api
     async getCards(){
         let token = await getToken()
         axios.get('https://swift-trade-v1.herokuapp.com/api/v1/cards', {
@@ -56,27 +56,19 @@ export default class SingleCardsView extends React.Component<imagesState>{
                 </div>
                 <ClearFix>
                     <GiftCards className="">
-                    {/* <img className='sameimage' src='https://res.cloudinary.com/appdot/image/upload/v1640185184/demo/r5s5zdihl8ix9qinaalq.svg' /> */}
-                    
                     {
                         this.state.cardImages !=null ?  
                        <div>
-                           {/* <img className='sameimage' src= {this.state.cardImages[0].image} /> */}
                            {
-                        this.state.cardImages.map((card : any) => (
-                            // <p> iam here</p>
-                            <Link to={'/addcards/' +  card.id} className='link' >
-                                <img className='sameimage' src={card.image} /> 
-                            </Link>      
-                        ))
-                    }
-                        
+                            this.state.cardImages.map((card : any) => (
+                                <Link to={'/addcards/singlecards?card' +  card.id} className='link' >
+                                    <img className='sameimage' src={card.image} /> 
+                                </Link>      
+                            ))
+                            }
                         </div>
-                        : <p>There are no cards currently </p> 
-                        
+                        : <p>There are no cards currently </p>     
                     }
-                    
-                        
                         <Link to="/addcards" className="link">
                             <AddGreenButton src="/vectors/add-green-button.svg" />
                         </Link>
