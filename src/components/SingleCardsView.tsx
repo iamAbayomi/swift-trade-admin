@@ -29,7 +29,8 @@ export default class SingleCardsView extends React.Component{
         axios.get('https://swift-trade-v1.herokuapp.com/api/v1/cards', {
              headers: {'Authorization' : `Bearer ${token}`
             }}).then((res: any) => {
-                this.setState( res.data.data)
+                this.setState( { imagesCard: res.data.data})
+                
             })
             .catch((err)=>{
                 console.log(err)
@@ -51,7 +52,13 @@ export default class SingleCardsView extends React.Component{
                     <GiftCards className="">
                     {
                         this.state.imagesCard ? <p>There are no cards currently </p> : 
-                        <div> {this.state.imagesCard} </div>
+                        <div/>
+                        // {
+                        //     this.state.imagesCard.map((items) => {
+                        //         <img src="" />
+                        //     })
+                        // }
+                        
                     }
                         <Link to="/addcards" className="link">
                             <AddGreenButton src="/vectors/add-green-button.svg" />

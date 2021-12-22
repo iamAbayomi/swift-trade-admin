@@ -55,7 +55,7 @@ export default class Dashboard extends React.Component{
 
     componentDidMount(){
         // Get the name of the path from the web page and the user data
-        //this.getPathName()
+        this.getPathName()
     }
 
     
