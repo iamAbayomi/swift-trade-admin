@@ -27,7 +27,7 @@ export default class SingleCardsView extends React.Component<imagesState>{
     }
     
 
-    // Get all the cards from the api
+    // Get all the cards from the api cards
     async getCards(){
         let token = await getToken()
         axios.get('https://swift-trade-v1.herokuapp.com/api/v1/cards', {

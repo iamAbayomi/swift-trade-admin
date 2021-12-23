@@ -16,6 +16,16 @@ export default class AddCards extends React.Component{
         image: '/vectors/profile-display-container.svg'
     }
 
+    //ComponentDidMount to get Cards property when the page builds.
+    componentDidMount(){
+
+    }
+
+    getAddCards(){
+        let token = window.location.pathname.replace('/addcards', '')
+
+    }
+
     onCardNameChange(event: ChangeEvent<HTMLInputElement>){
         this.setState({
             card_name: event.target.value
@@ -47,6 +57,7 @@ export default class AddCards extends React.Component{
 
     postImagetoCloundinary(fileProp: any){
         console.log(fileProp)
+        // Adding the formdata to upload image to cloudinary
         const formData = new FormData();
         formData.append('file', fileProp);
         // replace this with your upload preset name

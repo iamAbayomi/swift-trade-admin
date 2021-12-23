@@ -9,7 +9,7 @@ import './SingleCoinView.css'
 
 const coin = ["bitcoin-coin", "ethereum-coin"]
 
-export default class SingleCardsView extends React.Component{
+export default class SingleCoinView extends React.Component{
 
     state = {
         coinImages: ''

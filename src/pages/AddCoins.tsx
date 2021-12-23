@@ -1,11 +1,79 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from "react";
+import React, { ChangeEvent } from "react";
 import './Overview.css'
 import '../components/Profile.css'
 import './AddCards.css'
 import styled from 'styled-components'
+import { getToken } from "../classes/User";
+import axios from "axios";
 
 export default class AddCoins extends React.Component{
+
+    state ={
+        coin_name: '',
+        network_type: '',
+        image: '/vectors/profile-display-container.svg'
+    }
+
+    onCoinNameChanged(event: ChangeEvent<HTMLInputElement>){
+        this.setState({ coin_name: event.target.value})
+    }
+    
+    onNetworkTypeChange(event: ChangeEvent<HTMLInputElement>){
+        this.setState({ network_type: event.target.value})
+    }
+    
+    onCoinImageSelected(event: ChangeEvent<HTMLInputElement>){
+        // this.setState({ image: event.target.value})
+        let fileObj
+        if (event.target.files !==null){fileObj = event!!.target!!.files[0]}
+        this.setState({ image: fileObj})
+        //const objectURL = URL.createObjectURL(fileObj)
+        console.log(fileObj)
+        this.postImagetoCloundinary(fileObj)
+        //console.log(objectURL)
+    }
+
+
+    postImagetoCloundinary(fileProp: any){
+        console.log(fileProp)
+        // Adding the formdata to upload image to cloudinary
+        const formData = new FormData();
+        formData.append('file', fileProp);
+        // replace this with your upload preset name
+        formData.append('upload_preset', 'qwerty12');
+        const options = {
+            method: 'POST',
+            body: formData,
+        };
+
+        // replace cloudname with your Cloudinary cloud_name
+        return fetch('https://api.Cloudinary.com/v1_1/appdot/image/upload', options)
+        .then(res => res.json())
+        .then(res => 
+            {
+                console.log(res)
+                this.setState({ image: res.secure_url})
+            })
+        .catch(err => console.log(err));
+    }
+
+    async addCoins(){
+        let token = await getToken()
+        axios.post('https://swift-trade-v1.herokuapp.com/api/v1/coins/create', {
+            name: this.state.coin_name,
+            rate: 400,
+            image: this.state.image
+        }, {headers: { 'Authorization' : `Bearer ${token}`}}
+        )
+        .then((res) => {
+            console.log('This is the data', res.data)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
+
     render(){
         return(
             <div className="container">
@@ -31,21 +99,36 @@ export default class AddCoins extends React.Component{
                     </CardTitle>
                     <CardWhite className="card-white">
                         <div className="profile-display-container">
-                            <img className="" src="/vectors/profile-display-container.svg"/>
+                            <label htmlFor="file-input" className="">
+                            <img className="coin-image" src={this.state.image}/>
+                            </label>
+                                <input onChange={this.onCoinImageSelected.bind(this)} accept="image/*" className="file-input" type="file" id="file-input" />
                         </div>
                         <div className="add-card-section">
                             <div className="card-name">
                                 <p>Coin Name</p>
-                                <EditField type="name" className="edit-field" placeholder="Google Play E-code card"/>
+                                <EditField 
+                                    type="name" 
+                                    className="edit-field" 
+                                    placeholder="Google Play E-code card"
+                                    value={this.state.coin_name}
+                                    onChange={this.onCoinNameChanged.bind(this)}
+                                    />
                             </div>
 
                             <div className="card-type">
                                 <p>Network Type</p>
-                                <EditField type="name" className="edit-field" placeholder="USA iTunes E-Code card"/>
+                                <EditField 
+                                    type="name" 
+                                    className="edit-field" 
+                                    placeholder="USA iTunes E-Code card"
+                                    value={this.state.network_type}
+                                    onChange={this.onNetworkTypeChange.bind(this)}
+                                    />
                             </div>
 
                             
-                            <button style={{ margin: "60px auto 60px auto" }} className="blue-button" >Add Card</button>
+                            <button onClick={this.addCoins.bind(this)} style={{ margin: "60px auto 60px auto" }} className="blue-button" >Add Card</button>
                         </div>
                     </CardWhite>
                 </div> 
