@@ -73,7 +73,7 @@ export default class SingleCardsView extends React.Component<imagesState>{
                             <AddGreenButton src="/vectors/add-green-button.svg" />
                         </Link>
                     </GiftCards>
-                    <Button className="blue-button">View Mores</Button>
+                    <Button className="blue-button">View More</Button>
                 </ClearFix>
             </CardsRow>
         </Link>     
