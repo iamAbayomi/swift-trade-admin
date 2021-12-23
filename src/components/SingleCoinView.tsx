@@ -80,7 +80,9 @@ export default class SingleCoinView extends React.Component<imageState>{
                             <p className="add-coin-title">Product</p>
                             <EditField className="input-field" placeholder="Bitcoin" />
                             <EditField className="input-field" placeholder="1-20"/>
-                            <Button className="blue-button">Add Coin</Button>    
+                            <Link to="/addcoins">
+                                <Button className="blue-button">Add Coin</Button>    
+                            </Link>
                         </div>
                     </div>
                 </ClearFix>

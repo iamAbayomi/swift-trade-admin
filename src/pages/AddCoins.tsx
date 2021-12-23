@@ -128,7 +128,8 @@ export default class AddCoins extends React.Component{
                             </div>
 
                             
-                            <button onClick={this.addCoins.bind(this)} style={{ margin: "60px auto 60px auto" }} className="blue-button" >Add Card</button>
+                                <button onClick={this.addCoins.bind(this)} style={{ margin: "60px auto 60px auto" }} className="blue-button" >Add Coin</button>
+                            
                         </div>
                     </CardWhite>
                 </div> 
