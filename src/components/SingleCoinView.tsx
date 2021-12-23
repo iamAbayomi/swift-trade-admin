@@ -9,10 +9,14 @@ import './SingleCoinView.css'
 
 const coin = ["bitcoin-coin", "ethereum-coin"]
 
-export default class SingleCoinView extends React.Component{
+type imageState = {
+    coinImages: any
+}
 
-    state = {
-        coinImages: ''
+export default class SingleCoinView extends React.Component<imageState>{
+
+    state : imageState = {
+        coinImages: null
     }
 
     componentDidMount(){
@@ -23,7 +27,10 @@ export default class SingleCoinView extends React.Component{
         let token = await getToken()
         axios.get('https://swift-trade-v1.herokuapp.com/api/v1/coins',{
             headers:{'Authorization' : `Bearer ${token}`}})
-            .then((res) => {console.log('This is the response', res)})
+            .then((res: any) => {
+                this.setState({coinImages: res.data.data})
+                console.log('This is the response', res)
+            })
             .catch((err)=>{console.log(err)})
         console.log('i am here')
     }
@@ -52,9 +59,20 @@ export default class SingleCoinView extends React.Component{
                             {/* {coin.map((item)  =>
                                 <GiftItem className="gift-cards-item" src={"/vectors/" + item + ".svg" }/>
                             )} */}
+
                             {
-                                this.state.coinImages ? <p> There is no cards currently </p> : 
-                                <div>{this.state.coinImages}</div>
+                                this.state.coinImages != null ? 
+                                <div>
+                                    <GiftItem className="gift-cards-item" src={this.state.coinImages[0].image }/>
+                                    <GiftItem className="gift-cards-item" src={this.state.coinImages[1].image }/>
+                                    {/* {this.state.coinImages.map((coin : any)  =>
+                                        <GiftItem className="gift-cards-item" src={coin.image }/>
+                                    )}
+                                     */}
+                                     
+                                </div>
+                                
+                                :<p> There is no cards currently </p> 
 
                             }
                         </GiftCards>

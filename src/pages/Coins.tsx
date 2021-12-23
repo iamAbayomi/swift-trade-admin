@@ -32,7 +32,7 @@ export default class Coins extends React.Component {
                             </AddButton>
                         </div>
                     </CardTitle>
-                    <SingleCoinView />
+                    <SingleCoinView coinImages={null} />
                 </div>
                 
             </div>
