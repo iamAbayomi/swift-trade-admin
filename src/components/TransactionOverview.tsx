@@ -42,9 +42,10 @@ export default class TransactionOverview extends React.Component{
 
     render(){
         return(
-            <div>
+            <div> 
                 {
-                    this.state.response === 200 ?<TransactionCards /> : <EmptyStateTrasanctionCards />
+                    this.state.response === 200 ?<TransactionCards transaction={null} transactionRow={null} token="" data="" /> 
+                    : <EmptyStateTrasanctionCards />
                 }
                 
                 

@@ -35,15 +35,15 @@ export default class UserTableView extends React.Component{
 
 const columns = ["Account Name", "User Name", "Email", "Action"]
 
-const data: any =  []
+// const data: any =  []
 
-// const data = [
-//     [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />,  <UserImageandName image="/vectors/profile-bman-image.svg" name="Ramon Ridwan"/>,"Ramonridwan@protonmail.com", <MenuOptions />],
-//     [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)" />, <UserImageandName image="/vectors/profile-woman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
-//     [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />, <UserImageandName image="/vectors/profile-bman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
-//     [<Chips chipsText="Pending" backgroundColor="rgba(130, 130, 130, 1)" />, <UserImageandName image="/vectors/profile-wman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
-//     [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)"/>, <UserImageandName image="/vectors/profile-woman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />]
-// ]
+const data = [
+    [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />,  <UserImageandName image="/vectors/profile-bman-image.svg" name="Ramon Ridwan"/>,"Ramonridwan@protonmail.com", <MenuOptions />],
+    [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)" />, <UserImageandName image="/vectors/profile-woman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
+    [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />, <UserImageandName image="/vectors/profile-bman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
+    [<Chips chipsText="Pending" backgroundColor="rgba(130, 130, 130, 1)" />, <UserImageandName image="/vectors/profile-wman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
+    [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)"/>, <UserImageandName image="/vectors/profile-woman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />]
+]
 
 const options = {
     elevation: 0

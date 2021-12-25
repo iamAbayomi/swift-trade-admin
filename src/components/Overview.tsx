@@ -42,16 +42,17 @@ export default class Overview extends React.Component{
                     </div>
 
                     <Link to="/transactions" className="link">
-                             <TransactionCards/>
+                             {/* <TransactionCards/> */}
                     </Link> 
                     <Link to="/trade/coin" className="link">
                             <CollectionofCards />
                     </Link>
                     <Link to="/transactions" className="link">
-                             <TransactionCards/>
+                             {/* <TransactionCards/> */}
                     </Link> 
                     <Link to="/transactions" className="link">
-                             <TransactionCards/>
+                             {/* <TransactionCards/> */}
+                             <TransactionCards transaction={null} transactionRow={null} token="" data="" /> 
                     </Link> 
               </div>
 
