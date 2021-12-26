@@ -46,7 +46,7 @@ export default class Overview extends React.Component{
                     </Link>
 
                     <Link to="/users" className="link">
-                            <UserTableView />
+                            <UserTableView userProfile = {null} token ={''} data={''} userProfileRow={null} />
                     </Link> 
 
                     <Link to="/coin" className="link">

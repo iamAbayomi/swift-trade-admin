@@ -7,20 +7,16 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import UserTableView from '../components/UserTableView'
 import axios from 'axios'
+import { getToken } from '../classes/User'
 
-export default class Users extends React.Component{
-    componentDidMount(){
-        axios.patch('https://swift-trade-v1.herokuapp.com/api/v1/role/update',{
-            role: "admin",
-            userID:"da96b92a-0bb2-4586-bddd-60a400a94b38"
+type typeState = {
+    transactionRow: any
+}
 
-        }).then((res)=>{
-                console.log('This is the data', res.data)
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }
+export default class Users extends React.Component<typeState>{
+    
+    
+
     render(){
         return(
             <div>
@@ -33,7 +29,7 @@ export default class Users extends React.Component{
                             
                         </Link>
                     </div>   
-                        <UserTableView />
+                    <UserTableView userProfile = {null} token ={''} data={''} userProfileRow={null} />
                     </TradeSpace>
                     </div>
                     

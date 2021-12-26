@@ -23,4 +23,5 @@ export default UserImageandName
 
 const UserImage = styled.img`
     margin: 0px 20px 0px 0px;
+    width: 40px;
 `

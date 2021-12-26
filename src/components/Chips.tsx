@@ -11,9 +11,14 @@ let backgroundColor = 'green'
 
 export default class Chips extends React.Component<MyProps>{
     
+    state ={
+      chipsText : this.props.chipsText,
+      backgroundColor : this.props.backgroundColor 
+    }
+
     componentDidMount(){
         if(this.props.chipsText){
-            switch(this.props.chipsText){
+            switch(this.props.chipsText.toLowerCase()){
                 case "Active":
                     backgroundColor = "green"
                     break;
@@ -38,6 +43,14 @@ export default class Chips extends React.Component<MyProps>{
                 case "In Progress":
                     backgroundColor = "rgba(1, 0, 102, 1)"
                     break;
+                case "true":
+                    this.setState({ chipsText : "Active" })
+                    this.setState({ backgroundColor : "rgba(93, 248, 136, 1)" })
+                    break;
+                case "false":
+                    this.setState({ chipsText : "Inactive" })
+                    this.setState({ backgroundColor : "rgba(130, 130, 130, 1)" })
+                    break;
                     
             }
         }
@@ -46,7 +59,7 @@ export default class Chips extends React.Component<MyProps>{
     render(){
         return(
             <div>
-                <ChipsCard className="chips" style={{ backgroundColor: `${this.props.backgroundColor}` }}>
+                <ChipsCard className="chips" style={{ backgroundColor: `${this.state.backgroundColor}` }}>
                     <p className="chips-text">{this.props.chipsText}</p>
                 </ChipsCard>
             </div>
