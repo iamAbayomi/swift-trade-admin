@@ -17,42 +17,44 @@ export default class Chips extends React.Component<MyProps>{
     }
 
     componentDidMount(){
-        if(this.props.chipsText){
+        if(this.props.chipsText !=null){
             switch(this.props.chipsText.toLowerCase()){
-                case "Active":
-                    backgroundColor = "green"
+                case "active":
+                    this.setState({backgroundColor : 'green' })
                     break;
-                case "Block":
-                    backgroundColor = "red"
+                case "block":
+                    this.setState({  backgroundColor : 'red' })
                     break;
-                case "Pending":
-                    backgroundColor = "rgba(130, 130, 130, 1)"
+                case "pending":
+                    this.setState({ backgroundColor : "rgba(130, 130, 130, 1)" })
                     break;
-                case "Processing":
-                    backgroundColor = "rgba(1, 0, 102, 1)"
+                case "processing":
+                    this.setState({ backgroundColor : "rgba(1, 0, 102, 1)" })
                     break;
-                case "Decline":
-                    backgroundColor = "red"
+                case "decline":
+                    this.setState({backgroundColor: 'red'})
                     break;
-                case "Completed":
-                    backgroundColor = "green"
+                case "completed":
+                    this.setState({backgroundColor : 'rgba(93, 248, 136, 1)' })
                     break;
-                case "Failed":
-                    backgroundColor = "green"
+                case "failed":
+                    this.setState({backgroundColor : 'red' })
                     break;
-                case "In Progress":
-                    backgroundColor = "rgba(1, 0, 102, 1)"
+                case "in progress":
+                    this.setState({ backgroundColor : "rgba(1, 0, 102, 1)" })
                     break;
-                case "true":
+                case "false":
                     this.setState({ chipsText : "Active" })
                     this.setState({ backgroundColor : "rgba(93, 248, 136, 1)" })
                     break;
-                case "false":
+                case "true":
                     this.setState({ chipsText : "Inactive" })
                     this.setState({ backgroundColor : "rgba(130, 130, 130, 1)" })
                     break;
                     
             }
+            console.log('This is the chips text ' +  this.state.chipsText)
+            console.log('This is the background color ' +  this.state.backgroundColor)
         }
     }
 
@@ -60,7 +62,7 @@ export default class Chips extends React.Component<MyProps>{
         return(
             <div>
                 <ChipsCard className="chips" style={{ backgroundColor: `${this.state.backgroundColor}` }}>
-                    <p className="chips-text">{this.props.chipsText}</p>
+                    <p className="chips-text">{this.state.chipsText}</p>
                 </ChipsCard>
             </div>
         )

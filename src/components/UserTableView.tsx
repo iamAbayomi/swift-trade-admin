@@ -21,7 +21,7 @@ export default class UserTableView extends React.Component<typeState>{
         userProfile : [],
         token: '',
         data: '',
-        userProfileRow: ''
+        userProfileRow: []
     }    
 
     componentDidMount(){ 
@@ -48,7 +48,7 @@ export default class UserTableView extends React.Component<typeState>{
         //This sets the properites needed to display the user data from the API
         userData.map((item:any) => (
             // data.push(item.is_suspended, item.profile_picture, item.first_name + item.last_name, item.email )
-            data.push([<Chips chipsText={item.is_suspended} backgroundColor="rgba(93, 248, 136, 1)" />,  <UserImageandName image={item.profile_picture} name={item.first_name + item.last_name} />, item.email, <MenuOptions />])
+            data.push([<Chips chipsText={item.is_suspended.toString()} backgroundColor="rgba(93, 248, 136, 1)" />,  <UserImageandName image={item.profile_picture} name={item.first_name + " " + item.last_name} />, item.email, <MenuOptions />])
         ))
 
         this.setState({ userProfileRow: data})
@@ -79,10 +79,10 @@ export default class UserTableView extends React.Component<typeState>{
                             <p>Type</p>
                             <p>Value</p>
                             <p>Status</p>
-                        </div> */}      
+                        </div> */}     
                         <MUIDataTable 
                             title={""}             
-                            data={data}
+                            data={this.state.userProfileRow}
                             columns={columns}
                             options = {options}
                             />
@@ -93,21 +93,26 @@ export default class UserTableView extends React.Component<typeState>{
     }
 }
 
+function viewUser( rowData: string[]){
+    console.log(rowData)
+}
+
 
 const columns = ["Account Name", "User Name", "Email", "Action"]
 
 // const data: any =  []
 
-const data = [
-    [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />,  <UserImageandName image="/vectors/profile-bman-image.svg" name="Ramon Ridwan"/>,"Ramonridwan@protonmail.com", <MenuOptions />],
-    [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)" />, <UserImageandName image="/vectors/profile-woman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
-    [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />, <UserImageandName image="/vectors/profile-bman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
-    [<Chips chipsText="Pending" backgroundColor="rgba(130, 130, 130, 1)" />, <UserImageandName image="/vectors/profile-wman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
-    [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)"/>, <UserImageandName image="/vectors/profile-woman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />]
+const data: any[][] = [
+    // [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />,  <UserImageandName image="/vectors/profile-bman-image.svg" name="Ramon Ridwan"/>,"Ramonridwan@protonmail.com", <MenuOptions />],
+    // [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)" />, <UserImageandName image="/vectors/profile-woman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
+    // [<Chips chipsText="Active" backgroundColor="rgba(93, 248, 136, 1)" />, <UserImageandName image="/vectors/profile-bman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
+    // [<Chips chipsText="Pending" backgroundColor="rgba(130, 130, 130, 1)" />, <UserImageandName image="/vectors/profile-wman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />],
+    // [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)"/>, <UserImageandName image="/vectors/profile-woman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />]
 ]
 
 const options = {
-    elevation: 0
+    elevation: 0,
+    onRowClick: viewUser
 }
 
 
