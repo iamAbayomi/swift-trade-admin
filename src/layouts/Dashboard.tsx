@@ -28,6 +28,7 @@ import AddCoins from '../pages/AddCoins'
 import ModalFormWithCards from '../components/ModalFormWithCards'
 import Form from '../pages/Form'
 import { getUser, getUserData, removeUserData } from '../classes/User'
+import SingleUser from '../pages/SingleUser'
 
 /*
     The entry point of the application. The componentDidMount is 
@@ -215,7 +216,7 @@ export default class Dashboard extends React.Component{
                                 <Route path="/addcoins" component={AddCoins} />
                                 <Route path="/form" component={Form} />
                                 <Route path="/modalform" component={ModalFormWithCards} />
-
+                                <Route path="/singleuser" component={SingleUser} />
                                 {/* <Route exact path="/pendingwallet" component={} />
                                 <Route exact path="/approvedwallet" component={} />
                                 <Route exact path ="/pendingtransfer" component={PendingTransfer} />
