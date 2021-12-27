@@ -40,7 +40,7 @@ function  SingleTransactionOverview() {
             .then(async (res: any) => {
                 console.log('This is the user response', res.data.data)  
                 let result = await res.data.data
-                // setTransactionCount(result)
+                setTransactionCount(result)
                 // tempTransaction = res.data.data
 
                 console.log(transactionCount)

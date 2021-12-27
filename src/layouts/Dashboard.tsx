@@ -205,6 +205,7 @@ export default class Dashboard extends React.Component{
                             <Switch>
                                 <Route exact path ="/" component={Overview} />
                                 <Route path ="/overview" component={Overview} />
+                                <Route path="/users/singleuser" component={SingleUser} />
                                 <Route path="/users"  component={Users} />
                                 <Route exact path="/cards"  component={Cards} />
                                 <Route path="/coins"  component={Coins} />
@@ -216,7 +217,7 @@ export default class Dashboard extends React.Component{
                                 <Route path="/addcoins" component={AddCoins} />
                                 <Route path="/form" component={Form} />
                                 <Route path="/modalform" component={ModalFormWithCards} />
-                                <Route path="/singleuser" component={SingleUser} />
+                                
                                 {/* <Route exact path="/pendingwallet" component={} />
                                 <Route exact path="/approvedwallet" component={} />
                                 <Route exact path ="/pendingtransfer" component={PendingTransfer} />

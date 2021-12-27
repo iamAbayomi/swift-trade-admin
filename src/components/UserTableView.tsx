@@ -96,7 +96,7 @@ export default class UserTableView extends React.Component<typeState>{
 
 function viewUser( rowData: any){
     console.log(rowData[0].props.userId)
-    window.location.href = "/singleuser/" + rowData[0].props.userId
+    window.location.href = "/users/singleuser/" + rowData[0].props.userId
 }
 
 

@@ -4,6 +4,7 @@ import styled from "styled-components"
 import SingleTransactionOverview from "../components/SingleTransactionsOverview"
 import TransactionCards from "../components/TransactionCard"
 import TransactionOverview from "../components/TransactionOverview"
+import './SingleUser.css'
 
 type props = {
     userProfileImage: string,
@@ -12,7 +13,7 @@ type props = {
 }
 
 function SingleUser(){
-    const [useProfileImage, setUserProfileImage] = useState("")
+    const [userProfileImage, setUserProfileImage] = useState("")
 
     useEffect(()=>{
         setProfileImage()
@@ -24,8 +25,11 @@ function SingleUser(){
 
     return(
         <div>
-            <UserProfileContainer>
-                <img src={useProfileImage}/>
+            <div> 
+                {/* <p>Back to List</p> */}
+            </div>
+            <UserProfileContainer >
+                <img src={userProfileImage} className="userprofile"/>
                 <p>Ramon Ridwan</p>
                 <p>Ramonridwan@protonmail.com</p>
                 <button>Inactive</button> <button>Block User</button>
