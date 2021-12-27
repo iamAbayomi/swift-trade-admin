@@ -8,6 +8,7 @@ import UserImageandName from './UserImageandName';
 import { getToken } from '../classes/User';
 import axios from 'axios';
 
+
 type typeState = {
     userProfile: any,
     token: '',
@@ -95,6 +96,7 @@ export default class UserTableView extends React.Component<typeState>{
 
 function viewUser( rowData: any){
     console.log(rowData[0].props.userId)
+    window.location.href = "/singleuser/" + rowData[0].props.userId
 }
 
 
