@@ -37,7 +37,7 @@ export default class TransactionCards extends React.Component<typeState>{
         // this.state.transactionRow.push([item.created_at, item.reference, item.type, item.amount, <Chips chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />])
         // this.setState({ transactionRow : [item.created_at, item.reference, item.type, item.amount, <Chips chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />]})
         transactionData.map((item : any)=>(
-            data.push([this.formatDate(item.created_at), item.reference, item.type,"$ " + item.amount, <Chips chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />])
+            data.push([this.formatDate(item.created_at), item.reference, item.type,"$ " + item.amount, <Chips userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />])
         ))
         
         this.setState({ transactionRow: data })

@@ -48,7 +48,7 @@ export default class UserTableView extends React.Component<typeState>{
         //This sets the properites needed to display the user data from the API
         userData.map((item:any) => (
             // data.push(item.is_suspended, item.profile_picture, item.first_name + item.last_name, item.email )
-            data.push([<Chips chipsText={item.is_suspended.toString()} backgroundColor="rgba(93, 248, 136, 1)" />,  <UserImageandName image={item.profile_picture} name={item.first_name + " " + item.last_name} />, item.email, <MenuOptions />])
+            data.push([<Chips userId={item.id} chipsText={item.is_suspended.toString()} backgroundColor="rgba(93, 248, 136, 1)" />,  <UserImageandName image={item.profile_picture} name={item.first_name + " " + item.last_name} />, item.email, <MenuOptions />])
         ))
 
         this.setState({ userProfileRow: data})
@@ -93,8 +93,8 @@ export default class UserTableView extends React.Component<typeState>{
     }
 }
 
-function viewUser( rowData: string[]){
-    console.log(rowData)
+function viewUser( rowData: any){
+    console.log(rowData[0].props.userId)
 }
 
 

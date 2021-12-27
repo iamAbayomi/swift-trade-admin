@@ -3,7 +3,8 @@ import styled from 'styled-components'
 
 type MyProps ={
     chipsText: string,
-    backgroundColor: string
+    backgroundColor: string, 
+    userId: any
 }
 
 let backgroundColor = 'green'
