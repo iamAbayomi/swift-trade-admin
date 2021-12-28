@@ -34,15 +34,11 @@ export default class TransactionCards extends React.Component<typeState>{
 
     
     setTransactionsData(transactionData: any){
-        // this.state.transactionRow.push([item.created_at, item.reference, item.type, item.amount, <Chips chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />])
-        // this.setState({ transactionRow : [item.created_at, item.reference, item.type, item.amount, <Chips chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />]})
+        // Adding the a single user transaction data to the temporary data.
         transactionData.map((item : any)=>(
             data.push([this.formatDate(item.created_at), item.reference, item.type,"$ " + item.amount, <Chips userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />])
         ))
-        
         this.setState({ transactionRow: data })
-
-        /// console.log('This is the transaction ' + this.state.transactionRow)
         console.log(data)
     }
 
