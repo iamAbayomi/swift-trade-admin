@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { getToken } from "../classes/User";
+import AllUsersTransactionTable from "./AllUsersTransactionTable";
 import EmptyStateTrasanctionCards from "./EmptyStateTransactionCard";
 import TransactionCards from "./TransactionCard";
 
@@ -44,7 +45,7 @@ export default class TransactionOverview extends React.Component{
         return(
             <div> 
                 {
-                    this.state.response === 200 ?<TransactionCards transaction={null} transactionRow={null} token="" data="" /> 
+                    this.state.response === 200 ? <AllUsersTransactionTable/>
                     : <EmptyStateTrasanctionCards />
                 }
                 
