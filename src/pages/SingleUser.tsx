@@ -3,6 +3,7 @@ import axios from "axios"
 import { useState, useEffect } from "react"
 import styled from "styled-components"
 import { getToken } from "../classes/User"
+import { getUserProfile } from "../classes/Utilities"
 import SingleTransactionCardView from "../components/SingleTransactionCardview"
 import SingleTransactionOverview from "../components/SingleTransactionsOverview"
 import SingleUserTransactionTable from "../components/SingleUserTransactionTable"
@@ -17,6 +18,7 @@ type props = {
 }
 
 function SingleUser(){
+    const [userProfile, setUserProfile] = useState<any>({})
     const [userProfileImage, setUserProfileImage] = useState("")
     const [transactionCount, setTransactionCount] = useState({
         "allTransactions": 0,
@@ -28,6 +30,7 @@ function SingleUser(){
     useEffect(()=>{
         setProfileImage()
         getSingleUserData()
+        getTheUserProfile()
     }, [])
 
     function setProfileImage(){
@@ -39,19 +42,28 @@ function SingleUser(){
         let userId = await getUserId()
         axios.get(`https://swift-trade-v1.herokuapp.com/api/v1/transaction/${userId}/user/count`,{
             headers: {'Authorization' : `Bearer ${token}`}} )
-        .then((res: any)=>{
-                console.log('This is the data', res)
-                setTransactionCount(res.data.data)
-            })
-            .catch((err) => {
-                // console.log(err.response.data.message)
-                console.log(err)
-            })
+            .then((res: any)=>{
+                    console.log('This is the data', res)
+                    setTransactionCount(res.data.data)
+                }).catch((err) => { console.log(err)})
     }
 
     function getUserId(){
         let userId = window.location.pathname.replace('/users/singleuser/', '')
         return userId
+    }
+
+    async function getTheUserProfile(){
+        let token = await getToken()
+        let userId = await getUserId()
+        //let userProfileData = await getUserProfile(token, userId)
+        getUserProfile(token, userId)
+            .then((data: any) => {
+                console.log('This is the data ', data[0])
+                setUserProfile(data[0])
+            })
+        console.log("This is the user profile",  userProfile)
+        console.log("This is the user ", getUserProfile(token, userId))
     }
 
     return(
@@ -60,9 +72,21 @@ function SingleUser(){
                 {/* <p>Back to List</p> */}
             </div>
             <UserProfileContainer >
-                <img src={userProfileImage} className="userprofile"/>
-                <p>Ramon Ridwan</p>
-                <p>Ramonridwan@protonmail.com</p>
+                {
+                    userProfile != null ? 
+                    <div>
+                        <img src={userProfile.profile_picture} className="userprofile"/>
+                        <p>{userProfile.first_name+ " " + userProfile.last_name} </p>
+                        <p>{userProfile.email}</p>
+                    </div>
+                    :
+                     <div>
+                         <img src={userProfileImage} className="userprofile"/>
+                        <p>Ramon Ridwan</p>
+                        <p>Ramonridwan@protonmail.com</p>
+                     </div>
+
+                }
                 <button>Inactive</button> <button>Block User</button>
             </UserProfileContainer>
             
@@ -73,7 +97,8 @@ function SingleUser(){
             </SingleTransactionContainer>
 
             <TransactionContainer>
-                <SingleUserTransactionTable />
+                {/* This getUserId sends the user id to the singleUser transaction table and displays it */}
+                <SingleUserTransactionTable userId={getUserId()} />
             </TransactionContainer>
         </div>
     )

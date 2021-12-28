@@ -1,15 +1,15 @@
 import axios from "axios";
 import MUIDataTable from "mui-datatables";
-import React, { useEffect, useState } from "react";
+import React, { Props, useEffect, useState } from "react";
 import { formatDate } from "../classes/Utilities";
 import Chips from "./Chips";
 import MenuOptions from "./MenuOptions";
 
-// type props = {
-//     userId
-// }
+type props = {
+    userId: any
+}
 
-function SingleUserTransactionTable(){
+const SingleUserTransactionTable: React.FC<props> = (props) => {
 
     const [transactionRow, setTransactionRow] = useState<string[][]>([])
 
@@ -28,7 +28,9 @@ function SingleUserTransactionTable(){
 
     /** This method aims to get a single user transactions */
     async function getASingleUserTransactionTable(){
-        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/transaction/all')
+        console.log('This is the user id',props.userId )
+        
+        axios.get(`https://swift-trade-v1.herokuapp.com/api/v1/transaction/${props.userId}/user`)
             .then((res: any) => {
                     console.log('All the users transactions' , res)
                     setTransactionRowData(res.data.data)
