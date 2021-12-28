@@ -59,7 +59,7 @@ function SingleUser(){
         //let userProfileData = await getUserProfile(token, userId)
         getUserProfile(token, userId)
             .then((data: any) => {
-                console.log('This is the data ', data[0])
+                console.log('This is the data ')
                 setUserProfile(data[0])
             })
         console.log("This is the user profile",  userProfile)
@@ -81,13 +81,13 @@ function SingleUser(){
                     </div>
                     :
                      <div>
-                         <img src={userProfileImage} className="userprofile"/>
+                         {/* <img src={userProfileImage} className="userprofile"/>
                         <p>Ramon Ridwan</p>
-                        <p>Ramonridwan@protonmail.com</p>
+                        <p>Ramonridwan@protonmail.com</p> */}
                      </div>
 
                 }
-                <button>Inactive</button> <button>Block User</button>
+                {/* <Chips userId={""} chipsText={}  /> <button>Block User</button> */}
             </UserProfileContainer>
             
             <SingleTransactionContainer className="transaction-row display-flex link">
