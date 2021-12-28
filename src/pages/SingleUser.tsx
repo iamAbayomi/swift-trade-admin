@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { getToken } from "../classes/User"
 import SingleTransactionCardView from "../components/SingleTransactionCardview"
 import SingleTransactionOverview from "../components/SingleTransactionsOverview"
+import SingleUserTransactionTable from "../components/SingleUserTransactionTable"
 import TransactionCards from "../components/TransactionCard"
 import TransactionOverview from "../components/TransactionOverview"
 import './SingleUser.css'
@@ -72,7 +73,7 @@ function SingleUser(){
             </SingleTransactionContainer>
 
             <TransactionContainer>
-                <TransactionOverview />
+                <SingleUserTransactionTable />
             </TransactionContainer>
         </div>
     )
