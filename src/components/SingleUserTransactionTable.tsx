@@ -7,7 +7,7 @@ import MenuOptions from "./MenuOptions";
 
 function SingleUserTransactionTable(){
 
-    const [transactionRow, setTransactionRow] = useState("0")
+    const [transactionRow, setTransactionRow] = useState<string[][]>([])
 
     useEffect(() => {
         getAllUserTransaction()
@@ -15,9 +15,12 @@ function SingleUserTransactionTable(){
 
     function setTransactionRowData(transactionRowData: any){
         const columns = ["Transaction ID", "Date", "Products", "Amounts", "Status", "Action"]
+        console.log("transactionRowData", transactionRowData)
         transactionRowData.map((item: any) => {
-            data.push( item.reference , [formatDate(item.created_at), item.description, "# " + item.amount, <Chips userId={item.status} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, <MenuOptions />])
+            data.push( [item.reference , formatDate(item.created_at), item.description, "# " + item.amount, <Chips userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, <MenuOptions />])
         })
+        console.log("data", data)
+        setTransactionRow(data)
     }
 
 
@@ -25,6 +28,8 @@ function SingleUserTransactionTable(){
         axios.get('https://swift-trade-v1.herokuapp.com/api/v1/transaction/all')
             .then((res: any) => {
                     console.log('All the users transactions' , res)
+                    setTransactionRowData(res.data.data)
+
             })
             .catch((err) => {
 
@@ -38,7 +43,7 @@ function SingleUserTransactionTable(){
                     <p className="transaction-text">Transactions</p>
                     <MUIDataTable 
                         title={""}             
-                        data={data}
+                        data={transactionRow}
                         // data={data}
                         columns={columns}
                         options = {options}
@@ -52,7 +57,7 @@ function SingleUserTransactionTable(){
 
 const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Action"]
 
-const data : any= []
+const data : any[][] = []
 
 const options = {
     elevation: 0
