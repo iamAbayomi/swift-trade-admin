@@ -1,3 +1,28 @@
 .userprofile{
     margin-top: 90px;
 }
+
+.userprofile-name{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    
+    /* identical to box height, or 39px */
+
+
+    /* swift black */
+
+    color: #333333;
+}
+
+
+.userprofile-email{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    
+    /* identical to box height, or 20px */
+
+
+    color: #858585;
+}

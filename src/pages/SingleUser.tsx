@@ -75,9 +75,9 @@ function SingleUser(){
                 {
                     userProfile != null ? 
                     <div>
-                        <img src={userProfile.profile_picture} className="userprofile"/>
-                        <p>{userProfile.first_name+ " " + userProfile.last_name} </p>
-                        <p>{userProfile.email}</p>
+                        <img src={userProfile.profile_picture} className="userprofile profile-settings-image"/>
+                        <p className="userprofile-name">{userProfile.first_name+ " " + userProfile.last_name} </p>
+                        <p className="userprofile-email">{userProfile.email}</p>
                     </div>
                     :
                      <div>
