@@ -3,6 +3,7 @@ import MUIDataTable from "mui-datatables";
 import React, { useEffect, useState } from "react";
 import { formatDate } from "../classes/Utilities";
 import Chips from "./Chips";
+import MenuOptions from "./MenuOptions";
 
 function SingleUserTransactionTable(){
 
@@ -15,7 +16,7 @@ function SingleUserTransactionTable(){
     function setTransactionRowData(transactionRowData: any){
         const columns = ["Transaction ID", "Date", "Products", "Amounts", "Status", "Action"]
         transactionRowData.map((item: any) => {
-            data.push( item.reference , [formatDate(item.created_at), item.description, "# " + item.amount, <Chips userId={item.status} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />])
+            data.push( item.reference , [formatDate(item.created_at), item.description, "# " + item.amount, <Chips userId={item.status} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, <MenuOptions />])
         })
     }
 
