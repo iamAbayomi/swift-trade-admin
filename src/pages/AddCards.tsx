@@ -11,7 +11,7 @@ export default class AddCards extends React.Component{
 
     state ={
         card_name: '',
-        card_type: '',
+        card_rate: '',
         card_currency: '',
         image: '/vectors/profile-display-container.svg'
     }
@@ -34,7 +34,7 @@ export default class AddCards extends React.Component{
     
     onCardTypeChange(event: ChangeEvent<HTMLInputElement>){
         this.setState({
-            card_type: event.target.value
+            card_rate: event.target.value
         })
     }
 
@@ -83,7 +83,7 @@ export default class AddCards extends React.Component{
         let token = await getToken()
         axios.post('https://swift-trade-v1.herokuapp.com/api/v1/cards/create', {
             name: this.state.card_name,
-            rate: this.state.card_type,
+            rate: this.state.card_rate,
             image: this.state.image
         }, {headers: { 'Authorization' : `Bearer ${token}`}}
         )
@@ -100,7 +100,7 @@ export default class AddCards extends React.Component{
         axios.patch('https://swift-trade-v1.herokuapp.com/api/v1/cards/update', {
             cardId: 1,
             name: this.state.card_name,
-            rate: this.state.card_type,
+            rate: this.state.card_rate,
             image: this.state.image
         }, {headers: { 'Authorization' : `Bearer ${token}`}}
         )
@@ -157,12 +157,12 @@ export default class AddCards extends React.Component{
                             </div>
 
                             <div className="card-type">
-                                <p>Card Type</p>
+                                <p>Card Rate</p>
                                 <EditField 
                                     type="name" 
                                     className="edit-field" 
-                                    placeholder="USA iTunes E-Code card"
-                                    value={this.state.card_type}
+                                    placeholder="Card Rate"
+                                    value={this.state.card_rate}
                                     onChange={this.onCardTypeChange.bind(this)}
                                     />
                             </div>
