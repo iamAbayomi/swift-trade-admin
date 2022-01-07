@@ -6,6 +6,7 @@ import './AddCards.css'
 import styled from 'styled-components'
 import axios from "axios";
 import { getToken } from "../classes/User";
+import LoadingButton from "../components/ui-components/Buttons/LoadingButton";
 
 export default class AddCards extends React.Component{
 
@@ -13,7 +14,11 @@ export default class AddCards extends React.Component{
         card_name: '',
         card_rate: '',
         card_currency: '',
-        image: '/vectors/profile-display-container.svg'
+        image: '/vectors/profile-display-container.svg',
+        responseStatus: 0,
+        responseMessage: "",
+        loadingState: false,
+        showResponseMessage: false
     }
 
     //ComponentDidMount to get Cards property when the page builds.
@@ -26,13 +31,40 @@ export default class AddCards extends React.Component{
 
     }
 
+    toggleLoadingStateTrue(){
+        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
+        this.setState({ loadingState : true })
+        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
+    }
+
+    toggleLoadingStateFalse(){
+        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
+        this.setState({ loadingState : false })
+        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
+    }
+
+    toggleShowResponseMessageTrue(){
+        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
+        this.setState({ showResponseMessage : true })
+        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
+    }
+
+
+
+    toggleShowResponseMessageFalse(){
+        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
+        this.setState({ showResponseMessage : false })
+        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
+    }
+
+
     onCardNameChange(event: ChangeEvent<HTMLInputElement>){
         this.setState({
             card_name: event.target.value
         })
     }
     
-    onCardTypeChange(event: ChangeEvent<HTMLInputElement>){
+    onCardRateChange(event: ChangeEvent<HTMLInputElement>){
         this.setState({
             card_rate: event.target.value
         })
@@ -79,7 +111,42 @@ export default class AddCards extends React.Component{
     }
 
 
+    validateParameters(){
+        // this.toggleLoadingState()
+        this.toggleShowResponseMessageTrue()
+        
+        if(this.state.card_name.length == 0 ){
+            this.setResponseParameters(4, "Please enter the card name")
+        }
+        else if(this.state.image == '/vectors/profile-display-container.svg'){
+            this.setResponseParameters(4, "Please change the card image")
+        }
+        else if(this.state.card_rate.length == 0 ){
+            this.setResponseParameters(4, "Please enter the card rate")
+        }
+        else if(this.state.card_currency.length == 0 ){
+            this.setResponseParameters(4, "Please enter the card currency")
+        }
+        else{
+            this.addCard()
+        }
+    }
+
+    setResponseParameters(status: any, message: any){
+        this.setState({responseStatus: status})
+        this.setState({ responseMessage : message })
+        this.toggleLoadingStateFalse()
+        this.toggleShowResponseMessageFalse()
+        console.log("in response status", message)
+        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
+
+    }
+
+
     async addCard(){
+        this.toggleLoadingStateTrue()
+        this.toggleShowResponseMessageFalse()
+        console.log("I am here")
         let token = await getToken()
         axios.post('https://swift-trade-v1.herokuapp.com/api/v1/cards/create', {
             name: this.state.card_name,
@@ -87,13 +154,17 @@ export default class AddCards extends React.Component{
             image: this.state.image
         }, {headers: { 'Authorization' : `Bearer ${token}`}}
         )
-        .then((res) => {
+        .then((res: any) => {
             console.log('This is the data', res.data)
+            this.setResponseParameters(res.status, res.data.message)
         })
         .catch((err)=>{
             console.log(err)
+            console.log(err.response.data.message)
+            this.setResponseParameters(4, err.response.data.message)
         })
     }
+    
 
     async updateCard(){
         let token = await getToken()
@@ -148,7 +219,7 @@ export default class AddCards extends React.Component{
                             <div className="card-name">
                                 <p>Card Name</p>
                                 <EditField   
-                                    type="name" 
+                                    type="text" 
                                     className="edit-field" 
                                     placeholder="Google Play E-code card"
                                     value={this.state.card_name}
@@ -159,11 +230,11 @@ export default class AddCards extends React.Component{
                             <div className="card-type">
                                 <p>Card Rate</p>
                                 <EditField 
-                                    type="name" 
+                                    type="number" 
                                     className="edit-field" 
                                     placeholder="Card Rate"
                                     value={this.state.card_rate}
-                                    onChange={this.onCardTypeChange.bind(this)}
+                                    onChange={this.onCardRateChange.bind(this)}
                                     />
                             </div>
 
@@ -177,13 +248,14 @@ export default class AddCards extends React.Component{
                                     onChange={this.onCardCurrencyChange.bind(this)}
                                     />
                             </div>
-                            <button 
-                                style={{ margin: "60px auto 60px auto" }}
-                                 className="blue-button"
-                                 onClick = {this.addCard.bind(this)}
-                                 >
-                                     Add Card
-                            </button>
+                            <LoadingButton 
+                                responseStatus={this.state.responseStatus} 
+                                responseMessage={this.state.responseMessage} 
+                                loadingState={this.state.loadingState} 
+                                showResponseMessage={this.state.showResponseMessage} 
+                                validateParameters={this.validateParameters.bind(this)}
+                            />
+
                         </div>
                     </CardWhite>
                 </div> 
