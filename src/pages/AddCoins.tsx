@@ -6,21 +6,72 @@ import './AddCards.css'
 import styled from 'styled-components'
 import { getToken } from "../classes/User";
 import axios from "axios";
+import LoadingButton from "../components/ui-components/Buttons/LoadingButton";
+import { Link } from "react-router-dom";
 
 export default class AddCoins extends React.Component{
 
     state ={
         coin_name: '',
         network_type: '',
-        image: '/vectors/profile-display-container.svg'
+        image: '/vectors/profile-display-container.svg',
+        responseStatus: 0,
+        responseMessage: "",
+        loadingState: false,
+        showResponseMessage: false
+    }
+
+    toggleLoadingStateTrue(){
+        this.setState({ loadingState : true })
+    }
+
+    toggleLoadingStateFalse(){
+        this.setState({ loadingState : false })
+    }
+
+    toggleShowResponseMessageTrue(){
+        this.setState({ showResponseMessage : true })
+    }
+
+    toggleShowResponseMessageFalse(){
+        this.setState({ showResponseMessage : false })
+    }
+
+    validateParameters(){
+        this.toggleShowResponseMessageTrue()
+        
+        if(this.state.coin_name.length == 0 ){
+            this.setResponseParameters(4, "Please enter the card name")
+        }
+        else if(this.state.image == '/vectors/profile-display-container.svg'){
+            this.setResponseParameters(4, "Please change the card image")
+        }
+        else if(this.state.network_type.length == 0 ){
+            this.setResponseParameters(4, "Please enter the card rate")
+        }
+        else{
+            this.addCoins()
+        }
+    }
+    
+
+    setResponseParameters(status: any, message: any){
+        this.setState({responseStatus: status})
+        this.setState({ responseMessage : message })
+        this.toggleLoadingStateFalse()
+        this.toggleShowResponseMessageFalse()
+        console.log("in response status", message)
+        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
     }
 
     onCoinNameChanged(event: ChangeEvent<HTMLInputElement>){
         this.setState({ coin_name: event.target.value})
+        this.toggleShowResponseMessageTrue()
     }
     
     onNetworkTypeChange(event: ChangeEvent<HTMLInputElement>){
         this.setState({ network_type: event.target.value})
+        this.toggleShowResponseMessageTrue()
     }
     
     onCoinImageSelected(event: ChangeEvent<HTMLInputElement>){
@@ -32,6 +83,7 @@ export default class AddCoins extends React.Component{
         console.log(fileObj)
         this.postImagetoCloundinary(fileObj)
         //console.log(objectURL)
+        this.toggleShowResponseMessageTrue()
     }
 
 
@@ -59,6 +111,8 @@ export default class AddCoins extends React.Component{
     }
 
     async addCoins(){
+        this.toggleLoadingStateTrue()
+        this.toggleShowResponseMessageTrue()
         let token = await getToken()
         axios.post('https://swift-trade-v1.herokuapp.com/api/v1/coins/create', {
             name: this.state.coin_name,
@@ -66,11 +120,14 @@ export default class AddCoins extends React.Component{
             image: this.state.image
         }, {headers: { 'Authorization' : `Bearer ${token}`}}
         )
-        .then((res) => {
+        .then((res: any) => {
             console.log('This is the data', res.data)
+            this.setResponseParameters(res.status, res.data.message)
         })
         .catch((err)=>{
             console.log(err)
+            console.log(err.response.data.message)
+            this.setResponseParameters(4, err.response.data.message)
         })
     }
 
@@ -91,10 +148,12 @@ export default class AddCoins extends React.Component{
                                     </div>
                                 </div>
                             </div>
-                            <AddButton style={{ margin: "10px auto 0px auto" }} className="blue-button display-flex" >
-                                <img className="card-logo" src="/vectors/card-logo.svg" />
-                                <p className="addcard-text" >Add Cards</p>
-                            </AddButton>
+                            <Link to="/addcards" className="link">
+                                <AddButton style={{ margin: "10px auto 0px auto" }} className="button" >
+                                    <img className="card-logo" src="/vectors/card-logo.svg" />
+                                    <p className="addcard-text" >Add Cards</p>
+                                </AddButton>
+                            </Link>
                         </div>
                     </CardTitle>
                     <CardWhite className="card-white">
@@ -128,7 +187,13 @@ export default class AddCoins extends React.Component{
                             </div>
 
                             
-                                <button onClick={this.addCoins.bind(this)} style={{ margin: "60px auto 60px auto" }} className="blue-button" >Add Coin</button>
+                            <LoadingButton 
+                                responseStatus={this.state.responseStatus} 
+                                responseMessage={this.state.responseMessage} 
+                                loadingState={this.state.loadingState} 
+                                showResponseMessage={this.state.showResponseMessage} 
+                                validateParameters={this.validateParameters.bind(this)}
+                            />
                             
                         </div>
                     </CardWhite>
@@ -166,6 +231,5 @@ const CardTitle = styled.div `
 
 
 const AddButton = styled.div `
-    width: 184px;
     display: flex;
 `

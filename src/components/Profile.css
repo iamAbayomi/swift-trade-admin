@@ -29,6 +29,7 @@
     margin: auto;
     display: block;
     max-width: 150px;
+    border-radius: 50%;
 }
 
 .picture-text{

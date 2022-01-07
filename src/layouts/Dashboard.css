@@ -176,10 +176,12 @@
 
 
 input:focus, textarea:focus, select:focus, button:focus{
-    outline: #2762BC;
-    border:0px solid #2762BC;
-    box-shadow: 0 0 0px #719ECE;
+    outline: #BDBDBD;
+    border: 1px solid #BDBDBD;
+    box-shadow: 0 0 0px #BDBDBD;
+    
   }
+  
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
 /* opacity: 0.4; Firefox */
 }
@@ -192,6 +194,25 @@ input:focus, textarea:focus, select:focus, button:focus{
     color:#719ECE;
 }
 
+.error-message{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 21px;
+    text-align: center;
+    /* Swift gray */
+    color: red;
+}
+
+.success-message{
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 21px;
+    text-align: center;
+    /* Swift gray */
+    color: green;
+}
 
 
 /* For Portrait Phones */
