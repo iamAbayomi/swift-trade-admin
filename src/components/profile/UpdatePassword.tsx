@@ -101,8 +101,11 @@ function toggleLoadingStateTrue(){
                         placeholder="Enter your old password"
                         value = {oldPassword}
                         onChange = {handleOldPasswordChanged}
+                        onBlur={()=> simpleValidator.current.showMessageFor('Old Password')}
                         />
+                    {simpleValidator.current.message('Old password', oldPassword, 'required', {className: 'error-message'})}
                 </div>
+
 
                 <div className="new-password">
                     <p>New Password</p>
@@ -112,7 +115,9 @@ function toggleLoadingStateTrue(){
                         placeholder="New password"
                         value = {newPassword}
                         onChange = {handlePassowrdChanged}
+                        onBlur={()=> simpleValidator.current.showMessageFor('New Password')}
                         />
+                    {simpleValidator.current.message('New password', newPassword, 'required', {className: 'error-message'})}
                 </div>
 
                 <div className="confirm-password">
@@ -123,8 +128,11 @@ function toggleLoadingStateTrue(){
                         placeholder="Confirm password"
                         value = {confirmPassword}
                         onChange = {handleConfirmPassword}
+                        onBlur={()=> simpleValidator.current.showMessageFor('Confirm Password')}
                         />
+                    {simpleValidator.current.message('Confirm password', confirmPassword, 'required', {className: 'error-message'})}
                 </div>
+                
                 <LoadingButton 
                     responseStatus={responseStatus} 
                     responseMessage={responseMessage} 
