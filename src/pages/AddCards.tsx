@@ -32,48 +32,35 @@ export default class AddCards extends React.Component{
     }
 
     toggleLoadingStateTrue(){
-        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
         this.setState({ loadingState : true })
-        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
     }
 
     toggleLoadingStateFalse(){
-        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
         this.setState({ loadingState : false })
-        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
     }
 
     toggleShowResponseMessageTrue(){
-        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
         this.setState({ showResponseMessage : true })
-        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
     }
 
-
-
     toggleShowResponseMessageFalse(){
-        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
         this.setState({ showResponseMessage : false })
-        console.log("toggle loading state", this.state.loadingState, " toggle responseMessage ",  this.state.showResponseMessage)
     }
 
 
     onCardNameChange(event: ChangeEvent<HTMLInputElement>){
-        this.setState({
-            card_name: event.target.value
-        })
+        this.setState({card_name: event.target.value})
+        this.toggleShowResponseMessageTrue()
     }
     
     onCardRateChange(event: ChangeEvent<HTMLInputElement>){
-        this.setState({
-            card_rate: event.target.value
-        })
+        this.setState({card_rate: event.target.value})
+        this.toggleShowResponseMessageTrue()
     }
 
     onCardCurrencyChange(event: ChangeEvent<HTMLInputElement>){
-        this.setState({
-            card_currency: event.target.value  
-        })
+        this.setState({  card_currency: event.target.value })
+        this.toggleShowResponseMessageTrue()
     }
 
     onProfileImageSelected(event: ChangeEvent<HTMLInputElement>){
@@ -85,6 +72,7 @@ export default class AddCards extends React.Component{
         console.log(fileObj)
         this.postImagetoCloundinary(fileObj)
         //console.log(objectURL)
+        this.toggleShowResponseMessageTrue()
     }
 
     postImagetoCloundinary(fileProp: any){
