@@ -7,6 +7,7 @@ import styled from 'styled-components'
 import axios from "axios";
 import { getToken } from "../classes/User";
 import LoadingButton from "../components/ui-components/Buttons/LoadingButton";
+import { Link } from "react-router-dom";
 
 export default class AddCards extends React.Component{
 
@@ -189,10 +190,12 @@ export default class AddCards extends React.Component{
                                     </div>
                                 </div>
                             </div>
-                            <AddButton style={{ margin: "10px auto 0px auto" }} className="blue-button display-flex" >
-                                <img className="card-logo" src="/vectors/card-logo.svg" />
-                                <p className="addcard-text" >Add Coin</p>
-                            </AddButton>
+                            <Link to="/coins" className="link">
+                                <AddButton style={{ margin: "10px auto 0px auto" }} className="button" >
+                                    <img className="card-logo" src="/vectors/card-logo.svg" />
+                                    <p className="addcard-text" >Add Coin</p>
+                                </AddButton>
+                            </Link>
                         </div>
                     </CardTitle>
                     <CardWhite className="card-white">
@@ -283,6 +286,5 @@ const CardTitle = styled.div `
 
 
 const AddButton = styled.div `
-    width: 184px;
     display: flex;
 `
