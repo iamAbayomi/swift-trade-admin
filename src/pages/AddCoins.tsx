@@ -231,6 +231,5 @@ const CardTitle = styled.div `
 
 
 const AddButton = styled.div `
-    width: 184px;
     display: flex;
 `
