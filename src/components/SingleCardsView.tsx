@@ -62,7 +62,7 @@ export default class SingleCardsView extends React.Component<imagesState>{
                            {
                             this.state.cardImages.map((card : any) => (
                                 <Link to={'/addcards/singlecards?card' +  card.id} className='link' >
-                                    <img className='sameimage' src={card.image} /> 
+                                    <img className='card-image' src={card.image} /> 
                                 </Link>      
                             ))
                             }
