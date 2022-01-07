@@ -217,6 +217,7 @@ export default class Dashboard extends React.Component{
                                 <Route path="/addcoins" component={AddCoins} />
                                 <Route path="/form" component={Form} />
                                 <Route path="/modalform" component={ModalFormWithCards} />
+                                <Route exact path ="/token/:token" component={Overview} />
                                 
                                 {/* <Route exact path="/pendingwallet" component={} />
                                 <Route exact path="/approvedwallet" component={} />
