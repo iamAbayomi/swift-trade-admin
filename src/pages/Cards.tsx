@@ -6,6 +6,7 @@ import './AddCards.css'
 import styled from 'styled-components'
 import SingleCardsView from "../components/SingleCardsView";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 export default class Cards extends React.Component {
@@ -47,10 +48,12 @@ export default class Cards extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            <AddButton  className="button " >
-                                <img className="card-logo" src="/vectors/card-logo.svg" />
-                                <p className="addcard-text" >Add Coin</p>
-                            </AddButton>
+                            <Link to="/coins" className="link">
+                                <AddButton  className="button " >
+                                    <img className="card-logo" src="/vectors/card-logo.svg" />
+                                    <p className="addcard-text" >Add Coin</p>
+                                </AddButton>
+                            </Link>
                         </div>
                     </CardTitle>
                     <SingleCardsView cardImages={null}/>
@@ -76,6 +79,5 @@ const CardTitle = styled.div `
 
 
 const AddButton = styled.div `
-    width: 184px;
     display: flex;
 `
