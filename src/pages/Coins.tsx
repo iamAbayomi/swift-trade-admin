@@ -5,6 +5,7 @@ import '../components/Profile.css'
 import './AddCards.css'
 import styled from 'styled-components'
 import SingleCoinView from "../components/SingleCoinView";
+import { Link } from "react-router-dom";
 
 export default class Coins extends React.Component {
     
@@ -26,10 +27,12 @@ export default class Coins extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            <AddButton  className="button">
-                                <img className="card-logo" src="/vectors/card-logo.svg" />
-                                <p className="addcard-text" >Add Cards</p>
-                            </AddButton>
+                            <Link to="/addcards" className="link">
+                                <AddButton  className="button">
+                                    <img className="card-logo" src="/vectors/card-logo.svg" />
+                                    <p className="addcard-text" >Add Cards</p>
+                                </AddButton>
+                            </Link>
                         </div>
                     </CardTitle>
                     <SingleCoinView coinImages={null} />
@@ -57,6 +60,5 @@ const CardTitle = styled.div `
 
 
 const AddButton = styled.div `
-    width: 184px;
     display: flex;
 `
