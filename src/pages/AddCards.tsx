@@ -191,6 +191,8 @@ export default class AddCards extends React.Component{
         })
         .catch((err)=>{
             console.log(err)
+            console.log(err.response.data.message)
+            this.setResponseParameters(4, err.response.data.message)
         })
     }
 
@@ -205,6 +207,8 @@ export default class AddCards extends React.Component{
         })
         .catch((err)=>{
             console.log(err)
+            console.log(err.response.data.message)
+            this.setResponseParameters(4, err.response.data.message)
         })
     }
     
