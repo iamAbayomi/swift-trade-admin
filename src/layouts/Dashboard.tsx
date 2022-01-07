@@ -213,12 +213,14 @@ export default class Dashboard extends React.Component{
                                 <Route path="/transactions" component={Transactions} />
                                 <Route path="/settings" component={Settings} />
                                 <Route path="/logout" component={Logout} />
+                                <Route path="/addcards/:tokenId/:tokenImage" component={AddCards} />
                                 <Route path="/addcards" component={AddCards} />
                                 <Route path="/addcoins" component={AddCoins} />
                                 <Route path="/form" component={Form} />
                                 <Route path="/modalform" component={ModalFormWithCards} />
                                 <Route exact path ="/token/:token" component={Overview} />
                                 
+
                                 {/* <Route exact path="/pendingwallet" component={} />
                                 <Route exact path="/approvedwallet" component={} />
                                 <Route exact path ="/pendingtransfer" component={PendingTransfer} />

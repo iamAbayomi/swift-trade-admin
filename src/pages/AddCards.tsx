@@ -8,6 +8,7 @@ import axios from "axios";
 import { getToken } from "../classes/User";
 import LoadingButton from "../components/ui-components/Buttons/LoadingButton";
 import { Link } from "react-router-dom";
+import ThreeDotOptions from "../components/ui-components/ThreeDotOptions";
 
 let cardId, cardImage, cardRate 
 
@@ -178,20 +179,34 @@ export default class AddCards extends React.Component{
     async updateCard(){
         let token = await getToken()
         axios.patch('https://swift-trade-v1.herokuapp.com/api/v1/cards/update', {
-            cardId: 1,
+            cardId :this.state.card_id,
             name: this.state.card_name,
             rate: this.state.card_rate,
             image: this.state.image
         }, {headers: { 'Authorization' : `Bearer ${token}`}}
         )
-        .then((res) => {
+        .then((res: any) => {
             console.log('This is the data', res.data)
+            this.setResponseParameters(res.status, res.data.message)
         })
         .catch((err)=>{
             console.log(err)
         })
     }
 
+    async deleteCard(){
+        let token = await getToken()
+        axios.patch('https://swift-trade-v1.herokuapp.com/api/v1/cards/delete', {
+            cardId :this.state.card_id    
+        }, {headers: { 'Authorization' : `Bearer ${token}`}}
+        ) .then((res: any) => {
+            console.log('This is the data', res.data)
+            this.setResponseParameters(res.status, res.data.message)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+    }
     
     render(){
         return(
@@ -219,7 +234,8 @@ export default class AddCards extends React.Component{
                         </div>
                     </CardTitle>
                     <CardWhite className="card-white">
-                        <div className="profile-display-container">
+                        <p className="text-options pointer">Delete Card</p>
+                        <div className="profile-display-container clearfix">
                             <label htmlFor="file-input" className="">
                                 {/* <img className=""  src="/vectors/profile-display-container.svg"/> */}
                                 <img className="coin-image" src={this.state.image}/>

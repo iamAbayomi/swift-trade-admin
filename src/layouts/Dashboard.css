@@ -214,6 +214,18 @@ input:focus, textarea:focus, select:focus, button:focus{
     color: green;
 }
 
+.clearfix{
+    clear: both;
+}
+
+
+.text-options {
+    margin: 10px 30px 0px 0px;
+    color: red;
+    float: right;
+    font-size: 14px;
+}
+
 
 /* For Portrait Phones */
 @media screen and (max-width: 576px){

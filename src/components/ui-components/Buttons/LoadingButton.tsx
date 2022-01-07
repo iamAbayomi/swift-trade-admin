@@ -8,7 +8,8 @@ type props = {
     responseMessage: string,
     loadingState: boolean,
     showResponseMessage: boolean,
-    validateParameters: () =>  void 
+    validateParameters: () =>  void,
+    buttonText?: string
 }
 /**
  * You need to set the user responseStatus, the responseMessage
@@ -58,7 +59,11 @@ const LoadingButton: React.FC<props> = (props) => {
                     style={{marginTop: "40px" }}
                     onClick={props.validateParameters}
                     >
-                    Proceed
+                    {
+                        props.buttonText != undefined ? props.buttonText
+                        : <p> Proceed </p>
+                    }
+                    
                 </button>
             }
         </div>

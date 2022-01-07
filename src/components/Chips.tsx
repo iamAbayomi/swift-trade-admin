@@ -54,8 +54,8 @@ export default class Chips extends React.Component<MyProps>{
                     break;
                     
             }
-            console.log('This is the chips text ' +  this.state.chipsText)
-            console.log('This is the background color ' +  this.state.backgroundColor)
+            // console.log('This is the chips text ' +  this.state.chipsText)
+            // console.log('This is the background color ' +  this.state.backgroundColor)
         }
     }
 

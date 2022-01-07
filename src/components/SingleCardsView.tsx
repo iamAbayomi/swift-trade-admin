@@ -35,7 +35,6 @@ export default class SingleCardsView extends React.Component<imagesState>{
             }}).then((res: any) => {
                 this.setState( { cardImages: res.data.data})
                 console.log('this is the response of the cards', res)
-                console.log( this.state.cardImages[0].image)
                 // this.forceUpdate()
             })
             .catch((err)=>{
@@ -61,7 +60,12 @@ export default class SingleCardsView extends React.Component<imagesState>{
                        <div>
                            {
                             this.state.cardImages.map((card : any) => (
-                                <Link to={'/addcards/singlecards?card' +  card.id} className='link' >
+                                <Link to={'/addcards?card_id=' +  card.id 
+                                    + '&card_name=' + card.name
+                                    + '&card_image=' + card.image
+                                    + '&card_rate=' + card.rate
+                                    } 
+                                    className='link' >
                                     <img className='card-image' src={card.image} /> 
                                 </Link>      
                             ))
