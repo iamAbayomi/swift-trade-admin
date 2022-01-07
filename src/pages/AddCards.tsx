@@ -9,27 +9,44 @@ import { getToken } from "../classes/User";
 import LoadingButton from "../components/ui-components/Buttons/LoadingButton";
 import { Link } from "react-router-dom";
 
+let cardId, cardImage, cardRate 
+
 export default class AddCards extends React.Component{
 
     state ={
+        card_id: '',
         card_name: '',
         card_rate: '',
         card_currency: '',
         image: '/vectors/profile-display-container.svg',
+        card_function: '',
         responseStatus: 0,
         responseMessage: "",
         loadingState: false,
         showResponseMessage: false
     }
 
+    
+
     //ComponentDidMount to get Cards property when the page builds.
     componentDidMount(){
-
+        this.getCardsParameters()
     }
 
-    getAddCards(){
-        let token = window.location.pathname.replace('/addcards', '')
-
+    getCardsParameters(){
+        // let token = window.location.pathname.replace('/addcards', '')
+        const urlParams = new URLSearchParams(window.location.search)
+        if(urlParams.get("card_id")){
+            this.setState({ card_id: urlParams.get("card_id")})
+            this.setState({ image: urlParams.get("card_image")})
+            this.setState({ card_name: urlParams.get("card_name")})
+            this.setState({ card_rate: urlParams.get("card_rate")})
+            this.setState({ card_function: "Update Card"  })
+        }
+        else{
+            this.setState({ card_function: "Add Card"  })
+        }
+        
     }
 
     toggleLoadingStateTrue(){
@@ -115,6 +132,9 @@ export default class AddCards extends React.Component{
         }
         else if(this.state.card_currency.length == 0 ){
             this.setResponseParameters(4, "Please enter the card currency")
+        }
+        else if(this.state.card_function == "Update Card"){
+            this.updateCard()
         }
         else{
             this.addCard()
@@ -245,6 +265,7 @@ export default class AddCards extends React.Component{
                                 loadingState={this.state.loadingState} 
                                 showResponseMessage={this.state.showResponseMessage} 
                                 validateParameters={this.validateParameters.bind(this)}
+                                buttonText={this.state.card_function}
                             />
 
                         </div>
