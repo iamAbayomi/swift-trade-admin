@@ -48,7 +48,7 @@ export default class Cards extends React.Component {
                                     </div>
                                 </div>
                             </div>
-                            <Link to="/coins" className="link">
+                            <Link to="/addcoins" className="link">
                                 <AddButton  className="button " >
                                     <img className="card-logo" src="/vectors/card-logo.svg" />
                                     <p className="addcard-text" >Add Coin</p>

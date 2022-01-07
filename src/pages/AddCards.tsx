@@ -134,7 +134,7 @@ export default class AddCards extends React.Component{
 
     async addCard(){
         this.toggleLoadingStateTrue()
-        this.toggleShowResponseMessageFalse()
+        this.toggleShowResponseMessageTrue()
         console.log("I am here")
         let token = await getToken()
         axios.post('https://swift-trade-v1.herokuapp.com/api/v1/cards/create', {
@@ -190,7 +190,7 @@ export default class AddCards extends React.Component{
                                     </div>
                                 </div>
                             </div>
-                            <Link to="/coins" className="link">
+                            <Link to="/addcoins" className="link">
                                 <AddButton style={{ margin: "10px auto 0px auto" }} className="button" >
                                     <img className="card-logo" src="/vectors/card-logo.svg" />
                                     <p className="addcard-text" >Add Coin</p>
