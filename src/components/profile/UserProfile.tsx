@@ -163,6 +163,7 @@ function UserProfile(){
             updateUser()
         }
         else{
+            toggleShowResponseMessageTrue()
             simpleValidator.current.showMessages()  
         }
     }
