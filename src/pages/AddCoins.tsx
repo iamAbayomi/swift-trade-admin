@@ -70,7 +70,7 @@ export default class AddCoins extends React.Component{
             this.setResponseParameters(4, "Please enter the coin rate")
         }
         else if(this.state.coin_function == "Update Coin"){
-
+            this.updateCoins()
         }
         else{
             this.addCoins()
@@ -155,6 +155,46 @@ export default class AddCoins extends React.Component{
         })
     }
 
+    async updateCoins(){
+        this.toggleLoadingStateTrue()
+        this.toggleShowResponseMessageTrue()
+        let token = await getToken()
+        axios.patch(`https://swift-trade-v1.herokuapp.com/api/v1/coins/${this.state.coin_id}/update`, {
+            name: this.state.coin_name,
+            rate: this.state.coin_rate,
+            image: this.state.image
+        }, {headers: { 'Authorization' : `Bearer ${token}`}}
+        )
+        .then((res: any) => {
+            console.log('This is the data', res.data)
+            this.setResponseParameters(res.status, res.data.message)
+        })
+        .catch((err)=>{
+            console.log(err)
+            console.log(err.response.data.message)
+            this.setResponseParameters(4, err.response.data.message)
+        })
+    }
+
+    async deleteCoins(){
+        this.toggleLoadingStateTrue()
+        this.toggleShowResponseMessageTrue()
+        let token = await getToken()
+        axios.delete('https://swift-trade-v1.herokuapp.com/api/v1/coins/delete',{ 
+            headers: { 'Authorization' : `Bearer ${token}`},
+            data : {coinId :this.state.coin_id }}
+        ) .then((res: any) => {
+            console.log('This is the data', res.data)
+            this.setResponseParameters(res.status, res.data.message)
+            this.clearInputs()
+        })
+        .catch((err)=>{
+            console.log(err)
+            console.log(err.response.data.message)
+            this.setResponseParameters(4, err.response.data.message)
+        })
+    }
+
     clearInputs(){
         this.setState({ image: "/vectors/profile-display-container.svg"})
             this.setState({ coin_name: " " })
@@ -187,6 +227,7 @@ export default class AddCoins extends React.Component{
                         </div>
                     </CardTitle>
                     <CardWhite className="card-white">
+                    <p className="text-options pointer" onClick={this.deleteCoins.bind(this)} >Delete Card</p>
                         <div className="profile-display-container">
                             <label htmlFor="file-input" className="">
                             <img className="coin-image" src={this.state.image}/>

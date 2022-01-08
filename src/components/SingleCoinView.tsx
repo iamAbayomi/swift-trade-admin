@@ -68,7 +68,7 @@ export default class SingleCoinView extends React.Component<imageState>{
                                     {this.state.coinImages.map((coin : any)  =>
                                         <Link to={'/addcoins?coin_id=' + coin.id
                                              + '&coin_name=' + coin.name
-                                             + '&coin_image='  + coin.mage
+                                             + '&coin_image='  + coin.image
                                              + '&coin_rate=' + coin.rate
                                         }>
                                             <GiftItem className="gift-cards-item" src={coin.image }/>
