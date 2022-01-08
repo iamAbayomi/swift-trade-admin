@@ -63,12 +63,18 @@ export default class SingleCoinView extends React.Component<imageState>{
                             {
                                 this.state.coinImages != null ? 
                                 <div>
-                                    <GiftItem className="gift-cards-item" src={this.state.coinImages[0].image }/>
-                                    <GiftItem className="gift-cards-item" src={this.state.coinImages[1].image }/>
-                                    {/* {this.state.coinImages.map((coin : any)  =>
-                                        <GiftItem className="gift-cards-item" src={coin.image }/>
+                                    {/* <GiftItem className="gift-cards-item" src={this.state.coinImages[0].image }/>
+                                    <GiftItem className="gift-cards-item" src={this.state.coinImages[1].image }/> */}
+                                    {this.state.coinImages.map((coin : any)  =>
+                                        <Link to={'/addcoins?coin_id=' + coin.id
+                                             + '&coin_name=' + coin.name
+                                             + '&coin_image='  + coin.mage
+                                             + '&coin_rate=' + coin.rate
+                                        }>
+                                            <GiftItem className="gift-cards-item" src={coin.image }/>
+                                        </Link>
                                     )}
-                                     */}
+                                    
                                      
                                 </div>
                                 
@@ -76,14 +82,14 @@ export default class SingleCoinView extends React.Component<imageState>{
 
                             }
                         </GiftCards>
-                        <div className="add-coincard">
+                        <Link to="/addcoins">
+                                <Button className="blue-button">Add Coin</Button>    
+                        </Link>
+                        {/* <div className="add-coincard">
                             <p className="add-coin-title">Product</p>
                             <EditField className="input-field" placeholder="Bitcoin" />
                             <EditField className="input-field" placeholder="1-20"/>
-                            <Link to="/addcoins">
-                                <Button className="blue-button">Add Coin</Button>    
-                            </Link>
-                        </div>
+                        </div> */}
                     </div>
                 </ClearFix>
                 

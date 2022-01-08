@@ -167,6 +167,7 @@ export default class AddCards extends React.Component{
         .then((res: any) => {
             console.log('This is the data', res.data)
             this.setResponseParameters(res.status, res.data.message)
+            this.clearInputs()
         })
         .catch((err)=>{
             console.log(err)
@@ -198,18 +199,25 @@ export default class AddCards extends React.Component{
 
     async deleteCard(){
         let token = await getToken()
-        axios.patch('https://swift-trade-v1.herokuapp.com/api/v1/cards/delete', {
-            cardId :this.state.card_id    
-        }, {headers: { 'Authorization' : `Bearer ${token}`}}
+        axios.delete('https://swift-trade-v1.herokuapp.com/api/v1/cards/delete',{ 
+            headers: { 'Authorization' : `Bearer ${token}`},
+            data : {cardId :this.state.card_id }}
         ) .then((res: any) => {
             console.log('This is the data', res.data)
             this.setResponseParameters(res.status, res.data.message)
+            this.clearInputs()
         })
         .catch((err)=>{
             console.log(err)
             console.log(err.response.data.message)
             this.setResponseParameters(4, err.response.data.message)
         })
+    }
+
+    clearInputs(){
+        this.setState({ image: "/vectors/profile-display-container.svg"})
+            this.setState({ card_name: " " })
+            this.setState({ card_rate: " "})
     }
     
     render(){
@@ -232,17 +240,17 @@ export default class AddCards extends React.Component{
                             <Link to="/addcoins" className="link">
                                 <AddButton style={{ margin: "10px auto 0px auto" }} className="button" >
                                     <img className="card-logo" src="/vectors/card-logo.svg" />
-                                    <p className="addcard-text" >Add Coin</p>
+                                    <p className="addcard-text">Add Coin</p>
                                 </AddButton>
                             </Link>
                         </div>
                     </CardTitle>
                     <CardWhite className="card-white">
-                        <p className="text-options pointer">Delete Card</p>
+                        <p className="text-options pointer" onClick={this.deleteCard.bind(this)} >Delete Card</p>
                         <div className="profile-display-container clearfix">
                             <label htmlFor="file-input" className="">
                                 {/* <img className=""  src="/vectors/profile-display-container.svg"/> */}
-                                <img className="coin-image" src={this.state.image}/>
+                                <img className="coin-image " src={this.state.image}/>
                             </label>
                             <input onChange={this.onProfileImageSelected.bind(this)} accept="image/*" className="file-input" type="file" id ="file-input" />
                         </div>

@@ -12,13 +12,33 @@ import { Link } from "react-router-dom";
 export default class AddCoins extends React.Component{
 
     state ={
+        coin_id: '',
         coin_name: '',
-        network_type: '',
+        coin_rate: '',
         image: '/vectors/profile-display-container.svg',
+        coin_function: '',
         responseStatus: 0,
         responseMessage: "",
         loadingState: false,
         showResponseMessage: false
+    }
+
+    componentDidMount(){
+        this.getCoinParameters()
+    }
+
+    getCoinParameters(){
+        const urlParams = new URLSearchParams(window.location.search)
+        if(urlParams.get("coin_id")){
+            this.setState({ coin_id: urlParams.get("coin_id")})
+            this.setState({ image: urlParams.get("coin_image")})
+            this.setState({ coin_name: urlParams.get("coin_name")})
+            this.setState({ coin_rate: urlParams.get("coin_rate")})
+            this.setState({ coin_function: "Update Coin"  })   
+        }
+        else{
+            this.setState({ coin_function: "Add Coin"  })
+        }
     }
 
     toggleLoadingStateTrue(){
@@ -41,13 +61,16 @@ export default class AddCoins extends React.Component{
         this.toggleShowResponseMessageTrue()
         
         if(this.state.coin_name.length == 0 ){
-            this.setResponseParameters(4, "Please enter the card name")
+            this.setResponseParameters(4, "Please enter the coin name")
         }
         else if(this.state.image == '/vectors/profile-display-container.svg'){
-            this.setResponseParameters(4, "Please change the card image")
+            this.setResponseParameters(4, "Please change the coin image")
         }
-        else if(this.state.network_type.length == 0 ){
-            this.setResponseParameters(4, "Please enter the card rate")
+        else if(this.state.coin_rate.length == 0 ){
+            this.setResponseParameters(4, "Please enter the coin rate")
+        }
+        else if(this.state.coin_function == "Update Coin"){
+
         }
         else{
             this.addCoins()
@@ -69,8 +92,8 @@ export default class AddCoins extends React.Component{
         this.toggleShowResponseMessageTrue()
     }
     
-    onNetworkTypeChange(event: ChangeEvent<HTMLInputElement>){
-        this.setState({ network_type: event.target.value})
+    onCoinRateChange(event: ChangeEvent<HTMLInputElement>){
+        this.setState({ coin_rate: event.target.value})
         this.toggleShowResponseMessageTrue()
     }
     
@@ -116,19 +139,26 @@ export default class AddCoins extends React.Component{
         let token = await getToken()
         axios.post('https://swift-trade-v1.herokuapp.com/api/v1/coins/create', {
             name: this.state.coin_name,
-            rate: 400,
+            rate: this.state.coin_rate,
             image: this.state.image
         }, {headers: { 'Authorization' : `Bearer ${token}`}}
         )
         .then((res: any) => {
             console.log('This is the data', res.data)
             this.setResponseParameters(res.status, res.data.message)
+            this.clearInputs()
         })
         .catch((err)=>{
             console.log(err)
             console.log(err.response.data.message)
             this.setResponseParameters(4, err.response.data.message)
         })
+    }
+
+    clearInputs(){
+        this.setState({ image: "/vectors/profile-display-container.svg"})
+            this.setState({ coin_name: " " })
+            this.setState({ coin_rate: " "})
     }
 
     render(){
@@ -176,13 +206,13 @@ export default class AddCoins extends React.Component{
                             </div>
 
                             <div className="card-type">
-                                <p>Network Type</p>
+                                <p>Card Rate</p>
                                 <EditField 
                                     type="name" 
                                     className="edit-field" 
-                                    placeholder="USA iTunes E-Code card"
-                                    value={this.state.network_type}
-                                    onChange={this.onNetworkTypeChange.bind(this)}
+                                    placeholder="Card Rate"
+                                    value={this.state.coin_rate}
+                                    onChange={this.onCoinRateChange.bind(this)}
                                     />
                             </div>
 
@@ -193,6 +223,7 @@ export default class AddCoins extends React.Component{
                                 loadingState={this.state.loadingState} 
                                 showResponseMessage={this.state.showResponseMessage} 
                                 validateParameters={this.validateParameters.bind(this)}
+                                buttonText={this.state.coin_function}
                             />
                             
                         </div>
