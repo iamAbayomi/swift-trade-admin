@@ -29,6 +29,7 @@ import ModalFormWithCards from '../components/ModalFormWithCards'
 import Form from '../pages/Form'
 import { getUser, getUserData, removeUserData } from '../classes/User'
 import SingleUser from '../pages/SingleUser'
+import Login from '../pages/Login'
 
 /*
     The entry point of the application. The componentDidMount is 
