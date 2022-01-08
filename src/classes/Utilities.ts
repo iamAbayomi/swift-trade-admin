@@ -27,3 +27,6 @@ export function getUserProfile(token: string, userId: string): any{
         {headers: {'Authorization' : `Bearer ${token}`}} )
     .then((res: any)=> res.data.data)
 }
+
+
+//export function 

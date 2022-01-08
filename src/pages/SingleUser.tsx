@@ -12,11 +12,6 @@ import TransactionCards from "../components/TransactionCard"
 import TransactionOverview from "../components/TransactionOverview"
 import './SingleUser.css'
 
-type props = {
-    userProfileImage: string,
-    userName: string,
-    userEmail: string
-}
 
 function SingleUser(){
     const [userProfile, setUserProfile] = useState<any>({})
@@ -27,6 +22,7 @@ function SingleUser(){
         "pendingTransactions": 0,
         "failedTransactions": 0
     })
+    const [userState, setUserState] = useState("")
 
     useEffect(()=>{
         setProfileImage()
@@ -37,35 +33,48 @@ function SingleUser(){
         setUserProfileImage('./vectors/empty-user.png')
     }
 
+    function getUserId(){
+        let userId = window.location.pathname.replace('/users/singleuser/', '')
+        return userId
+    }
+    // This function gets the user transaction counts.
     async function getSingleUserData(){
         let token = await getToken()
         let userId = await getUserId()
         axios.get(`https://swift-trade-v1.herokuapp.com/api/v1/transaction/${userId}/user/count`,{
             headers: {'Authorization' : `Bearer ${token}`}} )
-            .then((res: any)=>{
-                    console.log('This is the data', res)
-                    setTransactionCount(res.data.data)
-                }).catch((err) => { console.log(err)})
-            
+            .then((res: any)=>{setTransactionCount(res.data.data)    })
+            .catch((err) => { console.log(err)})
             getTheUserProfile(token, userId)
     }
-
-    function getUserId(){
-        let userId = window.location.pathname.replace('/users/singleuser/', '')
-        return userId
-    }
-
+    //This gets the user profile since we need the user profile name, image and status
     async function getTheUserProfile(token: any, userId: any){
         axios.get(`https://swift-trade-v1.herokuapp.com/api/v1/user/${userId}/info`,
             {headers: {'Authorization' : `Bearer ${token}`}} )
-            .then((res: any)=> {
-                console.log('This is the data', res)
-                    setUserProfile(res.data.data)
-                }).catch((err) => { console.log(err)})
-
-        console.log("This is the user profile",  userProfile)
-        console.log("This is the user ", getUserProfile(token, userId))
+            .then((res: any)=> {setUserProfile(res.data.data)
+                
+            }).catch((err) => { console.log(err)})
+            
     }
+    //Check the user status 
+    function checkIfTheUserIsSuspended(){
+        return userProfile.is_suspended ? true : false
+    }
+    //The
+    async function toggleTheUserStatus(){
+        let token = await getToken()
+        let userId = await getUserId()
+        axios.post(`https://swift-trade-v1.herokuapp.com/api/v1/user/${userId}/suspend`,
+            {suspend: !checkIfTheUserIsSuspended()},
+            {headers: {'Authorization' : `Bearer ${token}`}})
+        .then((res: any)=> {
+            console.log('this is the status data', res)
+            setUserProfile(res.data.data)
+        })
+        .catch((err) => { console.log(err)})
+    }
+
+
 
     return(
         <div>
@@ -86,8 +95,8 @@ function SingleUser(){
                 { userProfile.is_suspended != undefined ?
                     <StatusBlock className="display-flex">
                         <Chips userId={null} chipsText={userProfile.is_suspended.toString()} backgroundColor="" /> 
-                        <BlockButton className="chips">
-                            <BlockButtonContents>Block User </BlockButtonContents>
+                        <BlockButton className="chips pointer">
+                            <BlockButtonContents onClick={toggleTheUserStatus} > { checkIfTheUserIsSuspended() ? "UnBlock User" : "Block User"} </BlockButtonContents>
                         </BlockButton>
                     </StatusBlock>
                     : <div/>
@@ -125,14 +134,15 @@ const TransactionContainer = styled.div `
 `
 
 const StatusBlock = styled.div `
-    max-width: 260px;
+    max-width: 280px;
 `
 
 const BlockButton = styled.div `
+    width: 280px;
     color: white;
     background: #010066;
-`
-
+    margin: 0px 10px 0px 20px;
+` 
 const BlockButtonContents = styled.p`
     margin: 5px 5px 5px 15px;
 `
