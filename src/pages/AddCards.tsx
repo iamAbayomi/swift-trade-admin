@@ -36,6 +36,7 @@ export default class AddCards extends React.Component{
 
     getCardsParameters(){
         // let token = window.location.pathname.replace('/addcards', '')
+        console.log('this is the props. ', this.props)
         const urlParams = new URLSearchParams(window.location.search)
         if(urlParams.get("card_id")){
             this.setState({ card_id: urlParams.get("card_id")})

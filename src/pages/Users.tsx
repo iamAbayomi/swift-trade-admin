@@ -29,7 +29,7 @@ export default class Users extends React.Component<typeState>{
                             
                         </Link>
                     </div>   
-                    <UserTableView userProfile = {null} token ={''} data={''} userProfileRow={null} />
+                    <UserTableView />
                     </TradeSpace>
                     </div>
                     
