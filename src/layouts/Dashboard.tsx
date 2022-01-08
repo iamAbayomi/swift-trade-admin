@@ -18,6 +18,7 @@ import {
     Switch,
     Route,
     NavLink,
+    Link,
     // BrowserRouter
   } from 'react-router-dom';
 
@@ -29,7 +30,7 @@ import ModalFormWithCards from '../components/ModalFormWithCards'
 import Form from '../pages/Form'
 import { getUser, getUserData, removeUserData } from '../classes/User'
 import SingleUser from '../pages/SingleUser'
-import Login from '../pages/Login'
+import Login from '../pages/Login/Login'
 
 /*
     The entry point of the application. The componentDidMount is 
@@ -50,7 +51,7 @@ export default class Dashboard extends React.Component{
             id: '',
             first_name: '',
             last_name: '',
-            profile_image: ''
+            profile_picture: ''
         },
         temptoken: ''
     }
@@ -132,13 +133,20 @@ export default class Dashboard extends React.Component{
                                 </div>
                             </div>
                         </div>
-                        <div className="profile-section" style={{display : 'flex'}}>
-                            <img className="profile-image" src="/vectors/profile-image.svg" />
-                            <p className="username">
-                                Ramon Ridwan
-                            </p>
-                        </div>
-                        <img className="notifications-icon" src="/vectors/notifications.svg" />
+                        {/* Profile Information Section */}
+                        <Link to="/settings/profile"  className="link" style={ {marginTop: "10px" }} >
+                            <div className="profile-section" style={{display : 'flex'}}>
+                                <img className="profile-image" src={ this.state.user ? this.state.user.profile_picture : "/vectors/empty-user.png"} />
+                                <p className="username">
+                                    { this.state.user ? this.state.user.first_name + ' ' +   this.state.user.last_name : <p/>}
+                                </p>
+                            </div>
+                        </Link>
+
+                        {/* Notification Icoprofile_image: ''n Section */}
+                        <Link to="/settings/notification" className="link">
+                            <img className="notifications-icon pointer" src="/vectors/notifications.svg" />
+                        </Link>
                     </div>
                 </div>
                 <div className="content">

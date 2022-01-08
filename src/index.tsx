@@ -4,7 +4,7 @@ import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
 import './index.css';
 // import App from './layouts/Dashboard';
 import App from './App';
-import Login from './pages/Login';
+import Login from './pages/Login/Login';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
