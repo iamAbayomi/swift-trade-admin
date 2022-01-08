@@ -6,12 +6,8 @@
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
-    
-    /* identical to box height, or 39px */
-
-
+    text-align: center;
     /* swift black */
-
     color: #333333;
 }
 
@@ -20,7 +16,7 @@
     font-style: normal;
     font-weight: normal;
     font-size: 12px;
-    
+    text-align: center;
     /* identical to box height, or 20px */
 
 
