@@ -144,7 +144,7 @@ export default class Dashboard extends React.Component{
                 <div className="content">
                     <div className={`side-menu ${this.state.isActive ? "is-open" : "" }`}>
                         <div className="menu-items-content">
-                            <NavLink to="/overview" className="menu-item" activeClassName="selected">
+                            <NavLink to={"/overview"} className="menu-item" activeClassName="selected">
                                 <img className="menu-icon" src="/vectors/overview.svg" alt="" />
                                 <p className="menu-title">
                                     Overview
@@ -193,12 +193,12 @@ export default class Dashboard extends React.Component{
                                 </p>
                             </NavLink>
 
-                            <NavLink to="/logout" className="menu-item " activeClassName="selected">
+                            <div className="menu-item ">
                                 <img className="menu-icon" src="/vectors/logout.svg" alt="" />
-                                <p className="menu-title">
+                                <p className="menu-title" onClick={this.logOut.bind(this)}>
                                     Logout.
                                 </p>
-                            </NavLink>
+                            </div>
                         </div>
                     </div>
                     <div className="main-section">
