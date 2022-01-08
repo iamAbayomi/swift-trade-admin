@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import axios from "axios"
 import { useState, useEffect } from "react"
+import { useHistory } from "react-router-dom"
 import styled from "styled-components"
 import { getToken } from "../classes/User"
 import { getUserProfile } from "../classes/Utilities"
@@ -14,6 +15,7 @@ import './SingleUser.css'
 
 
 function SingleUser(){
+    const history = useHistory()
     const [userProfile, setUserProfile] = useState<any>({})
     const [userProfileImage, setUserProfileImage] = useState("")
     const [transactionCount, setTransactionCount] = useState({
@@ -70,6 +72,7 @@ function SingleUser(){
         .then((res: any)=> {
             console.log('this is the status data', res)
             setUserProfile(res.data.data)
+            history.go(0)
         })
         .catch((err) => { console.log(err)})
     }
