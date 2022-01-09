@@ -100,7 +100,7 @@ function UserTableView (){
                             columns={columns}
                             options = {options}
                             />
-                        <Button className="blue-button" >View More </Button>
+                        {/* <Button className="blue-button" >View More </Button> */}
                 </div>
             </div>
         )
