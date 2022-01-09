@@ -101,7 +101,7 @@ export default class Dashboard extends React.Component{
             console.log(this.state.user)
         }else{
             // redirects the user to the homepage
-            window.location.href ="https://swift-homepage.netlify.app/"
+            window.location.href ="/login"
         }
     }
     
