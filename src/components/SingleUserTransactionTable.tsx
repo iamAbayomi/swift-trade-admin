@@ -1,7 +1,7 @@
 import axios from "axios";
 import MUIDataTable from "mui-datatables";
 import React, { Props, useEffect, useState } from "react";
-import { formatDate } from "../classes/Utilities";
+import { formatDate, muiTableOptionType } from "../classes/Utilities";
 import Chips from "./Chips";
 import MenuOptions from "./MenuOptions";
 
@@ -60,8 +60,9 @@ const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Act
 
 const data : any[][] = []
 
-const options = {
-    elevation: 0
+const options : muiTableOptionType = {
+    elevation: 0,
+    responsive: "standard"
 }
 
 export default SingleUserTransactionTable

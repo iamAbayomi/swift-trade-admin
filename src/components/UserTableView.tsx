@@ -8,6 +8,7 @@ import UserImageandName from './UserImageandName';
 import { getToken } from '../classes/User';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import { muiTableOptionType } from '../classes/Utilities';
 
 
 let history
@@ -28,10 +29,13 @@ function UserTableView (){
         // [<Chips chipsText="Block" backgroundColor="rgba(255, 73, 73, 1)"/>, <UserImageandName image="/vectors/profile-woman-image.svg" name="Ramon Ridwan"/>, "Ramonridwan@protonmail.com", <MenuOptions />]
     ]
     
-    const options = {
+    
+    const options : muiTableOptionType = {
         elevation: 0,
-        onRowClick: viewUser
+        onRowClick: viewUser,
+        responsive: "standard"
     }
+    
     
     
     useEffect(()=>{

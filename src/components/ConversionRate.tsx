@@ -5,6 +5,11 @@ import styled from 'styled-components'
 import MUIDataTable from  "mui-datatables";
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
 import {createTheme} from '@material-ui/core/styles'
+import { getToken } from '../classes/User';
+import axios from 'axios';
+import { muiTableOptionType } from '../classes/Utilities';
+
+const data: (string[] | object[] | number[])[]= []
 
 export default class ConversionRate extends React.Component {
 
@@ -22,6 +27,57 @@ export default class ConversionRate extends React.Component {
             }
         }
     })
+
+    state = {
+        coin: "",
+        card: "",
+        conversionRateData: []
+    }
+
+    componentDidMount(){
+        this.getCards()
+    }
+
+    async getCards(){
+        let token = await getToken()
+        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/cards', {
+             headers: {'Authorization' : `Bearer ${token}`
+            }}).then((res: any) => {
+                this.setState( { card: res.data.data})
+                this.getCoins( this.state.card)
+                console.log('this is the response of the cards', res)
+            })
+            .catch((err)=>{console.log(err)})
+    }
+    
+    async getCoins( card : any){
+        let token = await getToken()
+        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/coins',{
+            headers:{'Authorization' : `Bearer ${token}`}})
+            .then((res: any) => {
+                this.setState({coin: res.data.data})
+                this.setConverstionRate(card , this.state.coin)
+                console.log('This is the response', res)
+            })
+            .catch((err)=>{console.log(err)})
+        
+    }
+
+    setConverstionRate(card: any, coin: any){
+        card.map((item: any) => {
+            data.push([item.name," " ,item.rate])
+        })
+
+        coin.map((item: any) => {
+            data.push([item.name, " " , item.rate])
+        })
+
+        this.setState({conversionRateData : data})
+    }
+
+
+
+
     
     render(){
         return(
@@ -36,7 +92,7 @@ export default class ConversionRate extends React.Component {
                                 <MuiThemeProvider theme={this.getMuiTheme()}>
                                     <MUIDataTable
                                         title={""}    
-                                        data={data}
+                                        data={this.state.conversionRateData}
                                         columns={columns}
                                         options = {options}
                                     />
@@ -50,9 +106,9 @@ export default class ConversionRate extends React.Component {
     }
 }
 
-const columns = ["iTunes Card", "", "Amazon Card", "" ,"Bitcoin", ""]
+// const columns = ["iTunes Card", "", "Amazon Card", "" ,"Bitcoin", ""]
 
-const data: (string[] | object[] | number[])[]= []
+const columns = ["Card", " " ,"Rate"]
 
 // const data = [
 //     ["USA Physical",   "N400.00", "USA Physical",   "N400.00", "Bitcoin BTC",  " N400.00"],
@@ -61,8 +117,10 @@ const data: (string[] | object[] | number[])[]= []
 //     ["UK E-Code Card",   "N400.00", "UK E-Code Card",   "N400.00", "Bitcoin BTC",   "N400.00"]
 // ]
 
-const options = {
-    elevation: 0
+const options : muiTableOptionType = {
+    elevation: 0,
+    rowsPerPage: 5,
+    responsive: 'standard'
 }
 
 const TransactionOptions = styled.img `

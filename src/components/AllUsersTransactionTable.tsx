@@ -57,8 +57,16 @@ const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Act
 
 const data : any[][] = []
 
-const options = {
-    elevation: 0
+const options: optionType = {
+    elevation: 0,
+    responsive: 'standard'
 }
 
+type optionType = {
+    elevation: number,
+    onRowClick? : ()=> void
+    responsive: Responsive
+}
+
+export type Responsive = 'vertical' | 'standard' | 'simple';
 export default AllUsersTransactionTable
