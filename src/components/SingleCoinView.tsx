@@ -118,6 +118,8 @@ const CardWhite = styled.div `
     border-radius: 10px;
     // width: 800px;
     // height: 444px;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+    transition: 0.3s;
 `
 
 const ClearFix = styled.div `

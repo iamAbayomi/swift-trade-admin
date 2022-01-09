@@ -93,6 +93,8 @@ const CardWhite = styled.div `
     // width: 800px;
     // height: 381px;
     box-sizing: border-box;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 20%);
+    transition: 0.3s;
 `
 
 // const CardText = styled.div `
