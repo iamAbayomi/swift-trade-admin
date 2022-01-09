@@ -30,3 +30,11 @@ export function getUserProfile(token: string, userId: string): any{
 
 
 //export function 
+
+export type muiTableOptionType = {
+    elevation: number,
+    onRowClick? : (rowData : any) => void
+    responsive: Responsive
+}
+
+export type Responsive = 'vertical' | 'standard' | 'simple';
