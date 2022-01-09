@@ -1,7 +1,7 @@
 import axios from "axios";
 import MUIDataTable from "mui-datatables";
 import React, { useEffect, useState } from "react";
-import { formatDate } from "../classes/Utilities";
+import { formatDate, muiTableOptionType } from "../classes/Utilities";
 import Chips from "./Chips";
 import MenuOptions from "./MenuOptions";
 /**
@@ -57,16 +57,11 @@ const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Act
 
 const data : any[][] = []
 
-const options: optionType = {
+const options: muiTableOptionType = {
     elevation: 0,
+    rowsPerPage: 80,
     responsive: 'standard'
 }
 
-type optionType = {
-    elevation: number,
-    onRowClick? : ()=> void
-    responsive: Responsive
-}
 
-export type Responsive = 'vertical' | 'standard' | 'simple';
 export default AllUsersTransactionTable
