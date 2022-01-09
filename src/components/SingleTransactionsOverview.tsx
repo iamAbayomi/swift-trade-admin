@@ -34,20 +34,18 @@ function  SingleTransactionOverview() {
         let token = await getToken()
 
         axios.get('https://swift-trade-v1.herokuapp.com/api/v1/transaction/count',{
-            headers: {
-                'Authorization' : `Bearer ${token}`
-            }})
+            headers: {'Authorization' : `Bearer ${token}`}})
             .then(async (res: any) => {
                 console.log('This is the user response', res.data.data)  
                 let result = await res.data.data
                 setTransactionCount(result)
-                // tempTransaction = res.data.data
-
                 console.log(transactionCount)
             })
-            .catch((err)=>{
-                console.log(err)
-            })
+            .catch((err)=>{ console.log(err)})
+    }
+
+    async function getAllUsers() {
+        
     }
 
     return(
