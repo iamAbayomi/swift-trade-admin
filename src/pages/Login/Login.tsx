@@ -85,19 +85,23 @@ function Login(){
         }})
         .then((res: any) => {
             console.log('This is the user response', res)  
-            checkIfUserIsAdmin(res.data.data.role) ?
-            window.location.href = `https://swift-admin-dashboard.netlify.app/token/${token}`
-            :   setResponseParameters( 4, 
-                "You are not an Admin. We would redirect you to the user page")
-
+            checkIfUserIsAdmin(res.data.data.role, token) 
         })
         .catch((err)=>{
             console.log(err)
         })
     }
 
-    function checkIfUserIsAdmin(role: any){
-        return role == "admin" ? true : false
+    function checkIfUserIsAdmin(role: any, token: any){
+        if (role == "admin"){
+            window.location.href = `https://swift-admin-dashboard.netlify.app/token/${token}`
+        } else{
+            setResponseParameters( 4,  "You are not an Admin. We would redirect you to the user page")
+            window.location.href = `https://swift-user-dashboard.netlify.app/token/${token}`
+        }
+
+            
+
     }
 
 
@@ -112,7 +116,7 @@ function Login(){
                     <p>Admin Login</p>
                     <input 
                         className="login-button login-edit-field" 
-                        name="name"
+                        type="name"
                         placeholder="Email Address"
                         onChange={handleEmailChanged}
                         onBlur={()=> simpleValidator.current.showMessageFor('email')}
@@ -121,7 +125,7 @@ function Login(){
 
                     <input 
                         className="login-button login-edit-field" 
-                        name="password"
+                        type="password"
                         placeholder="Password"
                         onChange={handlePasswordChanged}
                         onBlur={()=> simpleValidator.current.showMessageFor('password')}
