@@ -134,6 +134,7 @@ function Login(){
                         loadingState={loadingState} 
                         showResponseMessage={showResponseMessage} 
                         validateParameters={validateParameters}  
+                        buttonText="Login"
                     />    
                 </div>
                 <div className="icon-section">
