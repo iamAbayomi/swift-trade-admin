@@ -33,6 +33,7 @@ export function getUserProfile(token: string, userId: string): any{
 
 export type muiTableOptionType = {
     elevation: number,
+    rowsPerPage?: number,
     onRowClick? : (rowData : any) => void
     responsive: Responsive
 }
