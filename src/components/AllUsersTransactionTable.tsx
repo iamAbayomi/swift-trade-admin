@@ -59,7 +59,7 @@ const data : any[][] = []
 
 const options: muiTableOptionType = {
     elevation: 0,
-    rowsPerPage: 80,
+    rowsPerPage: 100,
     responsive: 'standard'
 }
 
