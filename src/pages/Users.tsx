@@ -1,13 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import TransactionCards from '../components/TransactionCard'
 import './Overview.css'
 import '../layouts/Transaction.css'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import UserTableView from '../components/UserTableView'
-import axios from 'axios'
-import { getToken } from '../classes/User'
+
 
 type typeState = {
     transactionRow: any

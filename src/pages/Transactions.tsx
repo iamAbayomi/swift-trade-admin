@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
-import TransactionCards from '../components/TransactionCard'
 import './Overview.css'
 import '../layouts/Transaction.css'
 import { Link } from 'react-router-dom'
