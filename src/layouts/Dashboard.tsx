@@ -75,6 +75,8 @@ export default class Dashboard extends React.Component{
                 and it saves the data in the cookies
             */ 
             getUserData(this.state.user, token)
+            // this reloads the page
+            // setTimeout( window.location.href ="/login", 10000)
         }else{
              // This checks if the user is authenticated and 
             // redirects the user to the homepage
@@ -100,7 +102,7 @@ export default class Dashboard extends React.Component{
             console.log('it is safe to access this page')
             console.log(this.state.user)
         }else{
-            // redirects the user to the homepage
+            // redirects the user to the login page
             window.location.href ="/login"
         }
     }
