@@ -31,6 +31,7 @@ import Form from '../pages/Form'
 import { getUser, getUserData, removeUserData } from '../classes/User'
 import SingleUser from '../pages/SingleUser'
 import Login from '../pages/Login/Login'
+import { fetchUsers } from '../reducers/UsersSlice'
 
 /*
     The entry point of the application. The componentDidMount is 
@@ -73,6 +74,8 @@ export default class Dashboard extends React.Component{
                 and it gets the data from the user api request
                 and saves the data in the cookies */ 
             getUserData(this.state.user, token)
+            console.log('about to call fetch users')
+            fetchUsers(token)
             
         }else{
              // This checks if the user is authenticated and 

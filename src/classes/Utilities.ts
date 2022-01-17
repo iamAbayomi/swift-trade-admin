@@ -39,3 +39,5 @@ export type muiTableOptionType = {
 }
 
 export type Responsive = 'vertical' | 'standard' | 'simple';
+
+export const baseUrl = "https://swift-trade-v1.herokuapp.com/api/v1/"
