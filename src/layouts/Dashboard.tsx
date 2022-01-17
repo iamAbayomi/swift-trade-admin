@@ -69,14 +69,11 @@ export default class Dashboard extends React.Component{
         if(pathname.startsWith('/token/')){
             // redirect the user to the homepage
             let token = window.location.pathname.replace('/token/','')
-            /*
-                This getUserData method is in the user class
+            /* This getUserData method is in the user class
                 and it gets the data from the user api request
-                and it saves the data in the cookies
-            */ 
+                and saves the data in the cookies */ 
             getUserData(this.state.user, token)
-            // this reloads the page
-            // setTimeout( window.location.href ="/login", 10000)
+            
         }else{
              // This checks if the user is authenticated and 
             // redirects the user to the homepage

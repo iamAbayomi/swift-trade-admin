@@ -1,2 +1,8 @@
+import{
+    createSlice,
+    createSelector,
+    createAsyncThunk,
+    createEntityAdapter
+} from '@reduxjs/toolkit'
 
-export  const getUserProfile = (state: { users: any; }) => state.users
+
