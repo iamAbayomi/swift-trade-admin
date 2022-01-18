@@ -33,6 +33,7 @@ import SingleUser from '../pages/SingleUser'
 import Login from '../pages/Login/Login'
 import { fetchUsers } from '../reducers/UsersSlice'
 import TestPage from '../pages/TestPage'
+import Header from '../components/Header'
 
 /*
     The entry point of the application. The componentDidMount is 
@@ -119,39 +120,7 @@ export default class Dashboard extends React.Component{
         return(
         <Router>
             <div className="container">
-                <div className="header-bar">
-                    <img className="menu-toggle" id="toggle-menu" 
-                            src="/vectors/menu.svg"
-                            onClick={this.showDashboard.bind(this)}
-                        />
-                    <img className="logo" src="logo.svg" />
-                    <div className="header-tool">
-                        <div className="search-bar">
-                            <div className="search-content">
-                                <div className="search-logo-and-highlight">
-                                <img className="search-logo" src="/vectors/search-icon.svg"/>
-                                <input className="search-highlight" 
-                                placeholder="Search e.g card"
-                                />
-                                </div>
-                            </div>
-                        </div>
-                        {/* Profile Information Section */}
-                        <Link to="/settings/profile"  className="link" style={ {marginTop: "10px" }} >
-                            <div className="profile-section" style={{display : 'flex'}}>
-                                <img className="profile-image" src={ this.state.user ? this.state.user.profile_picture : "/vectors/empty-user.png"} />
-                                <p className="username">
-                                    { this.state.user ? this.state.user.first_name + ' ' +   this.state.user.last_name : <p/>}
-                                </p>
-                            </div>
-                        </Link>
-
-                        {/* Notification Icoprofile_image: ''n Section */}
-                        <Link to="/settings/notification" className="link">
-                            <img className="notifications-icon pointer" src="/vectors/notifications.svg" />
-                        </Link>
-                    </div>
-                </div>
+                <Header showDashboard={this.showDashboard.bind(this)} />
                 <div className="content">
                     <div className={`side-menu ${this.state.isActive ? "is-open" : "" }`}>
                         <div className="menu-items-content">
