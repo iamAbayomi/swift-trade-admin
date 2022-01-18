@@ -28,16 +28,14 @@ const initialState = usersAdapter.getInitialState({
 
 // Get all the users with the AsyncThunk 
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-    console.log('In the user slice ' )
-    const token = await getTokenByRedux()
+    const token = await getToken()
     const {response, error} = await customAxios({
         method: 'GET', url: baseUrl + 'user',
         headers: {'Authorization': `Bearer ${token}`}})
-    console.log('From the user slice ' , response , token, error)
+    //console.log('From the user slice ' , response , token, error)
     
     return response.data.data
 })
-
 
 
 // Slice for reducers
@@ -56,6 +54,17 @@ const usersSlice = createSlice({
             
     },
 })
+
+
+export const showUsers = (state: any ) => {
+    return state.users
+}
+
+export const showCurrentUsers = (state: any ) => {
+    let user = state.users
+    return user.entities[user.ids[0]]
+}
+
 
 
 export default usersSlice.reducer
