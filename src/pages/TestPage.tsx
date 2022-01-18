@@ -18,7 +18,7 @@ const TestPage: React.FC = () => {
     //     method: 'GET', url: baseUrl + 'user',
     //     headers: {'Authorization' : `Bearer ${token}`}
     // })
-    // console.log('From the user slice ' , response.first_name)
+    // console.log('From the custom Axuis ' , response)
     
     useEffect(()=>{
         dispatch(fetchUsers())
@@ -26,7 +26,11 @@ const TestPage: React.FC = () => {
     
     return(
         <div>
-            <p>{users} </p>
+            {
+                users ? <p>{users.first_name} </p>
+                : <div/>
+            }
+            <p>adda</p>
         </div>
     )
 }

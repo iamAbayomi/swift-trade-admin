@@ -7,9 +7,17 @@ import{
 import useAxios  from '../classes/CustomAxios'
 import { getToken, getTokenByRedux } from '../classes/User'
 import { baseUrl } from '../classes/Utilities'
+import type { RootState } from '../redux/store'
+
+// Define a type for the slice state
+interface UserState {
+    contents: any
+}
 
 // Creating users adapter that provides many methods for the users
-const usersAdapter = createEntityAdapter()
+const usersAdapter = createEntityAdapter<UserState>({
+    
+})
 
 // InitialState for reducers
 const initialState = usersAdapter.getInitialState({
@@ -21,15 +29,11 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
     console.log('In the user slice ' )
     const token = await getTokenByRedux()
     const {response, loading, error} = await useAxios({
-        method: 'GET',
-        url: baseUrl + 'user',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        }
-    })
+        method: 'GET', url: baseUrl + 'user',
+        headers: {'Authorization': `Bearer ${token}`}})
     console.log('From the user slice ' , response , token)
     console.log(response , token)
-    return response
+    return response.data.data
 })
 
 
