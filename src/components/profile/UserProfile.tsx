@@ -3,15 +3,19 @@ import { profile } from "console"
 import { useRef } from "react"
 import { ChangeEvent, useEffect, useState } from "react"
 import Loader from "react-loader-spinner"
+import { useDispatch } from "react-redux"
 import SimpleReactValidator from "simple-react-validator"
 import styled from "styled-components"
 import { getToken, getTokenWithMethod } from "../../classes/User"
+import { fetchUsers } from "../../reducers/UsersSlice"
 import LoadingButton from "../ui-components/Buttons/LoadingButton"
 import ResponseMessage from "../ui-components/typography/ResponseMessage"
 
 
 /* eslint-disable jsx-a11y/alt-text */
 function UserProfile(){
+    const dispatch = useDispatch()
+
     const [first_name, setFirstName] = useState("")
     const [last_name, setLastName] = useState("")
     const [email, setEmail] = useState("")
@@ -181,6 +185,7 @@ function UserProfile(){
         .then((res : any) => {
             console.log('This is the response', res)    
             setResponseParameters(res.status, res.data.message)
+            dispatch(fetchUsers())
         })
         .catch((err)=>{
             console.log(err.response.data.message)
