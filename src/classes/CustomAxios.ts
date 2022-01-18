@@ -1,30 +1,20 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-// Custom axios hooks 
+const customAxios = async (axiosParams: any)=> {
+    let response: any, error: any, loading: any
 
-const useAxios = (axiosParams: any) => {
-    const [response, setResponse] = useState<any>([])
-    const [error, setError] = useState('')
-    const [loading, setLoading] = useState(true)
-
-    const fetchData = async (params: any) => {
-        try{
-            const result: any = await axios.request(params)
-            console.log('I am here at the response in custom axios' , result)
-            setResponse(result)
-        }catch(error: any){
-            setError(error)
-        } finally{
-            setLoading(false)
-        } 
+    try{
+        const result: any = await axios.request(axiosParams)
+        response = result
+        // console.log("This is the ", result)
     }
-
-    useEffect(() => {
-        fetchData(axiosParams)
-    }, []) // execute once only
-
-    return {response, error, loading}
+    catch(err: any){
+        error = err
+         //console.log("This is the ", error)
+    }
+    
+    return {response, error}
 }
 
-export default useAxios
+export default customAxios
