@@ -8,7 +8,7 @@ import {store} from './redux/store'
 import { fetchUsers } from './reducers/UsersSlice';
 
 
-// store.dispatch(fetchUsers())
+store.dispatch(fetchUsers())
 
 ReactDOM.render(
   <React.StrictMode>  
