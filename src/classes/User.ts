@@ -43,6 +43,12 @@ export function getToken(){
     return token
 }
 
+export function getTokenByRedux(){
+    let token = cookies.get('token')
+    // console.log('This is the token' +  token)
+    console.log(' I got called by redux')
+    return token
+}
 export async function getUser(){
     let user = await cookies.get('userData')
     console.log('This is the user data')

@@ -12,7 +12,7 @@ const useAxios = (axiosParams: any) => {
         try{
             const result: any = await axios.request(params)
             console.log('I am here at the response in custom axios' , result)
-            setResponse(result.data.data)
+            setResponse(result)
         }catch(error: any){
             setError(error)
         } finally{
