@@ -10,24 +10,21 @@ const showUsers = (state: any ) => state
 
 const TestPage: React.FC = () => {
     const dispatch = useDispatch()
-    const token =   getToken()
-
     const users: any = useSelector<any[]>(showUsers)
 
-    // const {response, loading, error} =  useAxios({
-    //     method: 'GET', url: baseUrl + 'user',
-    //     headers: {'Authorization' : `Bearer ${token}`}
-    // })
-    // console.log('From the custom Axuis ' , response)
-    
+    function showUsersFromState(){
+        console.log('This is the value in the usesr state', users)
+    }
+
     useEffect(()=>{
         dispatch(fetchUsers())
-    }, [])
+        showUsersFromState()
+    })
     
     return(
         <div>
             {
-                users ? <p>{users.first_name} </p>
+                users ? <p>{JSON.stringify(users)} </p>
                 : <div/>
             }
             <p>adda</p>

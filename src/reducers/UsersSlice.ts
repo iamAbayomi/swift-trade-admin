@@ -34,14 +34,11 @@ export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
         method: 'GET', url: baseUrl + 'user',
         headers: {'Authorization': `Bearer ${token}`}})
     console.log('From the user slice ' , response , token, error)
-    //console.log(response , token)
+    
     return response.data.data
 })
 
 
-// export const fetchUsers = createAsyncThunk('users/fetchUsers', async() => {
-//     console.log('I am here')s
-// })
 
 // Slice for reducers
 const usersSlice = createSlice({
@@ -54,11 +51,8 @@ const usersSlice = createSlice({
         builder
             .addCase(fetchUsers.pending, (state, action) => {
                 state.status = 'loading'
-            } )
-            .addCase(fetchUsers.fulfilled, (state, action)=> {
-               // usersAdapter.setAll(state, action.payload)
-                state.status = 'idle'
             })
+            .addCase(fetchUsers.fulfilled, usersAdapter.addOne )
             
     },
 })
