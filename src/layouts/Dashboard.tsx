@@ -100,8 +100,8 @@ export default class Dashboard extends React.Component{
         this.setState({user: tempUser})
         // checks if the users state is stored in the application.
         if(this.state.user){
-            console.log('it is safe to access this page')
-            console.log(this.state.user)
+            // console.log('it is safe to access this page')
+            //console.log(this.state.user)
         }else{
             // redirects the user to the login page
             window.location.href ="/login"
