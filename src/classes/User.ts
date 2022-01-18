@@ -51,8 +51,8 @@ export function getTokenByRedux(){
 }
 export async function getUser(){
     let user = await cookies.get('userData')
-    console.log('This is the user data')
-    console.log(user)
+    // console.log('This is the user data')
+    // console.log(user)
     return user
 }
 
