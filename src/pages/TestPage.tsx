@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getToken } from "../classes/User"
 import { baseUrl } from "../classes/Utilities"
 import { fetchUsers } from "../reducers/UsersSlice"
-import useAxios from "../classes/CustomAxios"
+import useAxios from "../classes/CustomAxiosHook"
 
 const showUsers = (state: any ) => state
 
@@ -22,7 +22,7 @@ const TestPage: React.FC = () => {
     
     useEffect(()=>{
         dispatch(fetchUsers())
-    })
+    }, [])
     
     return(
         <div>
