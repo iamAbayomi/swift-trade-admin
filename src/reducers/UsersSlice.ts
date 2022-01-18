@@ -4,19 +4,21 @@ import{
     createAsyncThunk,
     createEntityAdapter
 } from '@reduxjs/toolkit'
-import useAxios  from '../classes/CustomAxios'
+import customAxios from '../classes/CustomAxios'
+import useAxios  from '../classes/CustomAxiosHook'
 import { getToken, getTokenByRedux } from '../classes/User'
 import { baseUrl } from '../classes/Utilities'
 import type { RootState } from '../redux/store'
 
 // Define a type for the slice state
 interface UserState {
+    id: any
     contents: any
 }
 
 // Creating users adapter that provides many methods for the users
 const usersAdapter = createEntityAdapter<UserState>({
-    
+    selectId: user => user.id
 })
 
 // InitialState for reducers
@@ -28,17 +30,17 @@ const initialState = usersAdapter.getInitialState({
 export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
     console.log('In the user slice ' )
     const token = await getTokenByRedux()
-    const {response, loading, error} = await useAxios({
+    const {response, error} = await customAxios({
         method: 'GET', url: baseUrl + 'user',
         headers: {'Authorization': `Bearer ${token}`}})
-    console.log('From the user slice ' , response , token)
-    console.log(response , token)
+    console.log('From the user slice ' , response , token, error)
+    //console.log(response , token)
     return response.data.data
 })
 
 
 // export const fetchUsers = createAsyncThunk('users/fetchUsers', async() => {
-//     console.log('I am here')
+//     console.log('I am here')s
 // })
 
 // Slice for reducers
@@ -54,7 +56,7 @@ const usersSlice = createSlice({
                 state.status = 'loading'
             } )
             .addCase(fetchUsers.fulfilled, (state, action)=> {
-                usersAdapter.setAll(state, action.payload)
+               // usersAdapter.setAll(state, action.payload)
                 state.status = 'idle'
             })
             
