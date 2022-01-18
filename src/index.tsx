@@ -1,15 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import './index.css';
 // import App from './layouts/Dashboard';
 import App from './App';
 import Login from './pages/Login/Login';
 import reportWebVitals from './reportWebVitals';
+import store from './redux/store'
+import { fetchUsers } from './reducers/UsersSlice';
+
+
+//store.dispatch(fetchUsers())
 
 ReactDOM.render(
   <React.StrictMode>  
-        <App />
+    <Provider store ={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

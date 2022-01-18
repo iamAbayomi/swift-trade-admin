@@ -32,6 +32,7 @@ import { getUser, getUserData, removeUserData } from '../classes/User'
 import SingleUser from '../pages/SingleUser'
 import Login from '../pages/Login/Login'
 import { fetchUsers } from '../reducers/UsersSlice'
+import TestPage from '../pages/TestPage'
 
 /*
     The entry point of the application. The componentDidMount is 
@@ -74,8 +75,8 @@ export default class Dashboard extends React.Component{
                 and it gets the data from the user api request
                 and saves the data in the cookies */ 
             getUserData(this.state.user, token)
-            console.log('about to call fetch users')
-            fetchUsers(token)
+            // console.log('about to call fetch users')
+            // fetchUsers(token)
             
         }else{
              // This checks if the user is authenticated and 
@@ -230,6 +231,7 @@ export default class Dashboard extends React.Component{
                                 <Route path="/form" component={Form} />
                                 <Route path="/modalform" component={ModalFormWithCards} />
                                 <Route exact path ="/token/:token" component={Overview} />
+                                <Route exact path="/testpage" component={TestPage} />
                                 
 
                                 {/* <Route exact path="/pendingwallet" component={} />
