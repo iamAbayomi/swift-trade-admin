@@ -1,5 +1,10 @@
 import axios from "axios"
 import moment from "moment"
+import customAxios from "./CustomAxios"
+import { getToken } from "./User"
+
+// Added baseUrl to axios
+export const baseUrl = "https://swift-trade-v1.herokuapp.com/api/v1/"
 
 /** This function takes in the created data value from the API 
  *  and formats it into the DD-MM-YYYY format.
@@ -10,38 +15,29 @@ export function formatDate(unformattedData : any){
     console.log(formattedDate)
     return formattedDate
 }
-
-// export function getUserProfile(token: string, userId: string): any{
-//     axios.get(`https://swift-trade-v1.herokuapp.com/api/v1/user/${userId}/info`,{
-//             headers: {'Authorization' : `Bearer ${token}`}} )
-//     .then((res: any)=>{
-//             console.log('This is the data', res)
-//             return res
-//         }).catch((err) => { console.log(err)})
-// }
-
-
 // This get the user profile from the API and returns the data
 export function getUserProfile(token: string, userId: string): any{
     return axios.get(`https://swift-trade-v1.herokuapp.com/api/v1/user/${userId}/info`,
         {headers: {'Authorization' : `Bearer ${token}`}} )
     .then((res: any)=> res.data.data)
 }
-
-
-//export function 
-
+//export Data Type for Material Table 
 export type muiTableOptionType = {
     elevation: number,
     rowsPerPage?: number,
     onRowClick? : (rowData : any) => void
     responsive: Responsive
 }
-
+// Respsonsive type for 
 export type Responsive = 'vertical' | 'standard' | 'simple';
 
-export const baseUrl = "https://swift-trade-v1.herokuapp.com/api/v1/"
-
-export interface UsersState {
-    
+// Method to use Custom Axios module 
+export const useCustomAxios = async (method: any, path: any, body?: any) => {
+    const token = await getToken()
+    const {response, error} = await customAxios({
+        method, url: baseUrl + path ,
+        headers: {'Authorization': `Bearer ${token}`},
+        body
+    })
+    return {response, error}
 }
