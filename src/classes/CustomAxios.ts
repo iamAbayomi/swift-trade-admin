@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 
 const customAxios = async (axiosParams: any)=> {
     let response: any, error: any, loading: any
-
     try{
         const result: any = await axios.request(axiosParams)
         response = result
@@ -11,7 +10,7 @@ const customAxios = async (axiosParams: any)=> {
     }
     catch(err: any){
         error = err
-         //console.log("This is the ", error)
+         console.log("This is the ", error)
     }
     
     return {response, error}
