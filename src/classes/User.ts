@@ -3,6 +3,8 @@ import Cookies from 'universal-cookie'
 
 const cookies = new Cookies()
 
+export const baseUrl = "https://swift-trade-v1.herokuapp.com/api/v1/"
+
 export function getUserData(user: any, token: any){
     console.log("I am getting the user data")
     // Added the non-null assertion operator to prevent undefined values
