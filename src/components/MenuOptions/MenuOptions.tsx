@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Dropdown } from "react-bootstrap"
 import styled from "styled-components"
+import './MenuOptions.css'
 
 function MenuOptions(){
     
