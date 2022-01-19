@@ -15,6 +15,14 @@
     /* justify-content: space-between; */
 }
 
+p{
+    margin-top: revert !important;
+    
+}
+
+a{
+    color: #3e3d57 !important;
+}
 
 
 .header-tool{
@@ -138,6 +146,7 @@
 .profile-image{
     height: 40px;
     border-radius: 36px;
+    margin: 5px;
 }
 
 .profile-section{
@@ -173,25 +182,12 @@
     max-width: 1200px;
 }
 
-.btn-secondary{
-    max-width: 300px;
-    width: 100%;
-    height: 38px;
-    margin: auto;
-    padding-left: 30px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: black !important;
-    background-color: white !important;
-    border-color: #6c757d;
-    border: 1px solid #BDBDBD;
-    border-radius: 10px;
-}
+
 
 
 input:focus, textarea:focus, select:focus, button:focus{
     outline: #BDBDBD;
-    border: 1px solid #BDBDBD;
+    border: 0px solid #BDBDBD;
     box-shadow: 0 0 0px #BDBDBD;
     
   }
