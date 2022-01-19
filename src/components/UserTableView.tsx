@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import MUIDataTable from  "mui-datatables";
 import styled from  'styled-components'
 import Chips from './Chips';
-import MenuOptions from './MenuOptions';
+import MenuOptions from './MenuOptions/MenuOptions';
 import UserImageandName from './UserImageandName';
 import { getToken } from '../classes/User';
 import axios from 'axios';

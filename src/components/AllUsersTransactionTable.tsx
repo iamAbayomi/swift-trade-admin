@@ -3,7 +3,7 @@ import MUIDataTable from "mui-datatables";
 import React, { useEffect, useState } from "react";
 import { formatDate, muiTableOptionType } from "../classes/Utilities";
 import Chips from "./Chips";
-import MenuOptions from "./MenuOptions";
+import MenuOptions from "./MenuOptions/MenuOptions";
 /**
  * This class displays the transaction for all users in 
  * the application

@@ -3,7 +3,7 @@ import MUIDataTable from "mui-datatables";
 import React, { Props, useEffect, useState } from "react";
 import { formatDate, muiTableOptionType } from "../classes/Utilities";
 import Chips from "./Chips";
-import MenuOptions from "./MenuOptions";
+import MenuOptions from "./MenuOptions/MenuOptions";
 
 type props = {
     userId: any

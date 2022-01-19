@@ -5,6 +5,7 @@ import { getToken } from "../classes/User"
 import { baseUrl } from "../classes/Utilities"
 import { fetchUsers, showCurrentUsers, showUsers } from "../reducers/UsersSlice"
 import useAxios from "../classes/CustomAxiosHook"
+import MenuOptions from "../components/MenuOptions/MenuOptions"
 
 
 const TestPage: React.FC = () => {
@@ -28,6 +29,7 @@ const TestPage: React.FC = () => {
                 : <div/>
             }
 
+            <MenuOptions />
         </div>
     )
 }

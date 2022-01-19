@@ -3,6 +3,8 @@ import React from 'react'
 import './Breakpoint.css'
 import './Dashboard.css'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Overview from '../pages/Overview'
 import Users from  '../pages/Users'
 import Cards from  '../pages/Cards'
@@ -119,7 +121,7 @@ export default class Dashboard extends React.Component{
     render(){
         return(
         <Router>
-            <div className="container">
+            <div className="containers">
                 <Header showDashboard={this.showDashboard.bind(this)} />
                 <div className="content">
                     <div className={`side-menu ${this.state.isActive ? "is-open" : "" }`}>

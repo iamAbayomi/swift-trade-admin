@@ -2,7 +2,7 @@
 import React from 'react'
 import MUIDataTable from  "mui-datatables";
 import styled from  'styled-components'
-import MenuOptions from './MenuOptions';
+import MenuOptions from './MenuOptions/MenuOptions';
 import UserImageandName from './UserImageandName';
 import Chips from './Chips';
 
