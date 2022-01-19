@@ -6,6 +6,7 @@ import{
 } from '@reduxjs/toolkit'
 import customAxios from '../classes/CustomAxios'
 import { getToken, getTokenByRedux,baseUrl } from '../classes/User'
+import { useCustomAxios } from '../classes/Utilities'
 
 // Define a type for the slice
 interface TransactionState {
@@ -23,19 +24,14 @@ const initialState = transactionAdapter.getInitialState({
     status: 'idle'
 })
 
+// Added thunk to get All transactions from API
 export const getAllTransactionsFromAPI = createAsyncThunk('users/getAllTransactionsFromAPI', async() => {
-    const token = getTokenByRedux()
-
-    const {response, error} = await customAxios({
-        method: 'GET', url: baseUrl + 'transaction/all',
-        headers: {'Authorization': `Bearer ${token}`}})
-
-    console.log('From the transaction slice ' , response , token, error)
-    
+    const {response, error} = await  useCustomAxios('GET', 'transaction/all')
+    console.log('From the transaction slice ' , response , error)
     return response.data.data
 })
 
-
+// Created slice for transactions reducers and action.
 const transactionSlice = createSlice({
     name: 'Transaction',
     initialState,
