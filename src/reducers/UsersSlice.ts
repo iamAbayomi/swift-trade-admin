@@ -5,10 +5,9 @@ import{
     createEntityAdapter
 } from '@reduxjs/toolkit'
 import customAxios from '../classes/CustomAxios'
-import useAxios  from '../classes/CustomAxiosHook'
 import { getToken, getTokenByRedux } from '../classes/User'
 import { baseUrl } from '../classes/Utilities'
-import type { RootState } from '../redux/store'
+
 
 // Define a type for the slice state
 interface UserState {
