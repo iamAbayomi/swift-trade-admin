@@ -23,7 +23,7 @@ const initialState = transactionAdapter.getInitialState({
     status: 'idle'
 })
 
-export const getAllTransactions = createAsyncThunk('users/getAllTransactions', async() => {
+export const getAllTransactionsFromAPI = createAsyncThunk('users/getAllTransactionsFromAPI', async() => {
     const token = getTokenByRedux()
 
     const {response, error} = await customAxios({
@@ -44,11 +44,11 @@ const transactionSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-        .addCase(getAllTransactions.fulfilled, transactionAdapter.addMany )
+        .addCase(getAllTransactionsFromAPI.fulfilled, transactionAdapter.addMany )
     }
 })
 
-export const showTransactions = (state: any) => {
+export const getAllTransactions = (state: any) => {
     return state
 }
 
