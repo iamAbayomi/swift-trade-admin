@@ -7,7 +7,7 @@ import MenuOptions from "./MenuOptions/MenuOptions";
 
 
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTransactions, getAllTransactionsFromAPI, selectAllTransactions } from "../redux/reducers/TransactionsSlice";
+import { getAllTransactions, fetchAllTransactions, selectAllTransactions } from "../redux/reducers/TransactionsSlice";
 
 // Column header for the MUIDataTables
 const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Action"]
