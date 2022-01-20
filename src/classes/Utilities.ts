@@ -1,6 +1,7 @@
+import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 import moment from "moment"
-import { getAllTransactionsFromAPI } from "../redux/reducers/TransactionsSlice"
+import { fetchAllTransactions } from "../redux/reducers/TransactionsSlice"
 import { fetchCurrentUser } from "../redux/reducers/UsersSlice"
 import customAxios from "./CustomAxios"
 import { getToken } from "./User"
@@ -42,10 +43,16 @@ export const useCustomAxios = async (method: any, path: any, body?: any) => {
     })
     return {response, error}
 }
+// export const useCreateAsyncThunkWithAPI = (actionName: any, method: any, path: any, body?: any ) =>{
+//     createAsyncThunk(actionName, async(body) => {
+//         const {response, error} = await useCustomAxios(method, path, body)
+//         return response ? response.data.data : error
+//     })
+// }
 // Fetch all the App data from the redux store
 export const getAllAppData = async(store: any) => {
     store.dispatch(fetchCurrentUser())
-    store.dispatch(getAllTransactionsFromAPI())
+    store.dispatch(fetchAllTransactions())
 }
 
 
