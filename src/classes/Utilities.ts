@@ -1,7 +1,7 @@
 import axios from "axios"
 import moment from "moment"
-import { getAllTransactionsFromAPI } from "../reducers/TransactionsSlice"
-import { fetchUsers } from "../reducers/UsersSlice"
+import { getAllTransactionsFromAPI } from "../redux/reducers/TransactionsSlice"
+import { fetchUsers } from "../redux/reducers/UsersSlice"
 import customAxios from "./CustomAxios"
 import { getToken } from "./User"
 

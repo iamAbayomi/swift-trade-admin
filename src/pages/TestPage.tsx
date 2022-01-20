@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { getToken } from "../classes/User"
 import { baseUrl } from "../classes/Utilities"
-import { fetchUsers, showCurrentUsers, showUsers } from "../reducers/UsersSlice"
+import { fetchUsers, showCurrentUsers, showUsers } from "../redux/reducers/UsersSlice"
 import useAxios from "../classes/CustomAxiosHook"
 import MenuOptions from "../components/MenuOptions/MenuOptions"
 

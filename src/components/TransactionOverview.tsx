@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectAllTransactions } from "../reducers/TransactionsSlice";
+import { selectAllTransactions } from "../redux/reducers/TransactionsSlice";
 import AllUsersTransactionTable from "./AllUsersTransactionTable";
 import EmptyStateTrasanctionCards from "./EmptyStateTransactionCard";
 

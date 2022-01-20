@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux"
 import SimpleReactValidator from "simple-react-validator"
 import styled from "styled-components"
 import { getToken, getTokenWithMethod } from "../../classes/User"
-import { fetchUsers } from "../../reducers/UsersSlice"
+import { fetchUsers } from "../../redux/reducers/UsersSlice"
 import LoadingButton from "../ui-components/Buttons/LoadingButton"
 import ResponseMessage from "../ui-components/typography/ResponseMessage"
 

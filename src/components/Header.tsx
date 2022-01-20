@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-import { showCurrentUsers } from "../reducers/UsersSlice"
+import { showCurrentUsers } from "../redux/reducers/UsersSlice"
 
 type props = {
     showDashboard : () => void

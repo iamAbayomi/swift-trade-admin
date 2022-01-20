@@ -33,7 +33,7 @@ import Form from '../pages/Form'
 import { getUser, getUserData, removeUserData } from '../classes/User'
 import SingleUser from '../pages/SingleUser'
 import Login from '../pages/Login/Login'
-import { fetchUsers } from '../reducers/UsersSlice'
+
 import TestPage from '../pages/TestPage'
 import Header from '../components/Header'
 

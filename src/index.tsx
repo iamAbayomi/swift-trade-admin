@@ -5,8 +5,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {store} from './redux/store'
-import { fetchUsers } from './reducers/UsersSlice';
-import { getAllTransactionsFromAPI } from './reducers/TransactionsSlice';
 import { getAllAppData } from './classes/Utilities';
 
 //This get all the data needed for the application
