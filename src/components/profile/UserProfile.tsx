@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux"
 import SimpleReactValidator from "simple-react-validator"
 import styled from "styled-components"
 import { getToken, getTokenWithMethod } from "../../classes/User"
-import { fetchUsers } from "../../redux/reducers/UsersSlice"
+import { fetchCurrentUser } from "../../redux/reducers/UsersSlice"
 import LoadingButton from "../ui-components/Buttons/LoadingButton"
 import ResponseMessage from "../ui-components/typography/ResponseMessage"
 
@@ -185,7 +185,7 @@ function UserProfile(){
         .then((res : any) => {
             console.log('This is the response', res)    
             setResponseParameters(res.status, res.data.message)
-            dispatch(fetchUsers())
+            dispatch(fetchCurrentUser())
         })
         .catch((err)=>{
             console.log(err.response.data.message)

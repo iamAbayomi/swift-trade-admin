@@ -6,7 +6,7 @@ import{
 } from '@reduxjs/toolkit'
 import customAxios from '../../classes/CustomAxios'
 import { getToken, getTokenByRedux } from '../../classes/User'
-import { baseUrl } from '../../classes/Utilities'
+import { baseUrl, useCustomAxios } from '../../classes/Utilities'
 
 
 // Define a type for the slice state
@@ -25,17 +25,17 @@ const initialState = usersAdapter.getInitialState({
     status: 'idle'
 })
 
-// Get all the users with the AsyncThunk 
-export const fetchUsers = createAsyncThunk('users/fetchUsers', async () => {
-    const token = await getToken()
-    const {response, error} = await customAxios({
-        method: 'GET', url: baseUrl + 'user',
-        headers: {'Authorization': `Bearer ${token}`}})
-    //console.log('From the user slice ' , response , token, error)
-    
+// Get the current signed in user with the AsyncThunk 
+export const fetchCurrentUser = createAsyncThunk('users/fetchCurrentUser', async () => {
+    const {response, error} = await useCustomAxios('GET','user')
     return response.data.data
 })
 
+// Update the current user's profile 
+export const udpateUserProfile = createAsyncThunk('users/updateUserProfile', async(body)=>{
+    const {response, error} = await useCustomAxios('PATCH', 'user/update')
+    return response.data.data
+})
 
 // Slice for reducers
 const usersSlice = createSlice({
@@ -46,10 +46,10 @@ const usersSlice = createSlice({
     },
     extraReducers: (builder) =>{
         builder
-            .addCase(fetchUsers.pending, (state, action) => {
+            .addCase(fetchCurrentUser.pending, (state, action) => {
                 state.status = 'loading'
             })
-            .addCase(fetchUsers.fulfilled, usersAdapter.addOne )
+            .addCase(fetchCurrentUser.fulfilled, usersAdapter.addOne )
             
     },
 })
@@ -67,3 +67,5 @@ export const showCurrentUsers = (state: any ) => {
 
 
 export default usersSlice.reducer
+
+//console.log('This is showing the current user from the user slice ', response )

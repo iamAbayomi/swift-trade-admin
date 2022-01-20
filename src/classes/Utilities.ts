@@ -1,7 +1,7 @@
 import axios from "axios"
 import moment from "moment"
 import { getAllTransactionsFromAPI } from "../redux/reducers/TransactionsSlice"
-import { fetchUsers } from "../redux/reducers/UsersSlice"
+import { fetchCurrentUser } from "../redux/reducers/UsersSlice"
 import customAxios from "./CustomAxios"
 import { getToken } from "./User"
 
@@ -14,7 +14,7 @@ export const baseUrl = "https://swift-trade-v1.herokuapp.com/api/v1/"
 export function formatDate(unformattedData : any){
     // let date = new Date(unformattedData)
     let formattedDate = moment(unformattedData).format('DD-MM-YYYY')
-    console.log(formattedDate)
+    //console.log(formattedDate)
     return formattedDate
 }
 // This get the user profile from the API and returns the data
@@ -44,7 +44,7 @@ export const useCustomAxios = async (method: any, path: any, body?: any) => {
 }
 // Fetch all the App data from the redux store
 export const getAllAppData = async(store: any) => {
-    store.dispatch(fetchUsers())
+    store.dispatch(fetchCurrentUser())
     store.dispatch(getAllTransactionsFromAPI())
 }
 

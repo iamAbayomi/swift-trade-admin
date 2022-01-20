@@ -29,7 +29,6 @@ const initialState = transactionAdapter.getInitialState({
 // Added thunk to get All transactions from API
 export const getAllTransactionsFromAPI = createAsyncThunk('users/getAllTransactionsFromAPI', async() => {
     const {response, error} = await  useCustomAxios('GET', 'transaction/all')
-    console.log('From the transaction slice ' , response , error)
     return response.data.data
 })
 
