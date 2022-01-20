@@ -7,6 +7,8 @@ import{
 import customAxios from '../classes/CustomAxios'
 import { getToken, getTokenByRedux,baseUrl } from '../classes/User'
 import { useCustomAxios } from '../classes/Utilities'
+import Chips from '../components/Chips'
+import MenuOptions from '../components/MenuOptions/MenuOptions'
 
 // Define a type for the slice
 interface TransactionState {
@@ -44,9 +46,17 @@ const transactionSlice = createSlice({
     }
 })
 
+export const {
+    selectAll : selectAllTransactions,
+    selectById: selectTrasactionsById
+}  = transactionAdapter.getSelectors((state: any) => state.transactions)
+
+// Method to get all transactions state
 export const getAllTransactions = (state: any) => {
     return state
 }
+
+
 
 export default transactionSlice.reducer
 
