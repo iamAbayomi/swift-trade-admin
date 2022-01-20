@@ -108,6 +108,10 @@ const usersSlice = createSlice({
     },
 })
 
+export const{
+    selectAll : selectAllUsers,
+    selectById: selectAllUsersById
+}   = usersAdapter.getSelectors((state: any ) => state.users )
 
 export const showUsers = (state: any ) => {
     return state.users
