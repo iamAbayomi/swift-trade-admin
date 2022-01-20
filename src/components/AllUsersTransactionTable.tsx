@@ -5,9 +5,20 @@ import { formatDate, muiTableOptionType } from "../classes/Utilities";
 import Chips from "./Chips";
 import MenuOptions from "./MenuOptions/MenuOptions";
 
-import { useAppSelector, useAppDispatch } from '../redux/hooks'
+
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTransactions, getAllTransactionsFromAPI, selectAllTransactions } from "../reducers/TransactionsSlice";
+
+// Column header for the MUIDataTables
+const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Action"]
+
+// Options for MUIDataTables
+const options: muiTableOptionType = {
+    elevation: 0,
+    rowsPerPage: 100,
+    responsive: 'standard'
+}
+
 
 
 /**
@@ -41,16 +52,6 @@ function AllUsersTransactionTable(){
             </div>
         </div>
     )
-}
-
-
-const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Action"]
-
-
-const options: muiTableOptionType = {
-    elevation: 0,
-    rowsPerPage: 100,
-    responsive: 'standard'
 }
 
 
