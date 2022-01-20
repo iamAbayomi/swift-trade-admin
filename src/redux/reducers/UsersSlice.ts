@@ -44,10 +44,16 @@ export const updateUserPassword = createAsyncThunk('user/updateUserPassword',asy
 })
 
 
-export const updateUserRole = createAsyncThunk('user/fetchUserRole',async()=>{
+export const fetchUserRole = createAsyncThunk('user/fetchUserRole',async()=>{
     const {response, error} = await useCustomAxios('GET', 'role')
     return response.data.data
 })
+
+export const updateUserRole = createAsyncThunk('user/fetchUserRole',async()=>{
+    const {response, error} = await useCustomAxios('GET', 'role/update')
+    return response.data.data
+})
+
 
 export const fetchAllUser = createAsyncThunk('user/fetchAllUsers',async()=>{
     const {response, error} = await useCustomAxios('GET', 'user/users/fetch/?limit=100')
