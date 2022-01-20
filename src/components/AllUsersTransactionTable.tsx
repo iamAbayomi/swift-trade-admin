@@ -8,6 +8,7 @@ import MenuOptions from "./MenuOptions/MenuOptions";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTransactions, fetchAllTransactions, selectAllTransactions } from "../redux/reducers/TransactionsSlice";
+import { useAppSelector } from "../redux/hooks";
 
 // Column header for the MUIDataTables
 const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Action"]
@@ -28,7 +29,7 @@ const options: muiTableOptionType = {
 function AllUsersTransactionTable(){
     const dispatch = useDispatch()
     const allTransaction : any =  useSelector<any[]>(selectAllTransactions)
-
+    const transactionState : any = useAppSelector(getAllTransactions)
     
     const dataTables = allTransaction.map((item: any) => {
          return [item.reference , formatDate(item.created_at), item.description, "# " + item.amount,
@@ -36,6 +37,7 @@ function AllUsersTransactionTable(){
     })
     
     
+    console.log('This is the transactions', transactionState)
  
     return(
         <div className="margin-top">
