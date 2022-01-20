@@ -26,11 +26,38 @@ const initialState = transactionAdapter.getInitialState({
     status: 'idle'
 })
 
+export const fetchTransactionsCount = createAsyncThunk('transaction/fetchTransactionsCount',async()=>{
+    const {response, error} = await useCustomAxios('GET', 'transaction/count')
+    return response.data.data
+})
+
+export const fetchCurrentUserTransactions = createAsyncThunk('transaction/fetchCurrentUserTransactions',async()=>{
+    const {response, error} = await useCustomAxios('GET', 'transaction')
+    return response.data.data
+})
+
+export const updateTransactionStatus = createAsyncThunk('transaction/updateTransactionsStatus',async(transactionId: any)=>{
+    const {response, error} = await useCustomAxios('UPDATE', `transaction/${transactionId}/status`)
+    return response.data.data
+})
+
+export const fetchAnyUserTransaction = createAsyncThunk('transaction/fetchAnyUserTransaction',async(transactionId: any)=>{
+    const {response, error} = await useCustomAxios('GET', `transaction/${transactionId}/user`)
+    return response.data.data
+})
+
+export const fetchAnyUserTransactionCount =  createAsyncThunk('transaction/fetchAnyUserTransactionCount',async(transactionId: any)=>{
+    const {response, error} = await useCustomAxios('GET', `transaction/${transactionId}/user/count`)
+    return response.data.data
+})
+
 // Added thunk to get All transactions from API
-export const getAllTransactionsFromAPI = createAsyncThunk('users/getAllTransactionsFromAPI', async() => {
+export const fetchAllTransactions = createAsyncThunk('users/getAllTransactionsFromAPI', async() => {
     const {response, error} = await  useCustomAxios('GET', 'transaction/all')
     return response.data.data
 })
+
+
 
 // Created slice for transactions reducers and action.
 const transactionSlice = createSlice({
@@ -41,7 +68,7 @@ const transactionSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-        .addCase(getAllTransactionsFromAPI.fulfilled, transactionAdapter.addMany )
+        .addCase(fetchAllTransactions.fulfilled, transactionAdapter.addMany )
     }
 })
 
