@@ -40,7 +40,7 @@ function AllUsersTransactionTable(){
     return(
         <div className="margin-top">
             <div className="transaction-board card-white margin-top">
-                    <p className="transaction-text">Transactions</p>
+                    {/* <p className="transaction-text">Transactions</p> */}
                     <MUIDataTable 
                         title={""}             
                         data={dataTables}
