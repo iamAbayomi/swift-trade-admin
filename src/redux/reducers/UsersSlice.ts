@@ -22,20 +22,62 @@ const usersAdapter = createEntityAdapter<UserState>({
 
 // InitialState for reducers
 const initialState = usersAdapter.getInitialState({
-    status: 'idle'
+    currentUser: {}
 })
 
 // Get the current signed in user with the AsyncThunk 
 export const fetchCurrentUser = createAsyncThunk('users/fetchCurrentUser', async () => {
+    // use the Custom Axios to get the user data from the utilities module.
     const {response, error} = await useCustomAxios('GET','user')
     return response.data.data
 })
 
 // Update the current user's profile 
 export const udpateUserProfile = createAsyncThunk('users/updateUserProfile', async(body)=>{
-    const {response, error} = await useCustomAxios('PATCH', 'user/update')
+    const {response, error} = await useCustomAxios('PATCH', 'user/update', body)
     return response.data.data
 })
+
+export const updateUserPassword = createAsyncThunk('user/updateUserPassword',async()=>{
+    const {response, error} = await useCustomAxios('PATCH', 'user/update/password')
+    return response.data.data
+})
+
+
+export const updateUserRole = createAsyncThunk('user/fetchUserRole',async()=>{
+    const {response, error} = await useCustomAxios('GET', 'role')
+    return response.data.data
+})
+
+export const fetchAllUser = createAsyncThunk('user/fetchAllUsers',async()=>{
+    const {response, error} = await useCustomAxios('GET', 'user/users/fetch/?limit=100')
+    return response.data.data
+})
+
+export const suspendUser = createAsyncThunk('user/',async(userId)=>{
+    const {response, error} = await useCustomAxios('POST', `user/${userId}/suspend`)
+    return response.data.data
+})
+
+export const fetchAnyUserProfile = createAsyncThunk('user/fetchAnyUserProfile',async(userId)=>{
+    const {response, error} = await useCustomAxios('GET', `user/${userId}/info`)
+    return response.data.data
+})
+
+export const forgotPassword = createAsyncThunk('user/',async()=>{
+    const {response, error} = await useCustomAxios('', '')
+    return response.data.data
+})
+export const resetPassword = createAsyncThunk('user/',async()=>{
+    const {response, error} = await useCustomAxios('', '')
+    return response.data.data
+})
+
+export const dummyMethod = createAsyncThunk('user/',async()=>{
+    const {response, error} = await useCustomAxios('', '')
+    return response.data.data
+})
+
 
 // Slice for reducers
 const usersSlice = createSlice({
@@ -47,9 +89,10 @@ const usersSlice = createSlice({
     extraReducers: (builder) =>{
         builder
             .addCase(fetchCurrentUser.pending, (state, action) => {
-                state.status = 'loading'
+                
             })
             .addCase(fetchCurrentUser.fulfilled, usersAdapter.addOne )
+            .addCase(udpateUserProfile.fulfilled, usersAdapter.addOne)
             
     },
 })
