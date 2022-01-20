@@ -9,16 +9,19 @@ import { getToken } from '../classes/User';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { muiTableOptionType } from '../classes/Utilities';
+import { useSelector } from 'react-redux';
+import { fetchAllUser, selectAllUsers } from '../redux/reducers/UsersSlice';
 
 
 let history
 
 function UserTableView (){
     const [userProfileRow, setUserProfileRow] = useState<string[][]>([])
+    const 
     history = useHistory()
 
     const columns = ["Account Name", "User Name", "Email", "Action"]
-
+    const allUsers : any = useSelector<any[]>(selectAllUsers)
     // const data: any =  []
     
     const data: any[][] = [
@@ -36,6 +39,7 @@ function UserTableView (){
         responsive: "standard"
     }
     
+    console.log('all users', allUsers)
     
     
     useEffect(()=>{
