@@ -7,7 +7,7 @@ import MenuOptions from "./MenuOptions/MenuOptions";
 
 import { useAppSelector, useAppDispatch } from '../redux/hooks'
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTransactions, getAllTransactionsFromAPI } from "../reducers/TransactionsSlice";
+import { getAllTransactions, getAllTransactionsFromAPI, selectAllTransactions } from "../reducers/TransactionsSlice";
 
 
 /**
@@ -16,45 +16,23 @@ import { getAllTransactions, getAllTransactionsFromAPI } from "../reducers/Trans
  */
 function AllUsersTransactionTable(){
     const dispatch = useDispatch()
-    const transaction : any =  useSelector<any[]>(getAllTransactions)
-    
-    const [transactionRow, setTransactionRow] = useState<string[][]>([])
-    
+    const allTransaction : any =  useSelector<any[]>(selectAllTransactions)
 
-    useEffect(() => {
-        getAllUserTransaction()
-        dispatch(getAllTransactionsFromAPI())
+    
+    const dataTables = allTransaction.map((item: any) => {
+         return [item.reference , formatDate(item.created_at), item.description, "# " + item.amount,
+         <Chips userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, <MenuOptions />]
     })
-
-    function setTransactionRowData(transactionRowData: any){
-        transactionRowData.map((item: any) => {
-            data.push( [item.reference , formatDate(item.created_at), item.description, "# " + item.amount,
-             <Chips userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, <MenuOptions />])})
-        setTransactionRow(data)
-    }
-
-
-    async function getAllUserTransaction(){
-        console.log('This is the value in the user state', transaction)
-
-        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/transaction/all')
-            .then((res: any) => {
-                    console.log('All the users transactions' , res)
-                    setTransactionRowData(res.data.data)
-            })
-            .catch((err) => {
-
-            })
-    }
+    
+    
  
-
     return(
         <div className="margin-top">
             <div className="transaction-board card-white margin-top">
                     <p className="transaction-text">Transactions</p>
                     <MUIDataTable 
                         title={""}             
-                        data={transactionRow}
+                        data={dataTables}
                         // data={data}
                         columns={columns}
                         options = {options}
@@ -68,7 +46,6 @@ function AllUsersTransactionTable(){
 
 const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Action"]
 
-const data : any[][] = []
 
 const options: muiTableOptionType = {
     elevation: 0,
