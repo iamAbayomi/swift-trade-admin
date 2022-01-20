@@ -7,10 +7,10 @@ import reportWebVitals from './reportWebVitals';
 import {store} from './redux/store'
 import { fetchUsers } from './reducers/UsersSlice';
 import { getAllTransactionsFromAPI } from './reducers/TransactionsSlice';
+import { getAllAppData } from './classes/Utilities';
 
-
-store.dispatch(fetchUsers())
-store.dispatch(getAllTransactionsFromAPI())
+//This get all the data needed for the application
+getAllAppData(store)
 
 ReactDOM.render(
   <React.StrictMode>  
