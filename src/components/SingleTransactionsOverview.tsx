@@ -14,8 +14,7 @@ function  SingleTransactionOverview() {
         "successfulTransactions": 0,
         "pendingTransactions": 0,
         "failedTransactions": 0
-    }
-)
+    })
 
     const [token, setToken] = useState("")
 
