@@ -30,3 +30,15 @@ export const deleteCoin = createAsyncThunk('coins/delete',async(body)=>{
     const {response, error} = await useCustomAxios('DELETE', 'coins/delete', body)
     return response.data.data
 })
+
+const coinsSlice = createSlice({
+    name: 'coins',
+    initialState,
+    reducers: {
+
+    },
+    extraReducers: (builder) =>{
+        builder
+            .addCase(fetchCoin.fulfilled,coinAdapter.addOne )
+    }
+})

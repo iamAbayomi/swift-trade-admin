@@ -38,23 +38,25 @@ export const udpateUserProfile = createAsyncThunk('users/updateUserProfile', asy
     return response.data.data
 })
 
+// Update the user's password
 export const updateUserPassword = createAsyncThunk('user/updateUserPassword',async()=>{
     const {response, error} = await useCustomAxios('PATCH', 'user/update/password')
     return response.data.data
 })
 
-
+// Fetch the user role
 export const fetchUserRole = createAsyncThunk('user/fetchUserRole',async()=>{
     const {response, error} = await useCustomAxios('GET', 'role')
     return response.data.data
 })
 
+// Update the user role
 export const updateUserRole = createAsyncThunk('user/fetchUserRole',async()=>{
     const {response, error} = await useCustomAxios('GET', 'role/update')
     return response.data.data
 })
 
-
+// Fetch all the user
 export const fetchAllUser = createAsyncThunk('user/fetchAllUsers',async()=>{
     const {response, error} = await useCustomAxios('GET', 'user/users/fetch/?limit=100')
     return response.data.data
@@ -97,8 +99,11 @@ const usersSlice = createSlice({
             .addCase(fetchCurrentUser.pending, (state, action) => {
                 
             })
-            .addCase(fetchCurrentUser.fulfilled, usersAdapter.addOne )
+            .addCase(fetchCurrentUser.fulfilled, (state, action) => {
+                state.currentUser = action.payload
+            })
             .addCase(udpateUserProfile.fulfilled, usersAdapter.addOne)
+            .addCase(fetchAllUser.fulfilled, usersAdapter.setMany)
             
     },
 })
@@ -110,7 +115,7 @@ export const showUsers = (state: any ) => {
 
 export const showCurrentUsers = (state: any ) => {
     let user = state.users
-    return user.entities[user.ids[0]]
+    return user.currentUser
 }
 
 

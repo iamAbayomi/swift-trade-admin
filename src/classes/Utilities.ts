@@ -2,7 +2,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 import moment from "moment"
 import { fetchAllTransactions } from "../redux/reducers/TransactionsSlice"
-import { fetchCurrentUser } from "../redux/reducers/UsersSlice"
+import { fetchAllUser, fetchCurrentUser } from "../redux/reducers/UsersSlice"
 import customAxios from "./CustomAxios"
 import { getToken } from "./User"
 
@@ -52,6 +52,7 @@ export const useCustomAxios = async (method: any, path: any, body?: any) => {
 // Fetch all the App data from the redux store
 export const getAllAppData = async(store: any) => {
     store.dispatch(fetchCurrentUser())
+    store.dispatch(fetchAllUser())
     store.dispatch(fetchAllTransactions())
 }
 

@@ -9,7 +9,7 @@ type props = {
 const Header: React.FC<props> = (props ) =>{
     const user : any = useSelector<any[]>(showCurrentUsers)
 
-
+    
     return(
         <div className="header-bar">
             <img className="menu-toggle" id="toggle-menu" 
@@ -33,7 +33,7 @@ const Header: React.FC<props> = (props ) =>{
                     <div className="profile-section" style={{display : 'flex'}}>
                         <img className="profile-image" src={  user ?  user.profile_picture : "/vectors/empty-user.png"} />
                         <p className="username">
-                            { user ?  user.first_name + ' ' +    user.last_name : ''}
+                            { user ?  user.first_name + ' ' +    user.last_name : ' '}
                         </p>
                     </div>
                 </Link>
