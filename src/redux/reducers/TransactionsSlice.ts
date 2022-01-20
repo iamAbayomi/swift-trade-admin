@@ -4,11 +4,11 @@ import{
     createAsyncThunk,
     createEntityAdapter
 } from '@reduxjs/toolkit'
-import customAxios from '../classes/CustomAxios'
-import { getToken, getTokenByRedux,baseUrl } from '../classes/User'
-import { useCustomAxios } from '../classes/Utilities'
-import Chips from '../components/Chips'
-import MenuOptions from '../components/MenuOptions/MenuOptions'
+import customAxios from '../../classes/CustomAxios'
+import { getToken, getTokenByRedux,baseUrl } from '../../classes/User'
+import { useCustomAxios } from '../../classes/Utilities'
+import Chips from '../../components/Chips'
+import MenuOptions from '../../components/MenuOptions/MenuOptions'
 
 // Define a type for the slice
 interface TransactionState {

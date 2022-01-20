@@ -4,9 +4,9 @@ import{
     createAsyncThunk,
     createEntityAdapter
 } from '@reduxjs/toolkit'
-import customAxios from '../classes/CustomAxios'
-import { getToken, getTokenByRedux } from '../classes/User'
-import { baseUrl } from '../classes/Utilities'
+import customAxios from '../../classes/CustomAxios'
+import { getToken, getTokenByRedux } from '../../classes/User'
+import { baseUrl } from '../../classes/Utilities'
 
 
 // Define a type for the slice state
