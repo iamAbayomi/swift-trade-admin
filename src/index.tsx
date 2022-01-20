@@ -6,9 +6,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {store} from './redux/store'
 import { fetchUsers } from './reducers/UsersSlice';
+import { getAllTransactionsFromAPI } from './reducers/TransactionsSlice';
 
 
 store.dispatch(fetchUsers())
+store.dispatch(getAllTransactionsFromAPI())
 
 ReactDOM.render(
   <React.StrictMode>  
