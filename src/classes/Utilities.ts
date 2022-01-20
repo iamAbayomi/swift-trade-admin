@@ -1,5 +1,7 @@
 import axios from "axios"
 import moment from "moment"
+import { getAllTransactionsFromAPI } from "../reducers/TransactionsSlice"
+import { fetchUsers } from "../reducers/UsersSlice"
 import customAxios from "./CustomAxios"
 import { getToken } from "./User"
 
@@ -30,7 +32,6 @@ export type muiTableOptionType = {
 }
 // Respsonsive type for 
 export type Responsive = 'vertical' | 'standard' | 'simple';
-
 // Method to use Custom Axios module 
 export const useCustomAxios = async (method: any, path: any, body?: any) => {
     const token = await getToken()
@@ -40,6 +41,11 @@ export const useCustomAxios = async (method: any, path: any, body?: any) => {
         body
     })
     return {response, error}
+}
+// Fetch all the App data from the redux store
+export const getAllAppData = async(store: any) => {
+    store.dispatch(fetchUsers())
+    store.dispatch(getAllTransactionsFromAPI())
 }
 
 
