@@ -4,6 +4,7 @@ import{
     createAsyncThunk,
     createEntityAdapter
 } from '@reduxjs/toolkit'
+import { useDispatch } from 'react-redux'
 import customAxios from '../../classes/CustomAxios'
 import { getToken, getTokenByRedux,baseUrl } from '../../classes/User'
 import { useCustomAxios } from '../../classes/Utilities'
@@ -36,9 +37,12 @@ export const fetchCurrentUserTransactions = createAsyncThunk('transaction/fetchC
     return response.data.data
 })
 
-export const updateTransactionStatus = createAsyncThunk('transaction/updateTransactionsStatus',async(transactionId: any , body: any)=>{
-    const {response, error} = await useCustomAxios('PATCH', `transaction/${transactionId}/status`, body)
-    return response.data.data
+export const updateTransactionStatus = createAsyncThunk('transaction/updateTransactionsStatus',
+    async(params: any)=>{
+        console.log("in the update transactions")
+        const {response, error} = await useCustomAxios('PATCH', `transaction/${params.transactionId}/status`, params.body)
+        console.log("update transactions", response, error)
+        return response.data.data
 })
 
 export const fetchAnyUserTransaction = createAsyncThunk('transaction/fetchAnyUserTransaction',async(transactionId: any)=>{
@@ -69,6 +73,7 @@ const transactionSlice = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(fetchAllTransactions.fulfilled, transactionAdapter.addMany )
+        
     }
 })
 

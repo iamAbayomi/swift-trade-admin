@@ -11,7 +11,7 @@ const ThreeDotOptions: React.FC<props> = (props) => {
             <div className="options-dropdown">
                 {
                     props.dropdownText!!.map((item) => {
-                        <p>item</p>
+                        <p>{item}</p>
                     })
                 }
             </div>

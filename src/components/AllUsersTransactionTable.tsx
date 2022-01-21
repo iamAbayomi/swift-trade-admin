@@ -9,17 +9,7 @@ import MenuOptions from "./MenuOptions/MenuOptions";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllTransactions, fetchAllTransactions, selectAllTransactions } from "../redux/reducers/TransactionsSlice";
 import { useAppSelector } from "../redux/hooks";
-
-// Column header for the MUIDataTables
-const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Action"]
-
-// Options for MUIDataTables
-const options: muiTableOptionType = {
-    elevation: 0,
-    rowsPerPage: 100,
-    responsive: 'standard'
-}
-
+import ThreeDotOptions from "./MenuOptions/ThreeDotOptions";
 
 
 /**
@@ -31,10 +21,19 @@ function AllUsersTransactionTable(){
     const allTransaction : any =  useSelector<any[]>(selectAllTransactions)
     const transactionState : any = useAppSelector(getAllTransactions)
     
+    const optionsContent = ["Approve", "Decline"]
+
+    function updateTransactionStatus(){
+        
+    }
+    
+    
     const dataTables = allTransaction.map((item: any) => {
          return [item.reference , formatDate(item.created_at), item.description, "# " + item.amount,
-         <Chips userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, <MenuOptions />]
+         <Chips userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, 
+         <ThreeDotOptions optionsContent={optionsContent} optionsMethod={updateTransactionStatus} transactionId={item.id} />]
     })
+    
     
     
     console.log('This is the transactions', transactionState)
@@ -56,5 +55,14 @@ function AllUsersTransactionTable(){
     )
 }
 
+// Column header for the MUIDataTables
+const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Action"]
+
+// Options for MUIDataTables
+const options: muiTableOptionType = {
+    elevation: 0,
+    rowsPerPage: 100,
+    responsive: 'standard'
+}
 
 export default AllUsersTransactionTable

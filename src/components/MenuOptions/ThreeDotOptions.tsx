@@ -1,13 +1,32 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { Dropdown } from "react-bootstrap"
+import { useDispatch } from "react-redux"
 import styled from "styled-components"
-import './ThreeDotOptions.css'
+import { fetchAllTransactions, updateTransactionStatus } from "../../redux/reducers/TransactionsSlice"
+import './MenuOptions.css'
 
-function ThreeDotOptions(){
+type props = {
+    optionsContent: string [],
+    optionsMethod: () => void,
+    transactionId: string
+}
+
+// {"status": "successful"}
+
+const ThreeDotOptions: React.FC<props> = (props) => {
+    const dispatch = useDispatch()
+    const params = { transactionId: props.transactionId, body: {status: "successful"} } 
     
-    function selectOptions(string: any){
+    props.optionsContent.map((item: any) => {
+        console.log("props. array, ", item )
+    })
 
+    async function changeTransactionStatus(){
+         dispatch(updateTransactionStatus( params ))
+        dispatch(fetchAllTransactions())
+        console.log("I am here")
     }
+    
     
     return(
         <div>
@@ -16,8 +35,11 @@ function ThreeDotOptions(){
                         <TransactionOptions src="/vectors/options-menu.svg" />
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item href="" onClick={()=> selectOptions('Wallet')}>Approve</Dropdown.Item>
-                        <Dropdown.Item href="" onClick={()=> selectOptions('Bank Transfer')}>Decline</Dropdown.Item>
+                        {
+                            props.optionsContent.map((item: any) => 
+                               <Dropdown.Item href="" onClick={changeTransactionStatus}>{item}</Dropdown.Item>
+                            )
+                        }
                     </Dropdown.Menu>
                 </Dropdown>
         </div>
