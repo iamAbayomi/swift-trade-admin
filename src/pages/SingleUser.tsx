@@ -45,7 +45,10 @@ function SingleUser(){
         let userId = await getUserId()
         axios.get(`https://swift-trade-v1.herokuapp.com/api/v1/transaction/${userId}/user/count`,{
             headers: {'Authorization' : `Bearer ${token}`}} )
-            .then((res: any)=>{setTransactionCount(res.data.data)    })
+            .then((res: any)=>{setTransactionCount(res.data.data)  
+                console.log(" single transaction count ", res )
+            }
+            )
             .catch((err) => { console.log(err)})
             getTheUserProfile(token, userId)
     }
