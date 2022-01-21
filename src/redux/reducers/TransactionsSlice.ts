@@ -76,12 +76,17 @@ const transactionSlice = createSlice({
         builder
         .addCase(fetchAllTransactions.fulfilled, transactionAdapter.addMany )
         .addCase(updateTransactionStatus.fulfilled, (state , action )=>{
-           state.entities = Object.assign(state.entities)
            state.entities[action.payload.id] = action.payload
+           state.entities = Object.create(state.entities)
+           state.formattedTransactions = Object.create(state.entities)
         })
         
     }
 })
+
+export const {
+    addFormattedTransactions
+} = transactionSlice.actions
 
 export const {
     selectAll : selectAllTransactions,
@@ -93,6 +98,9 @@ export const getAllTransactions = (state: any) => {
     return state
 }
 
+export const getFormattedTransactions = (state: any) => {
+    return state.transactions.formattedTransactions
+}
 
 
 export default transactionSlice.reducer

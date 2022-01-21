@@ -7,9 +7,10 @@ import MenuOptions from "./MenuOptions/MenuOptions";
 
 
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTransactions, fetchAllTransactions, selectAllTransactions, updateTransactionStatus } from "../redux/reducers/TransactionsSlice";
+import { getAllTransactions, fetchAllTransactions, selectAllTransactions, updateTransactionStatus, addFormattedTransactions, getFormattedTransactions } from "../redux/reducers/TransactionsSlice";
 import { useAppSelector } from "../redux/hooks";
 import ThreeDotOptions from "./MenuOptions/ThreeDotOptions";
+import { useHistory } from "react-router";
 
 
 /**
@@ -20,12 +21,15 @@ function AllUsersTransactionTable(){
     const dispatch = useDispatch()
     const allTransaction : any =  useAppSelector(selectAllTransactions)
     const transactionState : any = useAppSelector(getAllTransactions)
+    const formattedTransactions : any = useAppSelector(getFormattedTransactions)
     const [reload, setReload] = useState("")
     const [transactionArray, setTransactionArray] = useState<any[]>([])
     
     const optionsContent = ["Approve", "Decline"]
-    
-    
+    let dataTables: any[][] = []
+    let decider = false    
+
+    const history = useHistory()
 
     async function changeTransactionStatus( transaction_id: any, item:any ){
         const params = { transactionId: transaction_id, data: {"status": "successful"} } 
@@ -33,31 +37,46 @@ function AllUsersTransactionTable(){
             params.data.status = "cancelled"
         }
         await dispatch(updateTransactionStatus( params ))
-        //dispatch(fetchAllTransactions())
-        await setReload("we reloaded the component")
-        
-        console.log("I am here", reload)
+        // await dispatch(addFormattedTransactions(dataTables))
+        decider = true
+        // dataTables = []
+        // await setTransactionArray(state => ({
+ 
+        // }))
+        history.go(0)
+        console.log("I am here", dataTables)
     }
     
+    // useEffect(()=>{
+    //     setTransactionTableData()
+    // }, [])
     
-    
-    const dataTables = setTransactionTableData()
 
-    function setTransactionTableData(){
-      return  allTransaction.map((item: any) => {
+
+    
+     dataTables = allTransaction.map((item: any) => {
             return [item.reference , formatDate(item.created_at), item.description, "# " + item.amount,
             <Chips key={item.id} userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, 
-            <ThreeDotOptions key={item.id} optionsContent={optionsContent} optionsMethod={changeTransactionStatus} transactionId={item.id} />]
-       })
-    }
-    setState()
+            <ThreeDotOptions key={item.id} optionsContent={optionsContent} optionsMethod={changeTransactionStatus} transactionId={item.id} />
+        ]
+    })
+       
+     
     
-    function setState(){
-        setTransactionArray(dataTables)
+
+    function setTransactionTableData(){
+        allTransaction.map((item: any) => {
+            dataTables.push([item.reference , formatDate(item.created_at), item.description, "# " + item.amount,
+            <Chips key={item.id} userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, 
+            <ThreeDotOptions key={item.id} optionsContent={optionsContent} optionsMethod={changeTransactionStatus} transactionId={item.id} />])
+       })
+       dispatch(addFormattedTransactions(dataTables))
+       console.log("DAtaTables")
     }
     
     console.log('This is the transactions', allTransaction)
     console.log('This is the transactions', transactionState)
+    console.log('This is the transactions', dataTables)
  
     return(
         <div className="margin-top">
@@ -65,7 +84,7 @@ function AllUsersTransactionTable(){
                     {/* <p className="transaction-text">Transactions</p> */}
                     <MUIDataTable 
                         title={""}             
-                        data={dataTables}
+                        data={decider ? transactionArray :dataTables}
                         // data={data}
                         columns={columns}
                         options = {options}
