@@ -26,6 +26,12 @@ export default class Chips extends React.Component<MyProps>{
                 case "block":
                     this.setState({  backgroundColor : 'red' })
                     break;
+                case "successful":
+                    this.setState({backgroundColor : 'rgba(93, 248, 136, 1)' })
+                    break;
+                case "cancelled":
+                    this.setState({  backgroundColor : 'red' })
+                    break;
                 case "pending":
                     this.setState({ backgroundColor : "rgba(130, 130, 130, 1)" })
                     break;

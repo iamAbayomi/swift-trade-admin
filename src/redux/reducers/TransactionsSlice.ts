@@ -39,8 +39,8 @@ export const fetchCurrentUserTransactions = createAsyncThunk('transaction/fetchC
 
 export const updateTransactionStatus = createAsyncThunk('transaction/updateTransactionsStatus',
     async(params: any)=>{
-        console.log("in the update transactions", params.transactionId , params.data, "dad")
-        const {response, error} = await useCustomAxios('PATCH', `transaction/${params.transactionId}/status`, params.body)
+        // console.log("in the update transactions", params.transactionId , params.data, "dad")
+        const {response, error} = await useCustomAxios('PATCH', `transaction/${params.transactionId}/status`, params.data)
         console.log("update transactions", response, error)
         return response.data.data
 })
@@ -73,6 +73,10 @@ const transactionSlice = createSlice({
     extraReducers: (builder) => {
         builder
         .addCase(fetchAllTransactions.fulfilled, transactionAdapter.addMany )
+        .addCase(updateTransactionStatus.fulfilled, (state , action )=>{
+           state.entities = Object.assign(state.entities)
+           state.entities[action.payload.id] = action.payload
+        })
         
     }
 })

@@ -34,7 +34,7 @@ export type muiTableOptionType = {
 // Respsonsive type for 
 export type Responsive = 'vertical' | 'standard' | 'simple';
 // Method to use Custom Axios module 
-export const useCustomAxios = async (method: any, path: any, data?: any) => {
+export const useCustomAxios = async (method: any, path: any, data?: any, tempData?: any) => {
     const token = await getToken()
     const {response, error} = await customAxios({
         method, url: baseUrl + path ,

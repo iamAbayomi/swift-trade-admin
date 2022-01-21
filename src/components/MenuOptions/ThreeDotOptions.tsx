@@ -7,7 +7,7 @@ import './MenuOptions.css'
 
 type props = {
     optionsContent: string [],
-    optionsMethod: () => void,
+    optionsMethod: (transaction_id: any,item :any) => void,
     transactionId: string
 }
 
@@ -17,11 +17,14 @@ const ThreeDotOptions: React.FC<props> = (props) => {
     const dispatch = useDispatch()
     const params = { transactionId: props.transactionId, data: {"status": "successful"} } 
     
-    props.optionsContent.map((item: any) => {
-        console.log("props. array, ", item )
-    })
+    // props.optionsContent.map((item: any) => {
+    //     console.log("props. array, ", item )
+    // })
 
-    async function changeTransactionStatus(){
+    async function changeTransactionStatus(item: any){
+        if(item == "Decline"){
+            params.data.status = "cancelled"
+        }
         await dispatch(updateTransactionStatus( params ))
         await dispatch(fetchAllTransactions())
         console.log("I am here")
@@ -37,7 +40,7 @@ const ThreeDotOptions: React.FC<props> = (props) => {
                     <Dropdown.Menu>
                         {
                             props.optionsContent.map((item: any) => 
-                               <Dropdown.Item href="" onClick={changeTransactionStatus}>{item}</Dropdown.Item>
+                               <Dropdown.Item href="" onClick={() => props.optionsMethod(props.transactionId, item)}>{item}</Dropdown.Item>
                             )
                         }
                     </Dropdown.Menu>

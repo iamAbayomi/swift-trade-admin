@@ -6,7 +6,7 @@ const customAxios = async (axiosParams: any)=> {
     try{
         const result: any = await axios.request(axiosParams)
         response = result
-        console.log("This is the ", result, " and the axios params" , axiosParams)
+        //console.log("This is the ", result, " and the axios params" , axiosParams)
     }
     catch(err: any){
         error = err

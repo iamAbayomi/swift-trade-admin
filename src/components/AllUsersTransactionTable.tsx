@@ -7,7 +7,7 @@ import MenuOptions from "./MenuOptions/MenuOptions";
 
 
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTransactions, fetchAllTransactions, selectAllTransactions } from "../redux/reducers/TransactionsSlice";
+import { getAllTransactions, fetchAllTransactions, selectAllTransactions, updateTransactionStatus } from "../redux/reducers/TransactionsSlice";
 import { useAppSelector } from "../redux/hooks";
 import ThreeDotOptions from "./MenuOptions/ThreeDotOptions";
 
@@ -18,24 +18,38 @@ import ThreeDotOptions from "./MenuOptions/ThreeDotOptions";
  */
 function AllUsersTransactionTable(){
     const dispatch = useDispatch()
-    const allTransaction : any =  useSelector<any[]>(selectAllTransactions)
+    const allTransaction : any =  useAppSelector(selectAllTransactions)
     const transactionState : any = useAppSelector(getAllTransactions)
+    const [reload, setReload] = useState("")
     
     const optionsContent = ["Approve", "Decline"]
+    
+    
 
-    function updateTransactionStatus(){
-        
+    async function changeTransactionStatus( transaction_id: any, item:any ){
+        const params = { transactionId: transaction_id, data: {"status": "successful"} } 
+        if(item == "Decline"){
+            params.data.status = "cancelled"
+        }
+        await dispatch(updateTransactionStatus( params ))
+        //dispatch(fetchAllTransactions())
+        await setReload("we reloaded the component")
+        console.log("I am here", reload)
     }
     
     
-    const dataTables = allTransaction.map((item: any) => {
-         return [item.reference , formatDate(item.created_at), item.description, "# " + item.amount,
-         <Chips userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, 
-         <ThreeDotOptions optionsContent={optionsContent} optionsMethod={updateTransactionStatus} transactionId={item.id} />]
-    })
+    const dataTables = setTransactionTableData()
+
+    function setTransactionTableData(){
+      return  allTransaction.map((item: any) => {
+            return [item.reference , formatDate(item.created_at), item.description, "# " + item.amount,
+            <Chips key={item.id} userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, 
+            <ThreeDotOptions key={item.id} optionsContent={optionsContent} optionsMethod={changeTransactionStatus} transactionId={item.id} />]
+       })
+    }
     
     
-    
+    console.log('This is the transactions', allTransaction)
     console.log('This is the transactions', transactionState)
  
     return(
