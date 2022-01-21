@@ -15,15 +15,15 @@ type props = {
 
 const ThreeDotOptions: React.FC<props> = (props) => {
     const dispatch = useDispatch()
-    const params = { transactionId: props.transactionId, body: {status: "successful"} } 
+    const params = { transactionId: props.transactionId, data: {"status": "successful"} } 
     
     props.optionsContent.map((item: any) => {
         console.log("props. array, ", item )
     })
 
     async function changeTransactionStatus(){
-         dispatch(updateTransactionStatus( params ))
-        dispatch(fetchAllTransactions())
+        await dispatch(updateTransactionStatus( params ))
+        await dispatch(fetchAllTransactions())
         console.log("I am here")
     }
     
