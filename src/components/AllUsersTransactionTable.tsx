@@ -21,6 +21,7 @@ function AllUsersTransactionTable(){
     const allTransaction : any =  useAppSelector(selectAllTransactions)
     const transactionState : any = useAppSelector(getAllTransactions)
     const [reload, setReload] = useState("")
+    const [transactionArray, setTransactionArray] = useState<any[]>([])
     
     const optionsContent = ["Approve", "Decline"]
     
@@ -34,8 +35,10 @@ function AllUsersTransactionTable(){
         await dispatch(updateTransactionStatus( params ))
         //dispatch(fetchAllTransactions())
         await setReload("we reloaded the component")
+        
         console.log("I am here", reload)
     }
+    
     
     
     const dataTables = setTransactionTableData()
@@ -47,7 +50,11 @@ function AllUsersTransactionTable(){
             <ThreeDotOptions key={item.id} optionsContent={optionsContent} optionsMethod={changeTransactionStatus} transactionId={item.id} />]
        })
     }
+    setState()
     
+    function setState(){
+        setTransactionArray(dataTables)
+    }
     
     console.log('This is the transactions', allTransaction)
     console.log('This is the transactions', transactionState)
