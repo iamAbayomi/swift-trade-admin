@@ -1,8 +1,10 @@
 import axios from "axios";
 import { type } from "os";
 import React, { Props, useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getToken } from "../classes/User";
+import { selectAllUsers } from "../redux/reducers/UsersSlice";
 import SingleTransactionCardView from "./SingleTransactionCardview";
 
 
@@ -15,6 +17,9 @@ function  SingleTransactionOverview() {
         "pendingTransactions": 0,
         "failedTransactions": 0
     })
+
+    const allUsers : any = useSelector<any[]>(selectAllUsers)
+    console.log('all users length ', allUsers, ' length', allUsers.length)
 
     const [token, setToken] = useState("")
 
@@ -54,7 +59,7 @@ function  SingleTransactionOverview() {
                     //     <SingleTransactionCardView percentage = {item} transactiontext="Total Number of Transactions" />
                     // )
                 }
-                    <SingleTransactionCardView transactiontext="Total Number of Users" percentage = {transactionCount.successfulTransactions}  />
+                    <SingleTransactionCardView transactiontext="Total Number of Users" percentage = {allUsers.length}  />
                     <SingleTransactionCardView transactiontext="Pending Transactions" percentage = {transactionCount.pendingTransactions} />
                     <SingleTransactionCardView transactiontext="Total Number of Transactions" percentage = {transactionCount.allTransactions} />   
             </Link>

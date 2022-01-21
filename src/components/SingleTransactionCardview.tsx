@@ -24,7 +24,7 @@ export default class SingleTransactionCardView extends React.Component<MyProps> 
                             <div className="circle-progress">
                                 <CircularProgressbar 
                                     value={this.props.percentage} 
-                                    text={`${this.props.percentage}%`} 
+                                    text={`${this.props.percentage}`} 
                                     styles={buildStyles({pathColor : 'rgba(253, 116, 155, 1)', textColor: '#010066' } )}/>
                             </div>
                         </CircularProgressGroup> 

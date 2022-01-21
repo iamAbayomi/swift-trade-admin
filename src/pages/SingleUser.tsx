@@ -108,9 +108,10 @@ function SingleUser(){
             </UserProfileContainer>
             {/* This is responsible for displaying the transaction count */}
             <SingleTransactionContainer className="transaction-row display-flex link">
-                <SingleTransactionCardView transactiontext="Total Number of Users" percentage = {transactionCount.successfulTransactions}  />
+                <SingleTransactionCardView transactiontext="Successful Transactions" percentage = {transactionCount.successfulTransactions}  />
                 <SingleTransactionCardView transactiontext="Pending Transactions" percentage = {transactionCount.pendingTransactions} />
-                <SingleTransactionCardView transactiontext="Total Number of Transactions" percentage = {transactionCount.allTransactions} />
+                <SingleTransactionCardView transactiontext="Failed Transactions" percentage = {transactionCount.failedTransactions} />
+                
             </SingleTransactionContainer>
             <TransactionContainer>
                 {/* This getUserId sends the user id to the singleUser transaction table and displays it */}
