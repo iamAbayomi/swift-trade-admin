@@ -39,7 +39,7 @@ export const fetchCurrentUserTransactions = createAsyncThunk('transaction/fetchC
 
 export const updateTransactionStatus = createAsyncThunk('transaction/updateTransactionsStatus',
     async(params: any)=>{
-        console.log("in the update transactions")
+        console.log("in the update transactions", params.transactionId , params.data, "dad")
         const {response, error} = await useCustomAxios('PATCH', `transaction/${params.transactionId}/status`, params.body)
         console.log("update transactions", response, error)
         return response.data.data
