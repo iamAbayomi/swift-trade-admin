@@ -9,6 +9,25 @@ import { getToken } from "./User"
 // Added baseUrl to axios
 export const baseUrl = "https://swift-trade-v1.herokuapp.com/api/v1/"
 
+
+
+
+
+
+
+
+export function formatAmount(amount :string | number) {
+
+    if(!amount) {
+
+        return `₦0`
+    }
+    
+
+
+    return `₦${Number(amount).toLocaleString()}`
+}
+
 /** This function takes in the created data value from the API 
  *  and formats it into the DD-MM-YYYY format.
 */ 

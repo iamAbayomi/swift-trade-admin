@@ -33,7 +33,7 @@ const Header: React.FC<props> = (props ) =>{
                     <div className="profile-section" style={{display : 'flex'}}>
                         <img className="profile-image" src={  user ?  user.profile_picture : "/vectors/empty-user.png"} />
                         <p className="username">
-                            { user ?  user.first_name + ' ' +    user.last_name : ' '}
+                            { user ? `${user?.first_name} ${user?.last_name}`: ' '}
                         </p>
                     </div>
                 </Link>

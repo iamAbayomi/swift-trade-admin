@@ -1,13 +1,19 @@
 import axios from "axios";
 import MUIDataTable from "mui-datatables";
 import React, { useEffect, useState } from "react";
-import { formatDate, muiTableOptionType } from "../classes/Utilities";
+import { formatAmount, formatDate, muiTableOptionType } from "../classes/Utilities";
 import Chips from "./Chips";
 import MenuOptions from "./MenuOptions/MenuOptions";
 
 
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTransactions, fetchAllTransactions, selectAllTransactions, updateTransactionStatus, addFormattedTransactions, getFormattedTransactions } from "../redux/reducers/TransactionsSlice";
+import { getAllTransactions, 
+        fetchAllTransactions, 
+        selectAllTransactions, 
+        updateTransactionStatus, 
+        addFormattedTransactions, 
+        getFormattedTransactions
+     } from "../redux/reducers/TransactionsSlice";
 import { useAppSelector } from "../redux/hooks";
 import ThreeDotOptions from "./MenuOptions/ThreeDotOptions";
 import { useHistory } from "react-router";
@@ -36,43 +42,34 @@ function AllUsersTransactionTable(){
         if(item == "Decline"){
             params.data.status = "cancelled"
         }
-        await dispatch(updateTransactionStatus( params ))
-        // await dispatch(addFormattedTransactions(dataTables))
-        decider = true
-        // dataTables = []
-        // await setTransactionArray(state => ({
- 
-        // }))
-        history.go(0)
+         await dispatch(updateTransactionStatus( params ))
+        //decider = true
+        // history.go(0)
         console.log("I am here", dataTables)
     }
     
-    // useEffect(()=>{
-    //     setTransactionTableData()
-    // }, [])
-    
-
-
     
      dataTables = allTransaction.map((item: any) => {
-            return [item.reference , formatDate(item.created_at), item.description, "# " + item.amount,
-            <Chips key={item.id} userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, 
-            <ThreeDotOptions key={item.id} optionsContent={optionsContent} optionsMethod={changeTransactionStatus} transactionId={item.id} />
+        return [item.reference , formatDate(item.created_at), item.description,  formatAmount(item.amount),
+        <Chips key={item.id} userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, 
+        <ThreeDotOptions key={item.id} optionsContent={optionsContent} optionsMethod={changeTransactionStatus} transactionId={item.id} />
         ]
     })
        
-     
-    
+        
 
     function setTransactionTableData(){
         allTransaction.map((item: any) => {
-            dataTables.push([item.reference , formatDate(item.created_at), item.description, "# " + item.amount,
+            dataTables.push([item.reference , formatDate(item.created_at), item.description, formatAmount(item.amount),
             <Chips key={item.id} userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, 
             <ThreeDotOptions key={item.id} optionsContent={optionsContent} optionsMethod={changeTransactionStatus} transactionId={item.id} />])
        })
-       dispatch(addFormattedTransactions(dataTables))
+       // dispatch(addFormattedTransactions(dataTables))
        console.log("DAtaTables")
+       return allTransaction
     }
+
+    // setTransactionArray(setTransactionTableData)
     
     console.log('This is the transactions', allTransaction)
     console.log('This is the transactions', transactionState)
@@ -81,11 +78,11 @@ function AllUsersTransactionTable(){
     return(
         <div className="margin-top">
             <div className="transaction-board card-white margin-top">
-                    {/* <p className="transaction-text">Transactions</p> */}
+                    {/* <p className="transaction-text">{ JSON.stringify(allTransaction)}</p> */}
                     <MUIDataTable 
                         title={""}             
                         data={decider ? transactionArray :dataTables}
-                        // data={data}
+                        //data={transactionArray}
                         columns={columns}
                         options = {options}
                         />

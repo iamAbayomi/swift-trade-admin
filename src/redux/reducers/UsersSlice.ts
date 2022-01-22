@@ -22,7 +22,10 @@ const usersAdapter = createEntityAdapter<UserState>({
 
 // InitialState for reducers
 const initialState = usersAdapter.getInitialState({
-    currentUser: {}
+    currentUser: {
+        first_name : "",
+        last_name :""
+    }
 })
 
 // Get the current signed in user with the AsyncThunk 
