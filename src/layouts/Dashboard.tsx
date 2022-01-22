@@ -154,12 +154,12 @@ export default class Dashboard extends React.Component{
                                 </p>
                             </NavLink>
 
-                            <NavLink  to="/payments" className="menu-item " activeClassName="selected">
+                            {/* <NavLink  to="/payments" className="menu-item " activeClassName="selected">
                             <img className="menu-icon" src="/vectors/settings.svg" alt="" />
                                 <p className="menu-title">
                                     Payments
                                 </p>
-                            </NavLink>
+                            </NavLink> */}
 
                             <NavLink to="/transactions" className="menu-item " activeClassName="selected">
                                 <img className="menu-icon" src="/vectors/logout.svg" alt="" />
