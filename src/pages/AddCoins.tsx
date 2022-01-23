@@ -227,7 +227,7 @@ export default class AddCoins extends React.Component{
                         </div>
                     </CardTitle>
                     <CardWhite className="card-white">
-                    <p className="text-options pointer" onClick={this.deleteCoins.bind(this)} >Delete Card</p>
+                    <p className="text-options pointer" onClick={this.deleteCoins.bind(this)} > { this.state.coin_name.length > 0 ? "Delete Coin" : ""}</p>
                         <div className="profile-display-container">
                             <label htmlFor="file-input" className="">
                             <img className="coin-image" src={this.state.image}/>

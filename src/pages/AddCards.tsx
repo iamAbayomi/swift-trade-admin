@@ -247,7 +247,7 @@ export default class AddCards extends React.Component{
                         </div>
                     </CardTitle>
                     <CardWhite className="card-white">
-                        <p className="text-options pointer" onClick={this.deleteCard.bind(this)} >Delete Card</p>
+                        <p className="text-options pointer" onClick={this.deleteCard.bind(this)} > { this.state.card_name.length > 0 ? "Delete Card" : ""}</p>
                         <div className="profile-display-container clearfix">
                             <label htmlFor="file-input" className="">
                                 {/* <img className=""  src="/vectors/profile-display-container.svg"/> */}
