@@ -75,7 +75,7 @@ function SingleUser(){
         .then((res: any)=> {
             console.log('this is the status data', res)
             setUserProfile(res.data.data)
-            history.go(0)
+            // history.go(0)
         })
         .catch((err) => { console.log(err)})
     }
