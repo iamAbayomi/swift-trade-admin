@@ -4,47 +4,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { getToken } from '../classes/User';
+import { useAppSelector } from '../redux/hooks';
+import { selectAllCards } from '../redux/reducers/CardsSlice';
 const giftImages = ["amazon-card", "itunes-card", "google-playcard","itunes-card", "other-cards"];
-
-
-
-// const giftImages = ["amazon-card", "itunes-card", "google-playcard","itunes-card", "other-cards",
-//  "itunes-card", "google-playcard","itunes-card", "other-cards", "itunes-card", "google-playcard","itunes-card", "other-cards"
-//  , "itunes-card", "google-playcard","itunes-card", "other-cards"];
 
 type imagesState = {
     cardImages: any
 }
 
-export default class SingleCardsView extends React.Component<imagesState>{
-
-    state : imagesState = {
-        cardImages : null
-    }
-
-    componentDidMount(){
-        this.getCards()
-    }
-    
-
-    // Get all the cards from the api cards
-    async getCards(){
-        let token = await getToken()
-        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/cards', {
-             headers: {'Authorization' : `Bearer ${token}`
-            }}).then((res: any) => {
-                this.setState( { cardImages: res.data.data})
-                console.log('this is the response of the cards', res)
-                // this.forceUpdate()
-            })
-            .catch((err)=>{
-                console.log(err)
-            })
-        console.log('i am here')
-    }
-    
-
-    render(){
+export default function SingleCardsView (){
+    const cardImages  = useAppSelector(selectAllCards)
     return(
       <CardWhite>
         <Link to="/cards" className="link">
@@ -56,10 +25,10 @@ export default class SingleCardsView extends React.Component<imagesState>{
                 <ClearFix>
                     <GiftCards className="">
                     {
-                        this.state.cardImages !=null ?  
+                        cardImages !=null ?  
                        <div>
                            {
-                            this.state.cardImages.map((card : any) => (
+                            cardImages.map((card : any) => (
                                 <Link to={'/addcards?card_id=' +  card.id 
                                     + '&card_name=' + card.name
                                     + '&card_image=' + card.image
@@ -83,7 +52,7 @@ export default class SingleCardsView extends React.Component<imagesState>{
         </Link>     
      </CardWhite>
     )   
-    }
+ 
 }
 
 const CardWhite = styled.div `
