@@ -24,7 +24,8 @@ const transactionAdapter = createEntityAdapter<TransactionState> ({
 
 // InitialState for reducers
 const initialState = transactionAdapter.getInitialState({
-   formattedTransactions: []
+   formattedTransactions: [],
+   transactionOverview: {}
 })
 
 export const fetchTransactionsCount = createAsyncThunk('transaction/fetchTransactionsCount',async()=>{
@@ -80,6 +81,9 @@ const transactionSlice = createSlice({
            state.entities = Object.create(state.entities)
            state.formattedTransactions = Object.create(state.entities)
         })
+        .addCase(fetchTransactionsCount.fulfilled,(state, action ) => {
+            state.transactionOverview = action.payload
+        })
         
     }
 })
@@ -102,6 +106,9 @@ export const getFormattedTransactions = (state: any) => {
     return state.transactions.formattedTransactions
 }
 
+export const getTransactionsOverview =(state: any)=>{
+    return state.transactions.transactionOverview
+}
 
 export default transactionSlice.reducer
 
