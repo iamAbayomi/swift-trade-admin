@@ -1,6 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 import moment from "moment"
+import { fetchCard } from "../redux/reducers/CardsSlice"
+import { fetchCoin } from "../redux/reducers/CoinsSlice"
 import { fetchAllTransactions, fetchTransactionsCount } from "../redux/reducers/TransactionsSlice"
 import { fetchAllUser, fetchCurrentUser } from "../redux/reducers/UsersSlice"
 import customAxios from "./CustomAxios"
@@ -67,6 +69,8 @@ export const getAllAppData = async(store: any) => {
     store.dispatch(fetchAllUser())
     store.dispatch(fetchAllTransactions())
     store.dispatch(fetchTransactionsCount())
+    store.dispatch(fetchCard())
+    store.dispatch(fetchCoin())
 }
 
 
