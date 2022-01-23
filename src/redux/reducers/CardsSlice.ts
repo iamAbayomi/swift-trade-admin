@@ -12,9 +12,9 @@ interface CardState {
     contents: any
 }
 
-const cardAapter = createEntityAdapter()
+const cardAdapter = createEntityAdapter()
 
-const initialState = cardAapter.getInitialState()
+const initialState = cardAdapter.getInitialState()
 
 
 // 
@@ -36,3 +36,23 @@ export const deleteCard = createAsyncThunk('cards/delete',async(body)=>{
     const {response, error} = await useCustomAxios('DELETE', 'cards/delete', body)
     return response.data.data
 })
+
+
+// Created slice for card reducers and action.
+const cardSlice = createSlice({
+    name: 'Card',
+    initialState,
+    reducers: {
+
+    },
+    extraReducers:(builder) => {
+        builder
+        .addCase(fetchCard.fulfilled, cardAdapter.addMany )
+    }
+})
+
+export default cardSlice.reducer
+
+export const {
+    selectAll: selectAllCards
+} = cardAdapter.getSelectors((state: any) => state.cards)
