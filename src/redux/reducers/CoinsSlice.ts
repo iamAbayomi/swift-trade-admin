@@ -39,6 +39,13 @@ const coinsSlice = createSlice({
     },
     extraReducers: (builder) =>{
         builder
-            .addCase(fetchCoin.fulfilled,coinAdapter.addOne )
+            .addCase(fetchCoin.fulfilled,coinAdapter.addMany )
     }
 })
+
+
+export default coinsSlice.reducer
+
+export const{
+    selectAll : selectAllCoins
+} = coinAdapter.getSelectors((state: any) => state.coins)
