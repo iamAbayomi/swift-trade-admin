@@ -25,7 +25,10 @@ const transactionAdapter = createEntityAdapter<TransactionState> ({
 // InitialState for reducers
 const initialState = transactionAdapter.getInitialState({
    formattedTransactions: [],
-   transactionOverview: {}
+   transactionOverview: {
+       "pendingTransactions": 0,
+       "allTransactions": 0
+   }
 })
 
 export const fetchTransactionsCount = createAsyncThunk('transaction/fetchTransactionsCount',async()=>{
