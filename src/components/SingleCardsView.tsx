@@ -46,7 +46,7 @@ export default function SingleCardsView (){
                             <AddGreenButton src="/vectors/add-green-button.svg" />
                         </Link>
                     </GiftCards>
-                    <Button className="blue-button">View More</Button>
+                    {/* <Button className="blue-button">View More</Button> */}
                 </ClearFix>
             </CardsRow>
         </Link>     
@@ -106,5 +106,6 @@ const TransactionOptions = styled.img `
 
 const ClearFix = styled.div `
     clear:both;
+    display:flex;
 `
 

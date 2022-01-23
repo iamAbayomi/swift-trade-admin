@@ -496,7 +496,13 @@ Link{
 @media screen and (max-width: 768px){
     .transaction-text{
         font-size: 0.75em;    
-    }
+    }   
+}
 
-    
+
+/* For Tablets */
+@media screen and (max-width: 1000px){
+    .transaction-row{
+        flex-direction: column;
+    }
 }
