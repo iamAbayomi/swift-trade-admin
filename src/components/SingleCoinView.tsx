@@ -4,6 +4,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { getToken } from '../classes/User';
+import { useAppSelector } from '../redux/hooks';
+import { selectAllCoins } from '../redux/reducers/CoinsSlice';
 
 import './SingleCoinView.css'
 
@@ -13,38 +15,9 @@ type imageState = {
     coinImages: any
 }
 
-export default class SingleCoinView extends React.Component<imageState>{
+export default function SingleCoinView (){
+    const coinImages = useAppSelector(selectAllCoins)
 
-    state : imageState = {
-        coinImages: null
-    }
-
-    componentDidMount(){
-        this.getCoins()
-    }
-
-    async getCoins(){
-        let token = await getToken()
-        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/coins',{
-            headers:{'Authorization' : `Bearer ${token}`}})
-            .then((res: any) => {
-                this.setState({coinImages: res.data.data})
-                console.log('This is the response', res)
-            })
-            .catch((err)=>{console.log(err)})
-        console.log('i am here')
-    }
-
-    async postCoins(){
-        let token = await getToken()
-        axios.get('https://swift-trade-v1.herokuapp.com/api/v1/coins/create',{
-            headers:{'Authorization' : `Bearer ${token}`}})
-            .then((res) => {console.log('This is the response', res)})
-            .catch((err)=>{console.log(err)})
-        console.log('i am here')
-    }
-
-    render(){
     return(
       <CardWhite>
         <Link to="/coins" className="link">
@@ -61,11 +34,11 @@ export default class SingleCoinView extends React.Component<imageState>{
                             )} */}
 
                             {
-                                this.state.coinImages != null ? 
+                                coinImages != null ? 
                                 <div>
                                     {/* <GiftItem className="gift-cards-item" src={this.state.coinImages[0].image }/>
                                     <GiftItem className="gift-cards-item" src={this.state.coinImages[1].image }/> */}
-                                    {this.state.coinImages.map((coin : any)  =>
+                                    {coinImages.map((coin : any)  =>
                                         <Link to={'/addcoins?coin_id=' + coin.id
                                              + '&coin_name=' + coin.name
                                              + '&coin_image='  + coin.image
@@ -85,11 +58,7 @@ export default class SingleCoinView extends React.Component<imageState>{
                         <Link to="/addcoins">
                                 <Button className="blue-button">Add Coin</Button>    
                         </Link>
-                        {/* <div className="add-coincard">
-                            <p className="add-coin-title">Product</p>
-                            <EditField className="input-field" placeholder="Bitcoin" />
-                            <EditField className="input-field" placeholder="1-20"/>
-                        </div> */}
+                        
                     </div>
                 </ClearFix>
                 
@@ -97,7 +66,6 @@ export default class SingleCoinView extends React.Component<imageState>{
         </Link>     
      </CardWhite>
     )   
-}
 }
 
 

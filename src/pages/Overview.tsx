@@ -50,11 +50,9 @@ export default class Overview extends React.Component{
                     </Link> 
 
                     <Link to="/coin" className="link">
-                            <SingleCoinView coinImages={null} />
+                            <SingleCoinView  />
                     </Link>
-                    <Link to="/payments" className="link">
-                             <PaymentsTransactionCard />
-                    </Link> 
+                    
                     <Link to="/transactions" className="link">
                              <TransactionOverview />
                     </Link> 

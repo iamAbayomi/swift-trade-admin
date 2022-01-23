@@ -50,7 +50,7 @@ function ConversionRate () {
                     <div className="">
                         <div className="display-flex"> 
                             <p style={{ fontSize: "14px"} } className="conversion-title">Conversion Rate to Naira</p>
-                            <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" />
+                            {/* <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" /> */}
                         </div>
                         <ClearFix>
                             <div className="display-flex-withoutspace">    
@@ -62,7 +62,7 @@ function ConversionRate () {
                                         options = {options}
                                     />
                                 </MuiThemeProvider>
-                                <img className="forward-button" src="./vectors/forward-button.svg" />
+                                {/* <img className="forward-button" src="./vectors/forward-button.svg" /> */}
                             </div>
                         </ClearFix>
                     </div>

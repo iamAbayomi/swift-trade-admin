@@ -17,7 +17,7 @@ export default class SingleTransactionCardView extends React.Component<MyProps> 
         return(
             <div>
                 <div className="single-transaction-card">
-                    <img className="transaction-options" src="/vectors/options-menu.svg" />
+                    {/* <img className="transaction-options" src="/vectors/options-menu.svg" /> */}
                     <TransactionGroup className="">
                         <CircularProgressGroup>
                             {/* <div style={{ width:100, height:100}}> */}
