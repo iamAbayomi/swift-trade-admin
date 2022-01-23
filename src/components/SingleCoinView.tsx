@@ -24,7 +24,7 @@ export default function SingleCoinView (){
             <CardsRow>
                 <div className="display-flex"> 
                     <CardTitle className="purple-header-typography">Coins</CardTitle>
-                    <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" />
+                    {/* <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" /> */}
                 </div>
                 <ClearFix>
                     <div className="gift-card-section">

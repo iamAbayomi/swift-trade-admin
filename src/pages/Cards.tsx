@@ -46,7 +46,7 @@ export default class Cards extends React.Component {
                             </Link>
                         </div>
                     </CardTitle>
-                    <SingleCardsView />
+                    <SingleCardsView showCardsTitle ={false} />
                 </div>
             </div>
         )
@@ -64,7 +64,7 @@ const CardWhite = styled.div `
 
 
 const CardTitle = styled.div `
-    margin: 40px 0px 30px 0px;
+    margin: 40px 0px 20px 0px;
 `
 
 

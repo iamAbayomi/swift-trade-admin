@@ -8,19 +8,19 @@ import { useAppSelector } from '../redux/hooks';
 import { selectAllCards } from '../redux/reducers/CardsSlice';
 const giftImages = ["amazon-card", "itunes-card", "google-playcard","itunes-card", "other-cards"];
 
-type imagesState = {
-    cardImages: any
+type props = {
+    showCardsTitle: boolean
 }
 
-export default function SingleCardsView (){
+const SingleCardsView: React.FC<props> = (props: any) =>{
     const cardImages  = useAppSelector(selectAllCards)
     return(
       <CardWhite>
         <Link to="/cards" className="link">
             <CardsRow>
                 <div className="display-flex"> 
-                    <CardTitle className="purple-header-typography">Cards</CardTitle>
-                    <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" />
+                    <CardTitle className="purple-header-typography">{ props.showCardsTitle ? "Cards" : "" }</CardTitle>
+                    {/* <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" /> */}
                 </div>
                 <ClearFix>
                     <GiftCards className="">
@@ -55,6 +55,8 @@ export default function SingleCardsView (){
  
 }
 
+export default SingleCardsView
+
 const CardWhite = styled.div `
     background-color: white;
     padding: 45px 55px 31px 0px;
@@ -71,7 +73,7 @@ const CardWhite = styled.div `
 // `
 
 const AddGreenButton = styled.img `
-    margin: 10px 0px 30px 40px;
+    margin: 10px 10px 30px 10px;
 `
 
 const CardsRow = styled.div`
@@ -79,6 +81,7 @@ const CardsRow = styled.div`
 `
 const GiftCards = styled.div `
     margin: 60px 0px 0px 0px;
+    display:flex;
 `
 
 const GiftItem = styled.img`
@@ -106,6 +109,5 @@ const TransactionOptions = styled.img `
 
 const ClearFix = styled.div `
     clear:both;
-    display:flex;
 `
 
