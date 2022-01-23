@@ -15,7 +15,11 @@ import { fetchAllUser, selectAllUsers } from '../redux/reducers/UsersSlice';
 
 let history
 
-function UserTableView (){
+type props = {
+    showUserTitle: boolean
+}
+
+const UserTableView: React.FC<props> = (props) => {
     const history = useHistory()
 
     const columns = ["Account Name", "User Name", "Email", "Action"]
@@ -45,7 +49,7 @@ function UserTableView (){
         return(
             <div className="margin-top">
                 <div className="transaction-board card-white margin-top">
-                        <p className="transaction-text">Users</p>
+                        <p className="transaction-text">{ props.showUserTitle ? "Users" : "" }</p>
                         <MUIDataTable 
                             title={""}             
                             data={dataTables}

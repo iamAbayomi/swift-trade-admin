@@ -27,7 +27,7 @@ export default class Users extends React.Component<typeState>{
                             
                         </Link>
                     </div>   
-                    <UserTableView />
+                    <UserTableView showUserTitle={false} />
                     </TradeSpace>
                     </div>
                     

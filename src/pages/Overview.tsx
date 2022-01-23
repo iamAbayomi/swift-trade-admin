@@ -46,7 +46,7 @@ export default class Overview extends React.Component{
                     </Link>
 
                     <Link to="/users" className="link">
-                            <UserTableView />
+                            <UserTableView showUserTitle={true} />
                     </Link> 
 
                     <Link to="/coin" className="link">
