@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 import moment from "moment"
-import { fetchAllTransactions } from "../redux/reducers/TransactionsSlice"
+import { fetchAllTransactions, fetchTransactionsCount } from "../redux/reducers/TransactionsSlice"
 import { fetchAllUser, fetchCurrentUser } from "../redux/reducers/UsersSlice"
 import customAxios from "./CustomAxios"
 import { getToken } from "./User"
@@ -10,19 +10,12 @@ import { getToken } from "./User"
 export const baseUrl = "https://swift-trade-v1.herokuapp.com/api/v1/"
 
 
-
-
-
-
-
-
 export function formatAmount(amount :string | number) {
 
     if(!amount) {
 
         return `₦0`
     }
-    
 
 
     return `₦${Number(amount).toLocaleString()}`
@@ -73,6 +66,7 @@ export const getAllAppData = async(store: any) => {
     store.dispatch(fetchCurrentUser())
     store.dispatch(fetchAllUser())
     store.dispatch(fetchAllTransactions())
+    store.dispatch(fetchTransactionsCount())
 }
 
 
