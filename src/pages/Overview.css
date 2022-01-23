@@ -238,7 +238,7 @@ Link{
 
 .clearfix{
     clear: both;
-    display: table;
+    /* display: table; */
 }
 
 .green-button{
