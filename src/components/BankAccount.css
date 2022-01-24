@@ -1,14 +1,25 @@
+.bank-account-contianer{
+  max-width: 900px;
+  margin: 40px auto 0px;
+  display:flex;
+  justify-content: space-between; 
+}
+
 .bank-account-section{
-  max-width: 500px;
+  max-width: 400px;
   /* margin: 40px 0px 40px 0px ; */
   padding: 40px;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.226);
 }
+
 
 .section{
   margin: 0px 0px 40px 0px;
 }
 
+.blue-button{
+  margin: 60px 10px 0px 0px;
+}
 
 .edit{
   /* float: right;
@@ -92,7 +103,8 @@ input:checked + .slider:before {
 }
 
 .bank-image{
-max-width: 200px;
+    max-width: 200px;
+    margin: 0px 30px 0px 10px;
 }
 
 

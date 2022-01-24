@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/alt-text */
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import styled from "styled-components"
 import { getToken } from "../classes/User"
 import { getUserProfile } from "../classes/Utilities"
+import BankAccount from "../components/BankAccount"
 import Chips from "../components/Chips"
 import SingleTransactionCardView from "../components/SingleTransactionCardview"
 import SingleTransactionOverview from "../components/SingleTransactionsOverview"
@@ -16,7 +17,10 @@ import './SingleUser.css'
 
 function SingleUser(){
     const history = useHistory()
-    const [userProfile, setUserProfile] = useState<any>({})
+    const [userProfile, setUserProfile] = useState<any>({
+        first_name: "",
+        last_name: ""
+    })
     const [userProfileImage, setUserProfileImage] = useState("")
     const [transactionCount, setTransactionCount] = useState({
         "allTransactions": 0,
@@ -85,9 +89,14 @@ function SingleUser(){
     return(
         <div>
             <div> 
-                {/* <p>Back to List</p> */}
+            <Link to="/users" className="no-text">
+                      <div className="display-flex" style={{float:"left"}}>
+                          <img className="left-arrow" src="/vectors/left-arrow.svg" />
+                          <p>Back to List</p>
+                      </div>
+                </Link>
             </div>
-            <UserProfileContainer >
+            <UserProfileContainer className="clear" >
                 {
                     userProfile != null ? 
                     <div>
@@ -116,6 +125,13 @@ function SingleUser(){
                 <SingleTransactionCardView transactiontext="Failed Transactions" percentage = {transactionCount.failedTransactions} />
                 
             </SingleTransactionContainer>
+            
+            <BankAccountSection className="bank-account-contianer" >
+                <BankAccount />
+                
+                <BankAccount />
+             </BankAccountSection>
+
             <TransactionContainer>
                 {/* This getUserId sends the user id to the singleUser transaction table and displays it */}
                 <SingleUserTransactionTable userId={getUserId()} />
@@ -129,10 +145,16 @@ export default SingleUser
 const UserProfileContainer = styled.div `
     max-width: 250px;
     margin: auto;
+    //clear:both;
 `
 const SingleTransactionContainer = styled.div `
     max-width: 800px;
     margin: auto;
+`
+
+const BankAccountSection = styled.div`
+    display:flex;
+    justify-content: space-between;
 `
 
 const TransactionContainer = styled.div `
