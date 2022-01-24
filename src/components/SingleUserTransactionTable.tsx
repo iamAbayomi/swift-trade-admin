@@ -1,7 +1,7 @@
 import axios from "axios";
 import MUIDataTable from "mui-datatables";
 import React, { Props, useEffect, useState } from "react";
-import { formatDate, muiTableOptionType } from "../classes/Utilities";
+import { formatAmount, formatDate, muiTableOptionType } from "../classes/Utilities";
 import Chips from "./Chips";
 import MenuOptions from "./MenuOptions/MenuOptions";
 
@@ -20,7 +20,7 @@ const SingleUserTransactionTable: React.FC<props> = (props) => {
     /** This funcion sets the data that goes into the transaction row */
     function setTransactionRowData(transactionRowData: any){
         transactionRowData.map((item: any) => {
-            data.push( [item.reference , formatDate(item.created_at), item.description, "# " + item.amount, <Chips userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, <MenuOptions />])
+            data.push( [item.reference , formatDate(item.created_at), item.description,  formatAmount(item.amount), <Chips userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, <MenuOptions />])
         })
         setTransactionRow(data)
     }

@@ -62,7 +62,7 @@ export default class BankAccount extends React.Component{
 
     render(){
         return(
-            <div className="section ">
+            <div className="section card-white">
                     <div className="bank-account-section">
                             <div className="bank-display">
                                 <img className="bank-image" src="/vectors/gtbank.svg" />
