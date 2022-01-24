@@ -132,23 +132,23 @@ function SingleUser(){
                 }
                 
             </UserProfileContainer>
-            {/* This is responsible for displaying the transaction count */}
+            {/* This` is responsible for displaying the transaction count */}
             <SingleTransactionContainer className="transaction-row display-flex link">
                 <SingleTransactionCardView transactiontext="Successful Transactions" percentage = {transactionCount.successfulTransactions}  />
                 <SingleTransactionCardView transactiontext="Pending Transactions" percentage = {transactionCount.pendingTransactions} />
                 <SingleTransactionCardView transactiontext="Failed Transactions" percentage = {transactionCount.failedTransactions} />
                 
             </SingleTransactionContainer>
-            
-            <BankAccountSection className="bank-account-contianer" >
                 {   
-                  bankAccount != undefined ?  bankAccount.map((item: any) => {
-                            return <BankAccount bankDetails={item} />
-                    }) : <p>User has not added any bank accounts</p>
+                  bankAccount.length > 0 ?
+                  <BankAccountSection className="bank-account-contianer" >
+                        {bankAccount.map((item: any) => {
+                            return <BankAccount bankDetails={item} />            
+                        }) 
+                    }
+                    </BankAccountSection>
+                    : <BankAccountMessage className="error-message" style={ {textAlign: "center"} }>User does not have any bank accounts</BankAccountMessage>
                 }
-                
-                
-             </BankAccountSection>
 
             <TransactionContainer>
                 {/* This getUserId sends the user id to the singleUser transaction table and displays it */}
@@ -173,6 +173,10 @@ const SingleTransactionContainer = styled.div `
 const BankAccountSection = styled.div`
     display:flex;
     justify-content: space-between;
+`
+
+const BankAccountMessage = styled.div `
+    margin: 40px ;
 `
 
 const TransactionContainer = styled.div `
