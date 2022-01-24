@@ -1,7 +1,7 @@
 import axios from "axios"
 import { ChangeEvent, useRef, useState } from "react"
 import SimpleReactValidator from "simple-react-validator"
-import { getUserData } from "../../classes/User"
+import { getUserData, saveToken } from "../../classes/User"
 import BlueButton from "../../components/ui-components/Buttons/BlueButton"
 import CustomizeButton from "../../components/ui-components/Buttons/CustomizeButton"
 import LoadingButton from "../../components/ui-components/Buttons/LoadingButton"
@@ -68,11 +68,11 @@ function Login(){
             email: email,
             password: password
         })
-        .then((res: any) => {
+        .then(async (res: any) => {
             console.log('This is the data', res)
             window.location.href = `https://swift-admin-dashboard.netlify.app/token/${res.data.data}`
             getUserDataFromApi(res.data.data)
-            
+           
             setResponseParameters(res.status ,res.data.message)  
         })
         .catch((err)=>{
@@ -86,8 +86,9 @@ function Login(){
         headers: {
             'Authorization' : `Bearer ${token}`
         }})
-        .then((res: any) => {
-            console.log('This is the user response', res)  
+        .then(async (res: any) => {
+            console.log('This is the user response', res) 
+            await saveToken("user", res.data.data) 
             checkIfUserIsAdmin(res.data.data.role, token) 
         })
         .catch((err)=>{
@@ -97,8 +98,9 @@ function Login(){
 
     function checkIfUserIsAdmin(role: any, token: any){
         if (role == "admin"){
-            window.location.href = `https://swift-admin-dashboard.netlify.app/token/${token}`
-            getUserData("user", token)
+            // window.location.href = `https://swift-admin-dashboard.netlify.app/token/${token}`
+            window.location.href = `/token/${token}`
+            
         } else{
             setResponseParameters( 4,  "You are not an Admin. We would redirect you to the user page")
             window.location.href = `https://swift-user-dashboard.netlify.app/token/${token}`
