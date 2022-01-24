@@ -12,11 +12,15 @@ import SingleTransactionOverview from "../components/SingleTransactionsOverview"
 import SingleUserTransactionTable from "../components/SingleUserTransactionTable"
 import TransactionCards from "../components/TransactionCard"
 import TransactionOverview from "../components/TransactionOverview"
+import { useAppDispatch, useAppSelector } from "../redux/hooks"
+import { fetchUserBankAccount, getAllBankAccount, selectAllBankAccount } from "../redux/reducers/BankAccountsSlice"
+import { store } from "../redux/store"
 import './SingleUser.css'
 
 
 function SingleUser(){
     const history = useHistory()
+    const dispatch = useAppDispatch()
     const [userProfile, setUserProfile] = useState<any>({
         first_name: "",
         last_name: ""
@@ -30,9 +34,12 @@ function SingleUser(){
     })
     const [userState, setUserState] = useState("")
 
+    const bankAccount = useAppSelector(getAllBankAccount)
+
     useEffect(()=>{
         setProfileImage()
         getSingleUserData()
+        getUserBankAccounts()
     }, [])
 
     function setProfileImage(){
@@ -55,6 +62,11 @@ function SingleUser(){
             )
             .catch((err) => { console.log(err)})
             getTheUserProfile(token, userId)
+    }
+    function getUserBankAccounts(){
+        dispatch(fetchUserBankAccount(getUserId()))
+        console.log(" The user store", store.getState())
+        
     }
     //This gets the user profile since we need the user profile name, image and status
     async function getTheUserProfile(token: any, userId: any){
@@ -84,6 +96,8 @@ function SingleUser(){
         .catch((err) => { console.log(err)})
     }
 
+
+    console.log("Bank account in single user component store ", bankAccount)
 
 
     return(
@@ -127,9 +141,13 @@ function SingleUser(){
             </SingleTransactionContainer>
             
             <BankAccountSection className="bank-account-contianer" >
-                <BankAccount />
+                {   
+                  bankAccount != undefined ?  bankAccount.map((item: any) => {
+                            return <BankAccount bankDetails={item} />
+                    }) : <p>User has not added any bank accounts</p>
+                }
                 
-                <BankAccount />
+                
              </BankAccountSection>
 
             <TransactionContainer>

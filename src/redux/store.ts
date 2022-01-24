@@ -3,13 +3,15 @@ import usersReducer from './reducers/UsersSlice'
 import transactionsReducer from './reducers/TransactionsSlice'
 import cardReducer from './reducers/CardsSlice'
 import coinReducer from './reducers/CoinsSlice'
+import bankAccountReducer from "./reducers/BankAccountsSlice"
 
 export const store = configureStore({
     reducer: {
         users: usersReducer,
         transactions: transactionsReducer,
         cards: cardReducer,
-        coins: coinReducer
+        coins: coinReducer,
+        bankaccounts: bankAccountReducer
     }
 })
 
