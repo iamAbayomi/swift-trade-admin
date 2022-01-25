@@ -10,17 +10,6 @@ import { Link } from "react-router-dom";
 
 
 export default class Cards extends React.Component {
-
-    deleteCard(){
-        axios.delete('https://swift-trade-v1.herokuapp.com/api/v1/cards/delete')
-        .then((res)=>{
-                console.log('This is the data', res.data)
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-    }
-    
     render(){
         return(
             <div className="container">
