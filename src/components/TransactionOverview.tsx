@@ -8,14 +8,11 @@ import EmptyStateTrasanctionCards from "./EmptyStateTransactionCard";
 // or table containing transactions.
 function TransactionOverview(){
     const allTransaction : any = useSelector<any[]>(selectAllTransactions)
-        return(
-            <div> 
-                {
-                    allTransaction ? <AllUsersTransactionTable/> : <EmptyStateTrasanctionCards />
-                }
-            </div>
-        )
-    
+    return(
+        <div> 
+            { allTransaction ? <AllUsersTransactionTable/> : <EmptyStateTrasanctionCards />}
+        </div>
+    )
 }
 
 export default TransactionOverview
