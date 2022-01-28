@@ -14,6 +14,7 @@ import TransactionCards from "../components/TransactionCard"
 import TransactionOverview from "../components/TransactionOverview"
 import { useAppDispatch, useAppSelector } from "../redux/hooks"
 import { fetchUserBankAccount, getAllBankAccount, selectAllBankAccount } from "../redux/reducers/BankAccountsSlice"
+import { fetchAnyUserTransaction } from "../redux/reducers/TransactionsSlice"
 import { store } from "../redux/store"
 import './SingleUser.css'
 
@@ -40,6 +41,7 @@ function SingleUser(){
         setProfileImage()
         getSingleUserData()
         getUserBankAccounts()
+        dispatch(fetchAnyUserTransaction(getUserId))
     }, [])
 
     function setProfileImage(){
