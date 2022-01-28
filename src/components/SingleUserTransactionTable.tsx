@@ -4,7 +4,7 @@ import React, { Props, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { formatAmount, formatDate, muiTableOptionType } from "../classes/Utilities";
 import { useAppSelector } from "../redux/hooks";
-import { selectAllTransactions, updateTransactionStatus } from "../redux/reducers/TransactionsSlice";
+import { fetchAnyUserTransaction, getUserTransaction, selectAllTransactions, updateTransactionStatus } from "../redux/reducers/TransactionsSlice";
 import Chips from "./Chips";
 import MenuOptions from "./MenuOptions/MenuOptions";
 import ThreeDotOptions from "./MenuOptions/ThreeDotOptions";
@@ -15,9 +15,13 @@ type props = {
 
 const SingleUserTransactionTable: React.FC<props> = (props) => {
     const dispatch = useDispatch()
-    const allTransaction : any =  useAppSelector(selectAllTransactions)
+    const allTransaction : any =  useAppSelector(getUserTransaction)
     let dataTables: any[][] = []
     const optionsContent = ["Approve", "Decline"]
+
+    useEffect(()=>{
+        
+    })
 
 
     async function changeTransactionStatus( transaction_id: any, item:any ){
@@ -63,8 +67,9 @@ const data : any[][] = []
 
 const options : muiTableOptionType = {
     elevation: 0,
-    rowsPerPage: 100,
+    rowsPerPage: 10s,
     responsive: "standard"
 }
 
 export default SingleUserTransactionTable
+
