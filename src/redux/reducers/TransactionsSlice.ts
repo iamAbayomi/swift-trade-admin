@@ -28,7 +28,8 @@ const initialState = transactionAdapter.getInitialState({
    transactionOverview: {
        "pendingTransactions": 0,
        "allTransactions": 0
-   }
+   },
+   anyUserTransaction: []
 })
 
 export const fetchTransactionsCount = createAsyncThunk('transaction/fetchTransactionsCount',async()=>{
@@ -49,8 +50,8 @@ export const updateTransactionStatus = createAsyncThunk('transaction/updateTrans
         return response.data.data
 })
 
-export const fetchAnyUserTransaction = createAsyncThunk('transaction/fetchAnyUserTransaction',async(transactionId: any)=>{
-    const {response, error} = await useCustomAxios('GET', `transaction/${transactionId}/user`)
+export const fetchAnyUserTransaction = createAsyncThunk('transaction/fetchAnyUserTransaction',async(userId: any)=>{
+    const {response, error} = await useCustomAxios('GET', `transaction/${userId}/user`)
     return response.data.data
 })
 
@@ -87,6 +88,9 @@ const transactionSlice = createSlice({
         .addCase(fetchTransactionsCount.fulfilled,(state, action ) => {
             state.transactionOverview = action.payload
         })
+        .addCase(fetchAnyUserTransaction.fulfilled, (state, action) =>{
+            state.anyUserTransaction = action.payload
+        })
         
     }
 })
@@ -111,6 +115,10 @@ export const getFormattedTransactions = (state: any) => {
 
 export const getTransactionsOverview =(state: any)=>{
     return state.transactions.transactionOverview
+}
+
+export const getUserTransaction = (state: any) => {
+    return state.transactions.anyUserTransaction
 }
 
 export default transactionSlice.reducer
