@@ -29,7 +29,7 @@ const BankAccount: React.FC<props> = (props) => {
             <div className="section card-white">
                     <div className="bank-account-section">
                             <div className="bank-display">
-                                <img className="bank-image" src="/vectors/gtbank.svg" />
+                                <img className="bank-image" src="/vectors/bank.svg" />
                                 <div className="bank-details">
                                     {/* <p>GUARANTY TRUST BANK</p>
                                     <p>004 XXXX 475</p> */}

@@ -1,15 +1,14 @@
 .bank-account-contianer{
-  max-width: 900px;
+  max-width: 800px;
   margin: 40px auto 0px;
   display:flex;
   justify-content: space-between; 
 }
 
 .bank-account-section{
-  max-width: 400px;
-  /* margin: 40px 0px 40px 0px ; */
-  padding: 40px;
-  /* border: 1px solid rgba(0, 0, 0, 0.226); */
+  width: 300px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 
@@ -103,18 +102,30 @@ input:checked + .slider:before {
 }
 
 .bank-image{
-    max-width: 200px;
+    max-width: 100px;
     margin: 0px 30px 0px 10px;
 }
 
 
 .full-page-view{
-height: 60vh;
+  height: 60vh;
 }
 
 .bank-display{
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* Medium Breakpoint */
+@media screen and (max-width: 900px) {
+  .bank-account-contianer{
+    flex-direction: column;
+  }
+  .section{
+    margin: 0px 10px 40px 10px;
+  }
+  
 }
 
 
