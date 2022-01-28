@@ -398,12 +398,27 @@ Link{
 
 
 .MuiIconButton-root{
+    /* display: none !important; */
+}
+
+.MuiIconButton-label input:checked {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
     display: none !important;
 }
 
+.MuiToolbar-root input:checked {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+    display: none !important;
+}
 
 .MuiToolbar-root {
-    display: none !important;
+    /* display: none !important; */
 }
 
 .profile-display-container{
