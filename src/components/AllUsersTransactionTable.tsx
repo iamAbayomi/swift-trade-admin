@@ -43,8 +43,6 @@ function AllUsersTransactionTable(){
             params.data.status = "cancelled"
         }
          await dispatch(updateTransactionStatus( params ))
-        //decider = true
-        // history.go(0)
         console.log("I am here", dataTables)
     }
     
@@ -57,19 +55,6 @@ function AllUsersTransactionTable(){
     })
        
         
-
-    function setTransactionTableData(){
-        allTransaction.map((item: any) => {
-            dataTables.push([item.reference , formatDate(item.created_at), item.description, formatAmount(item.amount),
-            <Chips key={item.id} userId={item.id} chipsText={item.status} backgroundColor="rgba(93, 248, 136, 1)" />, 
-            <ThreeDotOptions key={item.id} optionsContent={optionsContent} optionsMethod={changeTransactionStatus} transactionId={item.id} />])
-       })
-       // dispatch(addFormattedTransactions(dataTables))
-       console.log("DAtaTables")
-       return allTransaction
-    }
-
-    // setTransactionArray(setTransactionTableData)
     
     console.log('This is the transactions', allTransaction)
     console.log('This is the transactions', transactionState)
