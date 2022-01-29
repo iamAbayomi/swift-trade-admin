@@ -25,6 +25,7 @@ const SingleUserTransactionTable: React.FC<props> = (props) => {
             params.data.status = "cancelled"
         }
          await dispatch(updateTransactionStatus( params ))
+         await dispatch(fetchAnyUserTransaction(props.userId))
         console.log("I am here", dataTables)
     }
 
