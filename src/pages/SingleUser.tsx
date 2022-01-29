@@ -14,37 +14,38 @@ import TransactionCards from "../components/TransactionCard"
 import TransactionOverview from "../components/TransactionOverview"
 import { useAppDispatch, useAppSelector } from "../redux/hooks"
 import { fetchUserBankAccount, getAllBankAccount, selectAllBankAccount } from "../redux/reducers/BankAccountsSlice"
-import { fetchAnyUserTransaction } from "../redux/reducers/TransactionsSlice"
+import { fetchAnyUserTransaction, fetchAnyUserTransactionCount, getAnyUserTransactionCount } from "../redux/reducers/TransactionsSlice"
+import { fetchAnyUserProfile, getAnyUserProfile } from "../redux/reducers/UsersSlice"
 import { store } from "../redux/store"
 import './SingleUser.css'
 
 
 function SingleUser(){
     const dispatch = useAppDispatch()
-    const [userProfile, setUserProfile] = useState<any>({
-        first_name: "",
-        last_name: ""
-    })
+    // const [userProfile, setUserProfile] = useState<any>({
+    //     first_name: "",
+    //     last_name: ""
+    // })
     const [userProfileImage, setUserProfileImage] = useState("")
-    const [transactionCount, setTransactionCount] = useState({
-        "allTransactions": 0,
-        "successfulTransactions": 0,
-        "pendingTransactions": 0,
-        "failedTransactions": 0
-    })
-    const [userState, setUserState] = useState("")
-
+    const transactionCount = useAppSelector(getAnyUserTransactionCount)
+    const userProfile = useAppSelector(getAnyUserProfile)
+    
     const bankAccount = useAppSelector(getAllBankAccount)
 
     useEffect(()=>{
         setProfileImage()
-        getSingleUserData()
         getUserBankAccounts()
-        dispatch(fetchAnyUserTransaction(getUserId()))
+        getUserData()
     }, [])
 
     function setProfileImage(){
         setUserProfileImage('./vectors/empty-user.png')
+    }
+
+    async function getUserData(){
+        dispatch(fetchAnyUserTransactionCount(getUserId()))
+        dispatch(fetchAnyUserTransaction(getUserId()))
+        dispatch(fetchAnyUserProfile(getUserId()))
     }
 
     function getUserId(){
@@ -52,32 +53,13 @@ function SingleUser(){
         return userId
     }
     // This function gets the user transaction counts.
-    async function getSingleUserData(){
-        let token = await getToken()
-        let userId = await getUserId()
-        axios.get(`https://swift-trade-v1.herokuapp.com/api/v1/transaction/${userId}/user/count`,{
-            headers: {'Authorization' : `Bearer ${token}`}} )
-            .then((res: any)=>{setTransactionCount(res.data.data)  
-                console.log(" single transaction count ", res )
-            }
-            )
-            .catch((err) => { console.log(err)})
-            getTheUserProfile(token, userId)
-    }
     function getUserBankAccounts(){
         dispatch(fetchUserBankAccount(getUserId()))
         console.log(" The user store", store.getState())
         
     }
     //This gets the user profile since we need the user profile name, image and status
-    async function getTheUserProfile(token: any, userId: any){
-        axios.get(`https://swift-trade-v1.herokuapp.com/api/v1/user/${userId}/info`,
-            {headers: {'Authorization' : `Bearer ${token}`}} )
-            .then((res: any)=> {setUserProfile(res.data.data)
-                
-            }).catch((err) => { console.log(err)})
-            
-    }
+    
     //Check the user status 
     function checkIfTheUserIsSuspended(){
         return userProfile.is_suspended ? true : false
@@ -91,7 +73,7 @@ function SingleUser(){
             {headers: {'Authorization' : `Bearer ${token}`}})
         .then((res: any)=> {
             console.log('this is the status data', res)
-            setUserProfile(res.data.data)
+            dispatch(fetchAnyUserProfile(getUserId()))
             // history.go(0)
         })
         .catch((err) => { console.log(err)})
