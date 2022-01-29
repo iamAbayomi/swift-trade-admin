@@ -55,8 +55,8 @@ export const fetchAnyUserTransaction = createAsyncThunk('transaction/fetchAnyUse
     return response.data.data
 })
 
-export const fetchAnyUserTransactionCount =  createAsyncThunk('transaction/fetchAnyUserTransactionCount',async(transactionId: any)=>{
-    const {response, error} = await useCustomAxios('GET', `transaction/${transactionId}/user/count`)
+export const fetchAnyUserTransactionCount =  createAsyncThunk('transaction/fetchAnyUserTransactionCount',async(userId: any)=>{
+    const {response, error} = await useCustomAxios('GET', `transaction/${userId}/user/count`)
     return response.data.data
 })
 
