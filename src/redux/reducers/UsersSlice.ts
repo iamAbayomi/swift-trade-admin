@@ -25,6 +25,10 @@ const initialState = usersAdapter.getInitialState({
     currentUser: {
         first_name : "",
         last_name :""
+    },
+    anyUserProfile: {
+        first_name : "",
+        last_name :""
     }
 })
 
@@ -70,11 +74,11 @@ export const suspendUser = createAsyncThunk('user/',async(userId)=>{
     return response.data.data
 })
 
-export const fetchAnyUserProfile = createAsyncThunk('user/fetchAnyUserProfile',async(userId)=>{
+export const fetchAnyUserProfile = createAsyncThunk('user/fetchAnyUserProfile',async(userId: any)=>{
     const {response, error} = await useCustomAxios('GET', `user/${userId}/info`)
     return response.data.data
 })
-
+        
 export const forgotPassword = createAsyncThunk('user/',async()=>{
     const {response, error} = await useCustomAxios('', '')
     return response.data.data
@@ -107,6 +111,9 @@ const usersSlice = createSlice({
             })
             .addCase(udpateUserProfile.fulfilled, usersAdapter.addOne)
             .addCase(fetchAllUser.fulfilled, usersAdapter.setMany)
+            .addCase(fetchAnyUserProfile.fulfilled, (state, action) => {
+                state.anyUserProfile = action.payload
+            })
             
     },
 })
@@ -125,7 +132,9 @@ export const showCurrentUsers = (state: any ) => {
     return user.currentUser
 }
 
-
+export const getAnyUserProfile = (state: any) => {
+    return state.users.anyUserProfile
+}
 
 export default usersSlice.reducer
 
