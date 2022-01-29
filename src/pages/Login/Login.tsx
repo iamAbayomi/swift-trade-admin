@@ -1,7 +1,7 @@
 import axios from "axios"
 import { ChangeEvent, useRef, useState } from "react"
 import SimpleReactValidator from "simple-react-validator"
-import { getUserData, saveToken } from "../../classes/User"
+import { getToken, getUserData, saveToken } from "../../classes/User"
 import BlueButton from "../../components/ui-components/Buttons/BlueButton"
 import CustomizeButton from "../../components/ui-components/Buttons/CustomizeButton"
 import LoadingButton from "../../components/ui-components/Buttons/LoadingButton"
@@ -63,6 +63,7 @@ function Login(){
     }
 
     function loginToAdminDashboard(){
+        console.log('I am at the admin dashboard login beginning')
         toggleLoadingStateTrue()
         axios.post('https://swift-trade-v1.herokuapp.com/api/v1/auth/login', {
             email: email,
@@ -70,15 +71,16 @@ function Login(){
         })
         .then(async (res: any) => {
             console.log('This is the data', res)
-            window.location.href = `https://swift-admin-dashboard.netlify.app/token/${res.data.data}`
-            getUserDataFromApi(res.data.data)
-           
+            // window.location.href = `https://swift-admin-dashboard.netlify.app/token/${res.data.data}`
+           getUserDataFromApi(res.data.data)
+        
             setResponseParameters(res.status ,res.data.message)  
         })
         .catch((err)=>{
             console.log(err)
             setResponseParameters("err", err.message)
         })
+        console.log('I am at the admin dashboard login endining')
     }
 
     function getUserDataFromApi(token: any){
@@ -87,8 +89,7 @@ function Login(){
             'Authorization' : `Bearer ${token}`
         }})
         .then(async (res: any) => {
-            console.log('This is the user response', res) 
-            await saveToken("user", res.data.data) 
+            await saveToken(token) 
             checkIfUserIsAdmin(res.data.data.role, token) 
         })
         .catch((err)=>{
@@ -108,7 +109,7 @@ function Login(){
 
             
 
-    }
+}
 
 
 
