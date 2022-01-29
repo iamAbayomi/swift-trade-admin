@@ -16,7 +16,7 @@ export function getUserData(user: any, token: any){
         }})
         .then((res: any) => {
             console.log('This is the user response', res)  
-            saveToken(token, res.data.data)
+            saveTokenAndUserData(token, res.data.data)
         })
         .catch((err)=>{
             console.log(err)
@@ -30,7 +30,14 @@ export function removeUserData(token: any, userData: any ){
 }
 
 
-export function saveToken(token: any, userData : any){
+export function saveToken(token: any){
+    // cookies.set('token', )
+    console.log(
+    cookies.set('token', token, { path: '/' }))
+    // console.log(cookies.get('myCat')); // Pacman
+}
+
+export function saveTokenAndUserData(token: any, userData : any){
     // cookies.set('token', )
     console.log(
     cookies.set('token', token, { path: '/' }))
