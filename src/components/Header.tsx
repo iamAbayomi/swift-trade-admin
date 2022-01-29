@@ -16,7 +16,7 @@ const Header: React.FC<props> = (props ) =>{
                     src="/vectors/menu.svg"
                     onClick={props.showDashboard}
                 />
-            <img className="logo" src="logo.svg" />
+            <img className="logo" src="/vectors/logo.svg" />
             <div className="header-tool">
                 <div className="search-bar">
                     <div className="search-content">
