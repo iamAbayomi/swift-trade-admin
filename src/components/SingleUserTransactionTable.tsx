@@ -19,11 +19,6 @@ const SingleUserTransactionTable: React.FC<props> = (props) => {
     let dataTables: any[][] = []
     const optionsContent = ["Approve", "Decline"]
 
-    useEffect(()=>{
-        
-    })
-
-
     async function changeTransactionStatus( transaction_id: any, item:any ){
         const params = { transactionId: transaction_id, data: {"status": "successful"} } 
         if(item == "Decline"){
@@ -41,7 +36,7 @@ const SingleUserTransactionTable: React.FC<props> = (props) => {
         ]
     })
 
-
+    console.log('This is the transactions', dataTables)
 
     return(
         <div className="margin-top">
