@@ -4,7 +4,7 @@ import React, { Props, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { formatAmount, formatDate, muiTableOptionType } from "../classes/Utilities";
 import { useAppSelector } from "../redux/hooks";
-import { fetchAnyUserTransaction, getUserTransaction, selectAllTransactions, updateTransactionStatus } from "../redux/reducers/TransactionsSlice";
+import { fetchAnyUserTransaction, fetchAnyUserTransactionCount, getUserTransaction, selectAllTransactions, updateTransactionStatus } from "../redux/reducers/TransactionsSlice";
 import Chips from "./Chips";
 import MenuOptions from "./MenuOptions/MenuOptions";
 import ThreeDotOptions from "./MenuOptions/ThreeDotOptions";
@@ -26,6 +26,7 @@ const SingleUserTransactionTable: React.FC<props> = (props) => {
         }
          await dispatch(updateTransactionStatus( params ))
          await dispatch(fetchAnyUserTransaction(props.userId))
+         dispatch(fetchAnyUserTransactionCount(props.userId))
         console.log("I am here", dataTables)
     }
 
