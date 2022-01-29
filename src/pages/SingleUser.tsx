@@ -41,7 +41,7 @@ function SingleUser(){
         setProfileImage()
         getSingleUserData()
         getUserBankAccounts()
-        dispatch(fetchAnyUserTransaction(getUserId))
+        dispatch(fetchAnyUserTransaction(getUserId()))
     }, [])
 
     function setProfileImage(){
