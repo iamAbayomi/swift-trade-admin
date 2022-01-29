@@ -83,7 +83,7 @@ const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Act
 // Options for MUIDataTables
 const options: muiTableOptionType = {
     elevation: 0,
-    rowsPerPage: 100,
+    rowsPerPage: 10,
     responsive: 'standard'
 }
 
