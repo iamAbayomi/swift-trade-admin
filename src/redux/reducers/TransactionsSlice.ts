@@ -29,7 +29,13 @@ const initialState = transactionAdapter.getInitialState({
        "pendingTransactions": 0,
        "allTransactions": 0
    },
-   anyUserTransaction: []
+   anyUserTransaction: [],
+   anyUserTransactionCount: {
+    "allTransactions": 0,
+    "successfulTransactions": 0,
+    "pendingTransactions": 0,
+    "failedTransactions": 0
+   }
 })
 
 export const fetchTransactionsCount = createAsyncThunk('transaction/fetchTransactionsCount',async()=>{
@@ -91,6 +97,9 @@ const transactionSlice = createSlice({
         .addCase(fetchAnyUserTransaction.fulfilled, (state, action) =>{
             state.anyUserTransaction = action.payload
         })
+        .addCase(fetchAnyUserTransactionCount.fulfilled, (state, action) => {
+            state.anyUserTransactionCount = action.payload
+        })
         
     }
 })
@@ -119,6 +128,10 @@ export const getTransactionsOverview =(state: any)=>{
 
 export const getUserTransaction = (state: any) => {
     return state.transactions.anyUserTransaction
+}
+
+export const getAnyUserTransactionCount = (state: any) => {
+    return state.transactions.anyUserTransactionCount
 }
 
 export default transactionSlice.reducer
