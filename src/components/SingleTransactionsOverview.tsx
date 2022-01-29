@@ -14,11 +14,15 @@ function  SingleTransactionOverview() {
     const transactionCount : any  = useAppSelector(getTransactionsOverview)
     return(
         <div>
-            <Link to="/transactions" className="transaction-row display-flex link">
+            <div className="transaction-row display-flex-withoutspace link">
+                <Link to="/users" className="link" >
                     <SingleTransactionCardView transactiontext="Total Number of Users" percentage = {allUsers.length}  />
+                </Link>
+                <Link to="/transactions" className="transaction-row display-flex link">
                     <SingleTransactionCardView transactiontext="Pending Transactions" percentage = {transactionCount.pendingTransactions} />
                     <SingleTransactionCardView transactiontext="Total Number of Transactions" percentage = {transactionCount.allTransactions} />   
-            </Link>
+                </Link>
+            </div>
         </div>
 
     )
