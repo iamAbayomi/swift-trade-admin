@@ -27,7 +27,7 @@ const SingleUserTransactionTable: React.FC<props> = (props) => {
          await dispatch(updateTransactionStatus( params ))
          await dispatch(fetchAnyUserTransaction(props.userId))
          dispatch(fetchAnyUserTransactionCount(props.userId))
-        console.log("I am here", dataTables)
+        // console.log("I am here", dataTables)
     }
 
 
@@ -37,8 +37,6 @@ const SingleUserTransactionTable: React.FC<props> = (props) => {
         <ThreeDotOptions key={item.id} optionsContent={optionsContent} optionsMethod={changeTransactionStatus} transactionId={item.id} />
         ]
     })
-
-    console.log('This is the transactions', dataTables)
 
     return(
         <div className="margin-top">
