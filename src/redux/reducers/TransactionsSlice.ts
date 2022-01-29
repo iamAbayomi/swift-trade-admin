@@ -68,7 +68,7 @@ export const fetchAnyUserTransactionCount =  createAsyncThunk('transaction/fetch
 
 // Added thunk to get All transactions from API
 export const fetchAllTransactions = createAsyncThunk('users/getAllTransactionsFromAPI', async() => {
-    const {response, error} = await  useCustomAxios('GET', 'transaction/all')
+    const {response, error} = await  useCustomAxios('GET', 'transaction/all?page=1&limit=200')
     return response.data.data
 })
 
