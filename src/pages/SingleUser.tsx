@@ -20,7 +20,6 @@ import './SingleUser.css'
 
 
 function SingleUser(){
-    const history = useHistory()
     const dispatch = useAppDispatch()
     const [userProfile, setUserProfile] = useState<any>({
         first_name: "",
