@@ -11,11 +11,11 @@ import './SingleCoinView.css'
 
 const coin = ["bitcoin-coin", "ethereum-coin"]
 
-type imageState = {
-    coinImages: any
+type props = {
+    coinTitle: any
 }
 
-export default function SingleCoinView (){
+const SingleCoinView: React.FC<props> = (props: any) =>{
     const coinImages = useAppSelector(selectAllCoins)
 
     return(
@@ -23,7 +23,7 @@ export default function SingleCoinView (){
         <Link to="/coins" className="link">
             <CardsRow>
                 <div className="display-flex"> 
-                    <CardTitle className="purple-header-typography">Coins</CardTitle>
+                    <CardTitle className="purple-header-typography">{props.coinTitle ? "Coins" : ""}</CardTitle>
                     {/* <TransactionOptions className="transaction-options" src="/vectors/options-menu.svg" /> */}
                 </div>
                 <ClearFix>
@@ -68,6 +68,7 @@ export default function SingleCoinView (){
     )   
 }
 
+export default  SingleCoinView 
 
 const EditField = styled.input`
     // width: 268px;
