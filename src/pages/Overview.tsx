@@ -50,7 +50,7 @@ function Overview() {
                     </Link> 
 
                     <Link to="/coin" className="link">
-                            <SingleCoinView  />
+                            <SingleCoinView coinTitle={true}  />
                     </Link>
                     
                     <Link to="/transactions" className="link">

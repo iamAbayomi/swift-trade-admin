@@ -12,7 +12,7 @@ import './SingleCoinView.css'
 const coin = ["bitcoin-coin", "ethereum-coin"]
 
 type props = {
-    coinTitle: any
+    coinTitle: boolean
 }
 
 const SingleCoinView: React.FC<props> = (props: any) =>{

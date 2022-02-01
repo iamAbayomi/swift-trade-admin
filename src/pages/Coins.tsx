@@ -35,7 +35,7 @@ export default class Coins extends React.Component {
                             </Link>
                         </div>
                     </CardTitle>
-                    <SingleCoinView  />
+                    <SingleCoinView coinTitle={false}  />
                 </div>
                 
             </div>
