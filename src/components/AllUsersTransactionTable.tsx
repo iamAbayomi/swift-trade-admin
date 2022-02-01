@@ -78,7 +78,7 @@ function AllUsersTransactionTable(){
 }
 
 // Column header for the MUIDataTables
-const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Action"]
+const columns = ["Transaction ID", "Date", "Products", "Amounts", "Status", "Action"]
 
 // Options for MUIDataTables
 const options: muiTableOptionType = {

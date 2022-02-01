@@ -56,7 +56,7 @@ const SingleUserTransactionTable: React.FC<props> = (props) => {
 }
 
 
-const columns = ["Transaction ID", "Role", "Products", "Amounts", "Status", "Action"]
+const columns = ["Transaction ID", "Date", "Products", "Amounts", "Status", "Action"]
 
 const data : any[][] = []
 
