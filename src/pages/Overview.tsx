@@ -17,18 +17,18 @@ import UserTableView from '../components/UserTableView'
 import PaymentsTransactionCard from '../components/PaymentsTransactionCard'
 import SingleTransactionOverview from '../components/SingleTransactionsOverview'
 import TransactionOverview from '../components/TransactionOverview'
+import { useAppSelector } from '../redux/hooks'
+import { showCurrentUsers } from '../redux/reducers/UsersSlice'
 
-export default class Overview extends React.Component{
-
-    state={
-        isEmpty : ''
-    }
-
-    render(){
-        return(
-            <div className="container">
-              <div className="contents" >
-                    <p className="username-intro">HELLO, RAMON RIDWAN</p>
+function Overview() {
+    
+        const currentUser : any = useAppSelector(showCurrentUsers)
+    return(
+        <div className="container">
+            <div className="contents" >
+                {/* <DashboardHeaderText text={'Hello, RAMON RIDWAN'}/> */}
+                <p className="username-intro">
+                {`Hello, ${currentUser.first_name} ${currentUser.last_name} `}</p>
                     <p className="dashboard-title">Overview</p>
                     
                     <SingleTransactionOverview />
@@ -61,8 +61,8 @@ export default class Overview extends React.Component{
 
             </div>
         )
-    }
 
 }
 
 
+export default Overview
